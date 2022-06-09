@@ -1,0 +1,193 @@
+#play-btn {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient( rgba(255, 0, 0, 0.8) 60%, rgba(255, 255, 255, 1) 62%);
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    margin: 100px auto;
+    box-shadow: 0px 0px 25px 3px rgba(255, 0, 0, 0.8)
+  }
+  
+  /* triangle */
+  #play-btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateX(-40%) translateY(-50%);
+    transform: translateX(-40%) translateY(-50%);
+    transform-origin: center center;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 25px solid #fff;
+  
+    -webkit-transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  
+  /* pulse wave */
+  #play-btn:before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation: pulsate1 2s;
+    animation: pulsate1 2s;
+    -webkit-animation-direction: forwards;
+    animation-direction: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: steps;
+    animation-timing-function: steps;
+    opacity: 1;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, .75);
+    top: -30%;
+    left: -30%;
+    background: rgba(198, 16, 0, 0);
+  }
+  
+  @-webkit-keyframes pulsate1 {
+    0% {
+      -webkit-transform: scale(0.6);
+      transform: scale(0.6);
+      opacity: 1;
+      box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 0;
+      box-shadow: none;
+  
+    }
+  }
+  
+  @keyframes pulsate1 {
+    0% {
+      -webkit-transform: scale(0.6);
+      transform: scale(0.6);
+      opacity: 1;
+      box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.75), 0px 0px 25px 10px rgba(255, 255, 255, 0.75);
+    }
+    100% {
+      -webkit-transform: scale(1, 1);
+      transform: scale(1);
+      opacity: 0;
+      box-shadow: none;
+  
+    }
+  }
+
+  .modal__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(28, 28, 28, 0.19);
+    backdrop-filter: blur(6px);
+    opacity: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 0.3s;
+    animation-name: modal-video;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+    z-index: 100;
+  }
+  
+  .modal__align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .modal__content {
+    width: 800px;
+    height: 500px;
+    box-shadow: 0px 100px 80px rgba(184, 184, 184, 0.07),
+      0px 25.8162px 19px 4px rgba(178, 178, 178, 0.0456112),
+      0px 7.779px 7.30492px rgba(0, 0, 0, 0.035),
+      0px 1.48838px 2.0843px rgba(0, 0, 0, 0.0243888);
+    border-radius: 20px;
+    background: transparent;
+    color: #000;
+    margin: 0rem 4rem;
+  }
+  
+  .modal__close {
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    bottom: 50px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+  }
+  
+  .modal__video-align {
+    display: flex;
+    position: relative;
+    bottom: 37px;
+  }
+  
+  .modal__video-style {
+    border-radius: 20px;
+    z-index: 100;
+  }
+  
+  .modal__spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .modal__spinner {
+    animation: spin 2s linear infinite;
+    font-size: 40px;
+    color: #1b6aae;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .modal__content {
+      margin: 0rem 1rem;
+      width: 100%;
+    }
+    .modal__video-style {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 499px) {
+    .modal__content {
+      background: transparent;
+      height: auto;
+    }
+    .modal__video-align {
+      bottom: 0px;
+    }
+    .modal__video-style {
+      height: auto;
+    }
+  }
+  

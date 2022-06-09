@@ -1,16 +1,15 @@
-
-import * as React from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import viceChairmen from '../../../assets/images/Vice-Chairman-Monsuzzaman-Chowdhury-Babul-1507x1536.jpg'
+import viceChairmen from '../../../assets/images/Secretary-Md.-Abdur-Rahman-Jamil.jpg'
 
-const ViceCCard = () => {
+const RankedProffesorProfile = () => {
     return (
         <div>
-             <Card style={{padding:'0px' , height:"325px" ,    width: '350px', marginLeft: '10px'}}  sx={{ boxShadow: 3 }}  >
-      <CardActionArea >
+           <Card style={{padding:'5px' , height:"290px"}}  sx={{ boxShadow: 3 }}  >
+      <CardActionArea>
        <img src={viceChairmen} alt=""  style={{width:"200px" , height:'200px'}}/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -23,7 +22,8 @@ const ViceCCard = () => {
       </CardActionArea>
     </Card>
         </div>
+       
     );
 };
 
-export default ViceCCard;
+export default RankedProffesorProfile;

@@ -162,7 +162,7 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-          <Button variant="contained" startIcon={<KeyIcon />}>
+          <Button size="small" variant="contained" startIcon={<KeyIcon />}>
           SRCNC Log In
       </Button>
            

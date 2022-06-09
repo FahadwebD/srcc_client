@@ -25,7 +25,7 @@ const ViceCContainer = () => {
               <Grid item xs={12} md={4}>
                   <ViceCCard></ViceCCard>
               </Grid>
-              <Grid item xs={12} md={8}>
+              <Grid style={{padding:''}} item xs={12} md={8}>
                     <ViceCMassage></ViceCMassage>
               </Grid>
             </Grid>
