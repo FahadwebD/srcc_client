@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CountUp from 'react-countup/build/'
 import backg from '../../../assets/images/BDRCS-Managing-Board-Induction-2021-695x400.jpg'
 import Box from '@mui/material/Box';
@@ -7,10 +7,13 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
+import ReactVisibilitySensor from 'react-visibility-sensor';
 
 
 
 const CountUps= () => {
+  const [focus, setFocus] = useState(false);
+
     return (
        <>
        <div style={{margin:'70px'}}>
@@ -41,7 +44,31 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={1985} duration={5}/>+</h1>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}>
+          
+          
+          
+        <CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+            {({ countUpRef }) => (
+              <div>
+                <span ref={countUpRef} />
+                <ReactVisibilitySensor
+                  onChange={isVisible => {
+                    if (isVisible) {
+                      setFocus(true);
+                    } 
+                  }}
+                >
+                  <a>+</a>
+                </ReactVisibilitySensor>
+              </div>
+            )}
+          </CountUp>
+          
+          
+          
+          
+          </h1>
          <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
         </div>
        </div>
@@ -57,7 +84,23 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={2000} duration={5}/>+</h1>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+            {({ countUpRef }) => (
+              <div>
+                <span ref={countUpRef} />
+                <ReactVisibilitySensor
+                  onChange={isVisible => {
+                    if (isVisible) {
+                      setFocus(true);
+                    } 
+                  }}
+                >
+                  <a>+</a>
+                </ReactVisibilitySensor>
+              </div>
+            )}
+          </CountUp>
+          </h1>
          <p style={{color:'white' , margin:'0' , padding:'0'}}>Student</p>
         </div>
        </div>
@@ -73,7 +116,23 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={1000} duration={5}/>+</h1>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+            {({ countUpRef }) => (
+              <div>
+                <span ref={countUpRef} />
+                <ReactVisibilitySensor
+                  onChange={isVisible => {
+                    if (isVisible) {
+                      setFocus(true);
+                    } 
+                  }}
+                >
+                  <a>+</a>
+                </ReactVisibilitySensor>
+              </div>
+            )}
+          </CountUp>
+          </h1>
          <p style={{color:'white' , margin:'0' , padding:'0'}}>Staf</p>
         </div>
        </div>
@@ -89,7 +148,23 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={300} duration={5}/>+</h1>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+            {({ countUpRef }) => (
+              <div>
+                <span ref={countUpRef} />
+                <ReactVisibilitySensor
+                  onChange={isVisible => {
+                    if (isVisible) {
+                      setFocus(true);
+                    } 
+                  }}
+                >
+                  <a>+</a>
+                </ReactVisibilitySensor>
+              </div>
+            )}
+          </CountUp>
+          </h1>
          <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
         </div>
        </div>
