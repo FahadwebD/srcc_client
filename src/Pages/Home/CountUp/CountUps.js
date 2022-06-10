@@ -1,4 +1,5 @@
 import React from 'react';
+import CountUp from 'react-countup/build/'
 import backg from '../../../assets/images/BDRCS-Managing-Board-Induction-2021-695x400.jpg'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -7,7 +8,9 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 
-const CountUp = () => {
+
+
+const CountUps= () => {
     return (
        <>
        <div style={{margin:'70px'}}>
@@ -38,7 +41,7 @@ const CountUp = () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}>500+</h1>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={1985} duration={5}/>+</h1>
          <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
         </div>
        </div>
@@ -54,8 +57,8 @@ const CountUp = () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}>500+</h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={2000} duration={5}/>+</h1>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>Student</p>
         </div>
        </div>
    </div>
@@ -70,8 +73,8 @@ const CountUp = () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}>500+</h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={1000} duration={5}/>+</h1>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>Staf</p>
         </div>
        </div>
    </div>
@@ -86,7 +89,7 @@ const CountUp = () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}>500+</h1>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={0} end={300} duration={5}/>+</h1>
          <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
         </div>
        </div>
@@ -100,4 +103,4 @@ const CountUp = () => {
     );
 };
 
-export default CountUp;
+export default CountUps;

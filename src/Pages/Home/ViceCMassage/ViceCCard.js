@@ -9,7 +9,7 @@ import viceChairmen from '../../../assets/images/Vice-Chairman-Monsuzzaman-Chowd
 const ViceCCard = () => {
     return (
         <div>
-             <Card style={{padding:'0px' , height:"325px" ,    width: '350px', marginLeft: '10px'}}  sx={{ boxShadow: 3 }}  >
+             <Card style={{padding:'0px' , height:"325px"     }}  sx={{ boxShadow: 3 }}  >
       <CardActionArea >
        <img src={viceChairmen} alt=""  style={{width:"200px" , height:'200px'}}/>
         <CardContent>

@@ -1,11 +1,13 @@
 import React from 'react';
 import Navbar from '../../../Shared/Navbar/Navbar';
 import CarouselData from '../CaourselData/CarouselData';
-import CountUp from '../CountUp/CountUp';
+
+import CountUps from '../CountUp/CountUps';
 import Courses from '../Courses/Courses/Courses';
 import RankedProffesors from '../RankedProffesors/RankedProffesors';
 import ViceCContainer from '../ViceCMassage/ViceCContainer';
 import Welcome from '../Welcome/Welcome';
+
 
 const Home = () => {
     return (
@@ -14,9 +16,10 @@ const Home = () => {
       <CarouselData></CarouselData>
       <ViceCContainer></ViceCContainer>
       <RankedProffesors></RankedProffesors>
-      <CountUp></CountUp>
+      <CountUps></CountUps>
       <Welcome></Welcome>
       <Courses></Courses>
+      
         </div>
     );
 };
