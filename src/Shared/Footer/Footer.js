@@ -73,12 +73,13 @@ const Footer = () => {
         <div className="footer-col">
           <div style={{textAlign:'start'}}>
             <img src={footerl} style={{width:"290px" , height:'80px'}} alt="" />
-            <p style={{marginTop:"-15px" , marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>  <EditLocationIcon></EditLocationIcon>Lorem, ipsum dolor sit amet .</p>
+            <p style={{ marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>  <EditLocationIcon></EditLocationIcon>Lorem, ipsum dolor sit amet .</p>
           </div >
-         <span> Fax: 880-2-9667222</span>
-         <span> Fax: 880-2-9667222</span>
-
-         <span> Fax: 880-2-9667222</span>
+          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>Email: sylhet@bdrcs.org</p>
+          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}> Phone No: 0821-716568</p>
+          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>Address: Sylhet Red Crescent Unit, Topakhana (Sarda Holl Shonglogno), Sylhet</p>
+        
+          
 
          
         </div>

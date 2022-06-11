@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import KeyIcon from '@mui/icons-material/Key';
+import { Link } from 'react-router-dom';
 const pages = ['About Us', 'Gallary', 'Staff Info'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -119,11 +120,20 @@ export default function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                 <Link to="/about">
+                <MenuItem  >
+                  <Typography textAlign="center">About Us</Typography>
                 </MenuItem>
-              ))}
+                </Link>
+                <MenuItem  >
+                  <Typography textAlign="center">About Us</Typography>
+                </MenuItem>
+                <MenuItem  >
+                  <Typography textAlign="center">About Us</Typography>
+                </MenuItem>
+                <MenuItem  >
+                  <Typography textAlign="center">About Us</Typography>
+                </MenuItem>
             </Menu>
           </Box>
          <div style={{marginRight:'auto'}}>
@@ -149,16 +159,44 @@ export default function Navbar() {
             SRCNC
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+          <Link to="/about">
               <Button
-                key={page}
+
+                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
                 style={{color:'white'}}
               >
-                {page}
+                About Us
               </Button>
-            ))}
+              </Link>
+              <Link to="/staff">
+              <Button
+              
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              style={{color:'white'}}
+            >
+              Staff
+            </Button>
+            </Link>
+            <Button
+              
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              style={{color:'white'}}
+            >
+              Gallary
+            </Button>
+            <Button
+              
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              style={{color:'white'}}
+            >
+              Contact Us
+            </Button>
+        
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
