@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Staff from './Pages/StaffInfo/Saffs/Staff';
 import Login from './Pages/Login/Login/Login';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import Gallary from './Pages/Gallary/Gallary';
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
         <Route path="about" element={<AboutUs />} />
         <Route path="staff" element={<Staff/> }/>
         <Route path="login" element={<Login/> }/>
+        <Route path="gallary" element={<Gallary/> }/>
+
       </Routes>
       </AuthProvider>
     </div>
