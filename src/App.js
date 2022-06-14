@@ -5,10 +5,9 @@ import { Routes, Route } from "react-router-dom";
 import Staff from './Pages/StaffInfo/Saffs/Staff';
 import Login from './Pages/Login/Login/Login';
 import AuthProvider from './context/AuthProvider/AuthProvider';
-import Gallary from './Pages/Gallary/Gallary';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
-import AddCourses from './Pages/Dashboard/AllCourses/AddCourses';
-import Courses from './Pages/Home/Courses/Courses/Courses';
+import ViceChairmenDetails from './Pages/ViceChairmenDetails/ViceChairmenDetails';
+import GallaryMain from './Pages/Gallary/GallaryMain';
 
 
 function App() {
@@ -17,10 +16,11 @@ function App() {
       <AuthProvider>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="chairman" element={<ViceChairmenDetails />} />
         <Route path="about" element={<AboutUs />} />
         <Route path="staff" element={<Staff/> }/>
         <Route path="login" element={<Login/> }/>
-        <Route path="gallary" element={<Gallary/> }/>
+        <Route path="gallary" element={<GallaryMain/> }/>
         <Route path="/dashboard/*" element={<Dashboard/> }>
 
       

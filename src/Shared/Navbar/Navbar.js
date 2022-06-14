@@ -9,13 +9,11 @@ import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import KeyIcon from '@mui/icons-material/Key';
 import { Link } from 'react-router-dom';
-const pages = ['About Us', 'Gallary', 'Staff Info'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -32,28 +30,21 @@ export default function Navbar() {
 
     const [navBackground, setNavBackground] = useState('appBarTransparent')
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+ 
     const navRef = React.useRef()
     navRef.current = navBackground
 
     useEffect(() => {
         const handleScroll = () => {
-            const show = window.scrollY > 310
+            const show = window.scrollY > 210
             if (show) {
                 setNavBackground('appBarSolid')
             } else {

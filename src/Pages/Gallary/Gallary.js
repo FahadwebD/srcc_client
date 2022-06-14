@@ -1,8 +1,11 @@
 import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import ImageListItem from '@mui/material/ImageListItem';
-import { Container } from '@mui/material';
+import { Container, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import ReactSimpleImageViewer from 'react-simple-image-viewer';
+import { ButtonGroup } from '@material-ui/core';
 
 
 
@@ -10,6 +13,13 @@ export default function Gallary() {
     const [currentImage, setCurrentImage] = React.useState(0);
     const [isViewerOpen, setIsViewerOpen] = React.useState(false);
     const [latestItem , setLatestItem] = React.useState()
+    const [alignment, setAlignment] = React.useState('all');
+    
+    
+
+    const handleChange = (event, newAlignment) => {
+      setAlignment(newAlignment);
+    };
 
     const openImageViewer = React.useCallback((index) => {
       console.log(index)
@@ -31,10 +41,26 @@ export default function Gallary() {
       console.log(currentImage)
       console.log(latestItem)
   return (
-   <Container>
-     <ImageList sx={{ width: '100%', height: 'auto' }} cols={6} rowHeight={200}>
+  <div>
+    <div style={{display:'flex' , alignItems:'center' , justifyContent:'center' }}>
+
+    <ToggleButtonGroup
+      color="primary"
+      value={alignment}
+      exclusive
+      onChange={handleChange}
+    >
+      <ToggleButton value="all">All</ToggleButton>
+      <ToggleButton value="office">Office</ToggleButton>
+      <ToggleButton value="other">Other</ToggleButton>
+    </ToggleButtonGroup>
+    
+    </div>
+     <Container>
+     <ImageList gap={12} sx={{ width: '100%', height: 'auto', gridTemplateColumns:
+            'repeat(auto-fill, minmax(250px, 1fr))!important', }} rowHeight={200}>
       {latestItem?.map((item , index) => (
-        <ImageListItem key={item}>
+        <ImageListItem sx={{ height: '100% !important' }} key={item}>
           <img
             src={`${item}?w=164&h=164&fit=crop&auto=format`}
             srcSet={`${item}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
@@ -61,6 +87,7 @@ export default function Gallary() {
         />
       )}
    </Container>
+  </div>
   );
 }
 

@@ -20,7 +20,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import AddCourses from '../AllCourses/AddCourses';
 import Courses from '../../Home/Courses/Courses/Courses';
-
+import logo from '../../../assets/images/footerlogo.png'
 
 const drawerWidth = 250;
 
@@ -29,7 +29,7 @@ const drawerWidth = 250;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    let { path, url } = useNavigate();
+   
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -38,10 +38,10 @@ function Dashboard(props) {
 
    
     const drawer = (
-        <div style={{backgroundColor:'#5CE7ED' , height:'100%'}}>
+        <div style={{backgroundColor:'red' , height:'100%'}}>
             <Toolbar />
             <div style={{display:'flex' , alignItems:'center' ,position: 'absolute',
-                top: '0px',left:'10px'}}><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='/'><h1>Doctor Portal</h1></Link></div>
+                top: '0px',left:'10px'}}><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='/'> <img src={logo} alt="" style={{width:'100%' , height:'80px'}} srcset="" /></Link></div>
             
 
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' , marginTop:'30px'}}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='addCourse'><Button color="inherit">Home </Button></Link></div>
@@ -96,7 +96,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography sx={{color:'black'}} variant="h6" noWrap component="div">
-                        Dashboard
+                        <img src={logo} alt="" srcset="" />
                     </Typography>
                 </Toolbar>
             </AppBar>
