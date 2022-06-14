@@ -23,17 +23,17 @@ export default function Gallary() {
       };
    
   React.useEffect(()=>{
-    const src = itemData.map(function(item) {
+    let src = itemData.map(function(item) {
       return item['img'];
     });
     setLatestItem(src)
-  },[itemData ])
+  },[ ])
       console.log(currentImage)
       console.log(latestItem)
   return (
    <Container>
      <ImageList sx={{ width: '100%', height: 'auto' }} cols={6} rowHeight={200}>
-      {latestItem.map((item , index) => (
+      {latestItem?.map((item , index) => (
         <ImageListItem key={item}>
           <img
             src={`${item}?w=164&h=164&fit=crop&auto=format`}
@@ -50,6 +50,12 @@ export default function Gallary() {
           src={ latestItem }
           currentIndex={ currentImage }
           disableScroll={ false }
+          backgroundStyle={{
+            backgroundColor: "rgba(0,0,0,0.9)"
+          }}
+          style={{
+            height:'400px'
+          }}
           closeOnClickOutside={ true }
           onClose={ closeImageViewer }
         />
