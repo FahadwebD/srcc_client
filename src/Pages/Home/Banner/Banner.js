@@ -109,7 +109,7 @@ const Banner = ({
        <div
          style={{
            maxWidth: width ? width : "600px",
-           maxHeight: height ? height : "400px",
+           maxHeight: height ? height : "350px",
          }}
        >
          <Swipe

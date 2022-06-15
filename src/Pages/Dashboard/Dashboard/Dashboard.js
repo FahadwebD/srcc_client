@@ -21,6 +21,7 @@ import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import AddCourses from '../AllCourses/AddCourses';
 import Courses from '../../Home/Courses/Courses/Courses';
 import logo from '../../../assets/images/footerlogo.png'
+import HomeCustome from '../HomeCutomization/HomeCustome';
 
 const drawerWidth = 250;
 
@@ -138,6 +139,8 @@ function Dashboard(props) {
                 <Toolbar />
 
                <Routes>
+               <Route path="/" element={<HomeCustome/>} />
+
                <Route path="addCourse" element={<AddCourses />} />
                <Route path="course" element={<Courses/>} />
                </Routes>
