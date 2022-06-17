@@ -25,14 +25,14 @@ const NumbersCard = ({num}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [name, setName] = React.useState();
-    const [time, setTime] = React.useState();
+    const [titles, setTitles] = React.useState();
+    const [number, setNumber] = React.useState();
 
-    const handleNameChange = (event) => {
-        setName(event.target.value);
+    const handleTitleChange = (event) => {
+        setTitles(event.target.value);
       };
-      const handleTimeChange = (event) => {
-        setTime(event.target.value);
+      const handleNumChange = (event) => {
+        setNumber(event.target.value);
       };
     
 
@@ -40,21 +40,21 @@ const NumbersCard = ({num}) => {
       const handleServiceSubmit = e => {
         const _id = num._id
       
-        const updateService = {
-            name,
-            time,
+        const updateNumber = {
+            titles,
+            number,
             _id
             
         }
-       console.log(updateService)
+       console.log(updateNumber)
    
-       fetch('https://floating-cliffs-15059.herokuapp.com/services/edit', {
+       fetch('http://localhost:5000/numbers/edit', {
            method: 'PUT',
            headers: {
                
                'content-type': 'application/json'
            },
-           body: JSON.stringify(updateService)
+           body: JSON.stringify(updateNumber)
        })
            .then(res => res.json())
            .then(data => {
@@ -93,7 +93,7 @@ const NumbersCard = ({num}) => {
                            
                             
                             defaultValue={num.title}
-                            onChange={handleNameChange}
+                            onBlur={handleTitleChange}
                           
                             size="small"
                         />
@@ -105,7 +105,7 @@ const NumbersCard = ({num}) => {
                            
                             
                             defaultValue={num.number}
-                            onChange={handleTimeChange}
+                            onChange={handleNumChange}
                           
                             size="small"
                         />

@@ -22,6 +22,8 @@ import AddCourses from '../AllCourses/AddCourses';
 import Courses from '../../Home/Courses/Courses/Courses';
 import logo from '../../../assets/images/footerlogo.png'
 import HomeCustome from '../HomeCutomization/HomeCustome';
+import StaffManage from '../StaffManage/StaffManage';
+import StudentManage from '../StudentManage/StudentManage';
 
 const drawerWidth = 250;
 
@@ -45,10 +47,14 @@ function Dashboard(props) {
                 top: '0px',left:'10px'}}><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='/'> <img src={logo} alt="" style={{width:'100%' , height:'80px'}} srcset="" /></Link></div>
             
 
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' , marginTop:'30px'}}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='addCourse'><Button color="inherit">Home </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' , marginTop:'30px'}}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='homeCustom'><Button color="inherit">Home Customization </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='staffManage'><Button color="inherit">Staff Manage </Button></Link></div>
           
-            
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='studentManage'><Button color="inherit">Student Manage </Button></Link></div>
            
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='staffManage'><Button color="inherit">Notice & Event Manage </Button></Link></div>
+
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='staffManage'><Button color="inherit">Cotact Manage </Button></Link></div>
    <Box>
                
             
@@ -139,7 +145,11 @@ function Dashboard(props) {
                 <Toolbar />
 
                <Routes>
-               <Route path="/" element={<HomeCustome/>} />
+               <Route path="/homeCustom" element={<HomeCustome/>} />
+               <Route path="/staffManage" element={<StaffManage/>} />
+               <Route path="/studentManage" element={<StudentManage/>} />
+
+
 
                <Route path="addCourse" element={<AddCourses />} />
                <Route path="course" element={<Courses/>} />

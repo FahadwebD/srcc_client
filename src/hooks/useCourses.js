@@ -7,16 +7,16 @@ import { useEffect, useState } from "react"
 
 const useCourses =()=>{
 
-    const [courses , setCurses] = useState([]);
+    const [courses , setCourses] = useState([]);
 
     useEffect(()=>{
         fetch('https://raw.githubusercontent.com/FahadwebD/datasrc/main/data.json')
         .then(res=>res.json())
-        .then(data=>setCurses(data))
+        .then(data=>setCourses(data))
 
     },[])
 
-    return[courses , setCurses]
+    return[courses , setCourses]
 
 
 }
