@@ -9,13 +9,7 @@ import EditLocationIcon from '@mui/icons-material/EditLocation';
 import './Footer.css'
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+
 
 const Footer = () => {
     return (
@@ -72,12 +66,12 @@ const Footer = () => {
         <Grid item xs={12} md={3}>
         <div className="footer-col">
           <div style={{textAlign:'start'}}>
-            <img src={footerl} style={{width:"290px" , height:'80px'}} alt="" />
-            <p style={{ marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>  <EditLocationIcon></EditLocationIcon>Lorem, ipsum dolor sit amet .</p>
+            <img src={footerl} style={{width:"200px" , height:'80px'}} alt="" />
+            <p style={{ marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center', textAlign:'left' }}>  <EditLocationIcon></EditLocationIcon>Lorem, ipsum dolor sit amet .</p>
           </div >
           <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>Email: sylhet@bdrcs.org</p>
           <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}> Phone No: 0821-716568</p>
-          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>Address: Sylhet Red Crescent Unit, Topakhana (Sarda Holl Shonglogno), Sylhet</p>
+          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'left' , textAlign:'left' }}>Address: Sylhet Red Crescent Unit, Topakhana (Sarda Holl Shonglogno), Sylhet</p>
         
           
 

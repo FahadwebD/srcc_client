@@ -22,6 +22,7 @@ const style = {
 const AddCarouselData = () => {
     const [caption, setCaption] = useState('');
     const [image, setImage] = useState(null);
+    const [img, setImg] = useState();
     const [success, setSuccess] = useState(false);
     const [open, setOpen] = React.useState(false);
     
@@ -32,6 +33,12 @@ const AddCarouselData = () => {
     const handleClose = () => {
       setOpen(false);
     };
+    const onImageChange = (e) => {
+      setImage(e.target.files[0])
+      const [file] = e.target.files;
+      setImg(URL.createObjectURL(file));
+    };
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -79,6 +86,10 @@ const AddCarouselData = () => {
            
            <h3>Add An Item</h3>
            <form onSubmit={handleSubmit}>
+           <div>
+           <img src={img} alt="" style={{height:'200px' , width:'200px'}}/>
+          
+           </div>
                 <TextField
                     sx={{ width: '75%' }}
                     label="Caption"
@@ -86,12 +97,11 @@ const AddCarouselData = () => {
                     onChange={e => setCaption(e.target.value)}
                     variant="standard" />
                 <br />
-    
-                <Input
+       <Input
                 sx={{ width: '75%'  , marginTop:'10px'}}
                     accept="image/*"
                     type="file"
-                    onChange={e => setImage(e.target.files[0])}
+                    onChange={onImageChange}
                 />
                 <br />
                 <Button variant="contained" type="submit" style={{ backgroundColor: 'red' , marginTop:'20px' }}>

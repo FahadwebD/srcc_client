@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 
 const useStaff =()=>{
 
-    const [saffs , setStaffs] = useState([]);
+    const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
         fetch('http://localhost:5000/staff')
@@ -16,7 +16,7 @@ const useStaff =()=>{
 
     },[])
 
-    return[saffs , setStaffs]
+    return[staffs , setStaffs]
 
 
 }

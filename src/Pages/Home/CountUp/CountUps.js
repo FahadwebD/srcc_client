@@ -8,12 +8,13 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 import ReactVisibilitySensor from 'react-visibility-sensor';
+import useNumbers from '../../../hooks/useNumbers';
 
 
 
 const CountUps= () => {
   const [focus, setFocus] = useState(false);
-
+ const [numbers , setNumbers] = useNumbers([]);
     return (
        <>
        <div style={{margin:'70px'}}>
@@ -48,7 +49,7 @@ const CountUps= () => {
           
           
           
-        <CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+        <CountUp start={focus ? 0 : null} end={numbers[0]?.number} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -69,7 +70,7 @@ const CountUps= () => {
           
           
           </h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[0]?.title}</p>
         </div>
        </div>
    </div>
@@ -84,7 +85,7 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={numbers[1]?.number} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -101,7 +102,7 @@ const CountUps= () => {
             )}
           </CountUp>
           </h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>Student</p>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[1]?.title}</p>
         </div>
        </div>
    </div>
@@ -116,7 +117,7 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={numbers[2]?.number} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -133,7 +134,7 @@ const CountUps= () => {
             )}
           </CountUp>
           </h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>Staf</p>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[2]?.title}</p>
         </div>
        </div>
    </div>
@@ -148,7 +149,7 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={100} duration={2} redraw={true}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={numbers[3]?.number} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -165,7 +166,7 @@ const CountUps= () => {
             )}
           </CountUp>
           </h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>Funded</p>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[3]?.title}</p>
         </div>
        </div>
    </div>

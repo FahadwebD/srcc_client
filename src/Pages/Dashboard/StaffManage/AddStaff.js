@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Backdrop, Box, Button, Fade, Input, Modal, TextField } from '@mui/material';
+import { Backdrop, Box, Button, Fade, Input, MenuItem, Modal, TextField } from '@mui/material';
 
 
 
@@ -28,14 +28,17 @@ const AddStaff = () => {
      const [img, setImg] = useState();
     const [success, setSuccess] = useState(false);
     const [open, setOpen] = React.useState(false);
-    
+    const [categoryStaff , setCategoryStaff] = useState()
 
     const onImageChange = (e) => {
       setImage(e.target.files[0])
       const [file] = e.target.files;
       setImg(URL.createObjectURL(file));
     };
-    
+    const handleStaffChange = (event) => {
+      setCategoryStaff(event.target.value);
+    };
+   console.log(categoryStaff)
     const handleOpen = () => {
       setOpen(true);
     };
@@ -53,6 +56,8 @@ const AddStaff = () => {
         formData.append('name', name);
         formData.append('designation', designation);
         formData.append('mobile', mobile);
+        formData.append('categoryStaff', categoryStaff);
+
         formData.append('image', image);
         console.log(formData)
         fetch('http://localhost:5000/staff', {
@@ -115,7 +120,28 @@ const AddStaff = () => {
                     onChange={e => setMobile(e.target.value)}
                     variant="standard" />
                 <br />
-               
+                <TextField
+
+          sx={{ width: '81%',  marginTop:'10px !important' , padding:'10px !important'}}
+          id="outlined-size-small"
+          required
+          select
+          label="Which Categories"
+          value={categoryStaff}
+          onChange={handleStaffChange}
+        >
+        
+            <MenuItem key='teacher' value='t'>
+              Teacher
+            </MenuItem>
+            <MenuItem key='adminatrator' value='a'>
+              Adminestrator
+            </MenuItem>
+            <MenuItem key='other' value='o'>
+              Other
+            </MenuItem>
+        </TextField>
+        <br></br>
                 <Input
                 sx={{ width: '75%'  , marginTop:'10px'}}
                     accept="image/*"

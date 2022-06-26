@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import CarouselManage from './CarouselManage/CarouselManage';
 import CollegeNumber from './CollegeNumbersManage/CollegeNumber';
+import WelcomeMassage from './WelcomeMassage/WelcomeMassage';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -25,10 +26,10 @@ const HomeCustome = () => {
         <Grid item xs={12} md={5}>
           <Item><CollegeNumber></CollegeNumber></Item>
         </Grid>
-        <Grid item xs={6} md={4}>
-          <Item>xs=6 md=4</Item>
-        </Grid>
         <Grid item xs={6} md={8}>
+          <Item><WelcomeMassage></WelcomeMassage></Item>
+        </Grid>
+        <Grid item xs={6} md={4}>
           <Item>xs=6 md=8</Item>
         </Grid>
       </Grid>

@@ -164,7 +164,7 @@ const Banner = ({
                      </div>
                    )}
                    <img
-                     src={item.image}
+                     src={`data:image/png;base64,${item.image}`}
                      alt={item.caption}
                      className="carousel-image"
                      style={{

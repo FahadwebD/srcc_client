@@ -1,20 +1,46 @@
-import { Button } from '@mui/material';
+import { Button, Input } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useCarousel from '../../../../../hooks/useCarousel';
 import AddCarouselData from '../AddCarouselData/AddCarouselData';
 import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import { TextField } from '@mui/material';
 
 import './CarouselStyle.css'
 
 
-const CarouselTable = () => {
+const CarouselTable = ({item}) => {
     
 
 
 
     const [carousel , setCarousel] = useCarousel();
+    const [open, setOpen] = React.useState(false);
+    const [caption, setCaption] = React.useState();
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
   
+    const style = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 400,
+      bgcolor: 'background.paper',
+      border: '2px solid #000',
+      boxShadow: 24,
+      p: 4,
+    };
    
+
+
+
+    const handleCaptionChange = (event) => {
+      setCaption(event.target.value);
+    };
 
     const handleDataDelete = (_id) =>{
      
@@ -34,46 +60,103 @@ const CarouselTable = () => {
           }
         })
       }
+
+
+
+      const handleCarouselSubmit = e => {
+        const _id = item._id
+       
+        const updateCarousel = {
+            caption,
+           
+            _id
+            
+        }
+       console.log(updateCarousel)
+   
+       fetch('http://localhost:5000/banner/edit', {
+           method: 'PUT',
+           headers: {
+               
+               'content-type': 'application/json'
+           },
+           body: JSON.stringify(updateCarousel)
+       })
+           .then(res => res.json())
+           .then(data => {
+               if (data.modifiedCount) {
+                  
+                   console.log('ok')
+               }
+           })
+
+      
+
+        e.preventDefault();
+    }
     return (
         <div>
-       {carousel.length?<div>
-             <div style={{display:'flex', justifyContent:'space-between' , alignItems:'center'}}>
-            <div>
-            <h3>All Data</h3> 
-            </div>
-            <div>
-            <AddCarouselData></AddCarouselData>
-            </div>
-        </div>
- 
-
-
- <table id="customers">
-  <tr>
-  
-    <th>Image</th>
-    <th>Caption</th>
-    <th>Action</th>
-    
-  </tr>
-  {carousel.map((item, i) => {
-        return <tr key={i} >
-   
-            <td><img
-                style={{ width: '100%', height: '80px' }}
-                src={`data:image/png;base64,${item.image}`} alt="" /></td>
-            <td>{item.caption}</td>
-            <td><Button size="small"  style={{backgroundColor:'red' , color:'white'}} onClick={()=>handleDataDelete(item._id)}>Delete </Button><Button size="small">Edit</Button></td>
-            
-        </tr>;
-        })
-    }
-</table>
-             </div>:<div>
-             <CircularProgress color="secondary" />
-             </div>}      
-             
        
+            
+ 
+   
+           <div style={{display:'flex' ,justifyContent:'space-between'}}>
+           <div><img
+                style={{ width: '200px', height: '80px' }}
+                src={`data:image/png;base64,${item.image}`} alt="" /></div>
+            <div><h3>{item.caption}</h3></div>
+            <div ><Button size="small"  style={{backgroundColor:'red' , color:'white' , margin:'2px'}} onClick={()=>handleDataDelete(item._id)}>Delete </Button><Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small"  onClick={handleOpen}>Edit</Button></div> 
+            
+            </div>    
+            <hr/>  
+       
+
+       <div>
+       <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+           Update Carousel
+          </Typography>
+          <form onSubmit={handleCarouselSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
+                      
+          <div >
+          <div>
+                <img
+                style={{ width: '100%', height: '120px' }}
+                src={`data:image/png;base64,${item.image}`} alt="" />
+                
+                  
+                </div>
+                         <div>
+                         <TextField
+                            required
+                           
+                            id="outlined-size-small"
+                            name="Time"
+                            style={{ width: '100%' }}
+                            
+                            defaultValue={item.caption}
+                            onChange={handleCaptionChange}
+                          
+                            multiline
+                        />
+                         </div>
+          </div>
+                      
+                      
+                      
+                         
+                        <div style={{ textAlign:'right' , marginRight:'40px'}}><Button style={{backgroundColor:'#5CE7ED' }} type="submit" variant="contained">Send</Button></div>
+
+                        </form>
+        </Box>
+      </Modal>
+       </div>
         </div>
     );
 };

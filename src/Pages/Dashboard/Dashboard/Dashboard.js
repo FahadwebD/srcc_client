@@ -24,7 +24,8 @@ import logo from '../../../assets/images/footerlogo.png'
 import HomeCustome from '../HomeCutomization/HomeCustome';
 import StaffManage from '../StaffManage/StaffManage';
 import StudentManage from '../StudentManage/StudentManage';
-
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import Users from '../UserControl/Users';
 const drawerWidth = 250;
 
 
@@ -48,7 +49,7 @@ function Dashboard(props) {
             
 
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' , marginTop:'30px'}}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='homeCustom'><Button color="inherit">Home Customization </Button></Link></div>
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='staffManage'><Button color="inherit">Staff Manage </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <PersonSearchIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='staffManage'><Button color="inherit">Staff Manage </Button></Link></div>
           
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='studentManage'><Button color="inherit">Student Manage </Button></Link></div>
            
@@ -148,11 +149,9 @@ function Dashboard(props) {
                <Route path="/homeCustom" element={<HomeCustome/>} />
                <Route path="/staffManage" element={<StaffManage/>} />
                <Route path="/studentManage" element={<StudentManage/>} />
-
-
-
-               <Route path="addCourse" element={<AddCourses />} />
-               <Route path="course" element={<Courses/>} />
+               <Route path="/users" element={<Users/>} />
+               <Route path="/addCourse" element={<AddCourses />} />
+               <Route path="/course" element={<Courses/>} />
                </Routes>
 
             </Box>

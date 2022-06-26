@@ -13,6 +13,9 @@ import MenuItem from '@mui/material/MenuItem';
 import { Typography } from '@mui/material';
 import KeyIcon from '@mui/icons-material/Key';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +33,19 @@ export default function Navbar() {
 
     const [navBackground, setNavBackground] = useState('appBarTransparent')
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+
+
+
+
+
+    const [user] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    };
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -171,6 +187,8 @@ export default function Navbar() {
               Staff
             </Button>
             </Link>
+            <Link to="/gallary">
+
             <Button
               
               onClick={handleCloseNavMenu}
@@ -179,6 +197,9 @@ export default function Navbar() {
             >
               Gallary
             </Button>
+            
+            </Link>
+            
             <Button
               
               onClick={handleCloseNavMenu}
@@ -191,9 +212,21 @@ export default function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-          <Button size="small" variant="contained" startIcon={<KeyIcon />}>
+          {
+            user &&  <Link to="/dashboard">
+            <Button
+            
+            onClick={handleCloseNavMenu}
+            sx={{ my: 2, color: 'white', display: 'block' }}
+            style={{color:'white'}}
+          >
+            Dashboard
+          </Button>
+          </Link>
+        }
+          {user ?<button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login"><Button size="small" variant="contained" startIcon={<KeyIcon />}>
           SRCNC Log In
-      </Button>
+      </Button></Link>}
            
           </Box>
         </Toolbar>

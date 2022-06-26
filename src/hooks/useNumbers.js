@@ -8,6 +8,8 @@ import { useEffect, useState } from "react"
 const useNumbers =()=>{
 
     const [numbers , setNumbers] = useState([]);
+    const [welcome , setWelcome] = useState([]);
+
 
     useEffect(()=>{
         fetch('http://localhost:5000/numbers')
@@ -16,7 +18,15 @@ const useNumbers =()=>{
 
     },[])
 
-    return[numbers , setNumbers]
+    
+    useEffect(()=>{
+        fetch('http://localhost:5000/welcome')
+        .then(res=>res.json())
+        .then(data=>setWelcome(data))
+
+    },[])
+
+    return[numbers , setNumbers ,welcome , setWelcome]
 
 
 }

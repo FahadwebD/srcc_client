@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Backdrop, Box, Button, Fade, Input, InputLabel, MenuItem, Modal, Select, TextField } from '@mui/material';
+import { Backdrop, Box, Button, Fade, Input,  MenuItem, Modal, Select, TextField } from '@mui/material';
 import useCourses from '../../../hooks/useCourses';
+import { DatePicker } from '@material-ui/pickers';
 import { YearRangePicker } from 'react-year-range-picker'
 
 
@@ -14,7 +15,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 600,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -35,7 +36,8 @@ const AddStudent = () => {
     const [mobile, setMobile] = useState('');
     const [image, setImage] = useState(null);
     const [img, setImg] = useState();
-    const [yearRange, setYearRange] = useState();
+    const [sessionStart, setSessionStart] = React.useState(new Date());
+    const [sessionEnd, setSessionEnd] = React.useState(new Date());
     const [success, setSuccess] = useState(false);
     const [open, setOpen] = React.useState(false);
     
@@ -71,7 +73,8 @@ const AddStudent = () => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('roll', roll);
-        formData.append('session', session);
+        formData.append('sessionStart', sessionStart);
+        formData.append('sessionEnd', sessionEnd);
         formData.append('regNo', regNo);
         formData.append('course', course);
         formData.append('category', category);
@@ -116,61 +119,83 @@ const AddStudent = () => {
            
            <h3>Add An Item</h3>
            <form onSubmit={handleSubmit}>
-           <img src={img} alt="" style={{height:'100px' , width:'100px'}}/>
+         <div style={{display:'flex' , alignItems:'center'}}>
+         <div>
+           <img src={img} alt="" style={{height:'200px' , width:'200px'}}/>
+          
+           </div>
+                <div>
                 <TextField
                     sx={{ width: '75%' }}
                     label="Name"
                     required
                     onChange={e => setName(e.target.value)}
                     variant="standard" />
-                <br />
+                
                 <TextField
                     sx={{ width: '75%' }}
                     label="Admission Roll"
                     required
                     onChange={e => setRoll(e.target.value)}
                     variant="standard" />
-                <br />
-                
-                <TextField
-                    sx={{ width: '75%' }}
-                    label="Session"
-                    required
-                    onChange={e => setSession(e.target.value)}
-                    variant="standard" />
-                <br />
+               
+               
+               <div style={{display:'flex' ,padding:"10px 35px" , alignItems:'center'}}>
+                <div>
+                <DatePicker
+                style={{margin:'10px'}}
+          views={['year']}
+          label="Session Start"
+          value={sessionStart}
+          onChange={(newValue) => {
+            setSessionStart(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        />
+                </div>
+            
+                <div>
+                <DatePicker
+                style={{margin:'10px'}}
+          views={['year']}
+          label="Session end"
+          value={sessionEnd}
+          onChange={(newValue) => {
+            setSessionEnd(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        />
+                </div>
+               </div>
                 <TextField
                     sx={{ width: '75%' }}
                     label="Registarion No"
                     required
                     onChange={e => setRegNo(e.target.value)}
                     variant="standard" />
-                <br />
+                     <Input
+                sx={{ width: '75%'  , marginTop:'10px'}}
+                    accept="image/*"
+                    type="file"
+                    onChange={onImageChange}
+                />
                 <TextField
-
-          sx={{ width: '90%', m: 1 }}
+                    sx={{ width: '75%' }}
+                    label="Mobile"
+                    required
+                    onChange={e => setMobile(e.target.value)}
+                    variant="standard" />
+                 </div>
+         </div>
+        
+       <div>
+       <Select
+          sx={{ width: '40%', m: 1 , marginTop:'20px !important'}}
+          
           id="outlined-size-small"
-          required
-          select
-          label="Select which Doctor Appointment You Want"
-          value={courses?.coursename}
-          onChange={handleCourseChange}
-          helperText="Please select your doctor"
-        >
-          {courses?.map((option) => (
-            <MenuItem key={option?.coursename} value={option?.coursename}>
-              Course .{option?.coursename}
-            </MenuItem>
-          ))}
-        </TextField>
-        <br />
-          <InputLabel id="demo-simple-select-autowidth-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
           value={category}
           onChange={handleCategoryChange}
-          autoWidth
+          required
           label="Category"
         >
           <MenuItem value="">
@@ -180,21 +205,30 @@ const AddStudent = () => {
           <MenuItem value={'maritorious'}>Maritorious</MenuItem>
           <MenuItem value={'general'}>General</MenuItem>
         </Select>
-                <TextField
-                    sx={{ width: '75%' }}
-                    label="Mobile"
-                    required
-                    onChange={e => setMobile(e.target.value)}
-                    variant="standard" />
-                <br />
+         <TextField
+
+          sx={{ width: '40%',  marginTop:'10px !important' , padding:'10px !important'}}
+          id="outlined-size-small"
+          required
+          select
+          label="Which Course"
+          value={courses?.coursename}
+          onChange={handleCourseChange}
+        >
+          {courses?.map((option) => (
+            <MenuItem key={option?.coursename} value={option?.coursename}>
+              Course .{option?.coursename}
+            </MenuItem>
+          ))}
+        </TextField>
+       </div>
+       
+        
+                
+                
                
-                <Input
-                sx={{ width: '75%'  , marginTop:'10px'}}
-                    accept="image/*"
-                    type="file"
-                    onChange={onImageChange}
-                />
-                <br />
+                
+               
                 <Button variant="contained" type="submit" style={{ backgroundColor: 'red' , marginTop:'20px' }}>
                     Add Staff
                 </Button>

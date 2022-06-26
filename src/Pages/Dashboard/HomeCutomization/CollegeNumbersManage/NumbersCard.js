@@ -10,8 +10,8 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    backgroundColor:'white',
+    border: '2px solid red',
     boxShadow: 24,
     p: 4,
   };
@@ -70,8 +70,15 @@ const NumbersCard = ({num}) => {
     }
 
     return (
-        <div>
-            <h1>{num.title} <Button style={{backgroundColor:'green' , color:'white'}} onClick={handleOpen}>Update</Button> </h1>
+        <div >
+          <div style={{display:'flex' , justifyContent:'space-around', alignItems:'center'}}>
+          <h1>{num.title} </h1>
+            <h3>{num.number}</h3>
+           <div>
+           <Button style={{backgroundColor:'green' , color:'white'}} onClick={handleOpen}>Update</Button>
+           </div>
+          </div>
+            
             <div>
             <Modal
         open={open}
@@ -81,7 +88,7 @@ const NumbersCard = ({num}) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+           Update In Numbers
           </Typography>
           <form onSubmit={handleServiceSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
@@ -93,7 +100,7 @@ const NumbersCard = ({num}) => {
                            
                             
                             defaultValue={num.title}
-                            onBlur={handleTitleChange}
+                            onChange={handleTitleChange}
                           
                             size="small"
                         />
@@ -112,7 +119,7 @@ const NumbersCard = ({num}) => {
                       
                       
                       
-                        <div style={{ textAlign:'right' , marginRight:'40px'}}><Button style={{backgroundColor:'#5CE7ED' }} type="submit" variant="contained">Send</Button></div>
+                        <div style={{ textAlign:'right' , marginRight:'40px'}}><Button style={{backgroundColor:'red' }} type="submit" variant="contained">Update</Button></div>
 
                         </form>
         </Box>

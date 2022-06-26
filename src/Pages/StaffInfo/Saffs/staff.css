@@ -1,0 +1,39 @@
+.gridStaff{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.menuStaff{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.active_menu_tab {
+    
+    color:#f91944;
+    border-bottom: 2px solid #f91944;
+    cursor: pointer;
+    font-size: 25px;
+    margin-right: 2px;
+}
+.menu_tab{
+cursor: pointer;
+font-size: 25px;
+margin-right: 2px;
+}
+
+@media only screen  and (max-width:688px){
+    .gridStaff{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+
+}
+@media only screen  and (min-width:689px) and (max-width:990px){
+    .gridStaff{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+  
+}
