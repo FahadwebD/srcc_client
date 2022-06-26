@@ -11,6 +11,7 @@ const AboutUs = () => {
             <Navbar></Navbar>
             
             <About></About>
+            
             <Footer></Footer>
         </div>
     );
