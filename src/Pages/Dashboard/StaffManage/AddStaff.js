@@ -62,6 +62,9 @@ const AddStaff = () => {
         console.log(formData)
         fetch('http://localhost:5000/staff', {
             method: 'POST',
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          },
             body: formData
         })
             .then(res => res.json())

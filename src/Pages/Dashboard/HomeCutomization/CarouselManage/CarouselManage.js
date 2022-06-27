@@ -8,8 +8,7 @@ const CarouselManage = () => {
     const [carousel , setCarousel] = useCarousel();
     return (
         <>
-        {carousel.length?<div>
-             <div style={{display:'flex', justifyContent:'space-between' , alignItems:'center'}}>
+          <div style={{display:'flex', justifyContent:'space-between' , alignItems:'center'}}>
             <div>
             <h3>All Data</h3> 
             </div>
@@ -17,6 +16,8 @@ const CarouselManage = () => {
             <AddCarouselData></AddCarouselData>
             </div>
         </div>
+        {carousel.length?<div>
+           
         <div style={{display:'flex' , justifyContent:'space-between'}}>
             <h2>Image</h2>
             <h2>Caption</h2>
