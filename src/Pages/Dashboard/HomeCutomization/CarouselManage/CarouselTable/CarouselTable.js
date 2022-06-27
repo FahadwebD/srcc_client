@@ -42,9 +42,13 @@ const CarouselTable = ({item}) => {
 
     const handleDataDelete = (_id) =>{
      
-        const url=`http://localhost:5000/banner/${_id}`
+        const url=`https://peaceful-spire-22388.herokuapp.com/banner/${_id}`
         fetch(url, {
-          method:'DELETE'
+          
+          method:'DELETE',
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        },
         })
         .then(res => res.json())
         .then(data=>{
@@ -72,10 +76,10 @@ const CarouselTable = ({item}) => {
         }
        console.log(updateCarousel)
    
-       fetch('http://localhost:5000/banner/edit', {
+       fetch('https://peaceful-spire-22388.herokuapp.com/banner/edit', {
            method: 'PUT',
            headers: {
-               
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                'content-type': 'application/json'
            },
            body: JSON.stringify(updateCarousel)

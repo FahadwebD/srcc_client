@@ -10,7 +10,7 @@ const useStaff =()=>{
     const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/staff')
+        fetch('https://peaceful-spire-22388.herokuapp.com/staff')
         .then(res=>res.json())
         .then(data=>setStaffs(data))
 

@@ -101,7 +101,7 @@ const CustomTablePagination = styled(TablePaginationUnstyled)(
 
 
 
-export default function StudentTable({staffs , setStaffs}) {
+export default function StudentTable({staffs , setStaffs ,handleStaffEdit}) {
     
 
 
@@ -127,9 +127,12 @@ export default function StudentTable({staffs , setStaffs}) {
 
     const handleStudentDelete = (_id) =>{
      
-        const url=`http://localhost:5000/student/${_id}`
+        const url=`https://peaceful-spire-22388.herokuapp.com/student/${_id}`
         fetch(url, {
-          method:'DELETE'
+          method:'DELETE',
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        },
         })
         .then(res => res.json())
         .then(data=>{
@@ -185,11 +188,11 @@ export default function StudentTable({staffs , setStaffs}) {
                 {row.course}
               </td>
               <td style={{ width: 120 }} align="right">
-                {row.mobile}
+                {row.sessionStart}-{row.sessionEnd}
               </td>
               <td style={{ width: 120 }} align="right">
                   <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStudentDelete(row._id)}>Delete</Button>
-                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small">Edit</Button>
+                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStaffEdit(row._id)}>Edit</Button>
               </td>
               
               

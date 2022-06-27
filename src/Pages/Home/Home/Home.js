@@ -7,6 +7,7 @@ import CountUps from '../CountUp/CountUps';
 import Courses from '../Courses/Courses/Courses';
 import NoticeAndEvent from '../NoticeAndEvent/NoticeAndEvent/NoticeAndEvent';
 import RankedProffesors from '../RankedProffesors/RankedProffesors';
+import Thicker from '../Thicker/Thicker';
 import ViceCContainer from '../ViceCMassage/ViceCContainer';
 import Welcome from '../Welcome/Welcome';
 
@@ -16,6 +17,7 @@ const Home = () => {
         <div>
             <Navbar></Navbar>
       <CarouselData></CarouselData>
+      <Thicker></Thicker>
       <ViceCContainer></ViceCContainer>
       <RankedProffesors></RankedProffesors>
       <CountUps></CountUps>

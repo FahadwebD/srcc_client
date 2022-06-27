@@ -83,10 +83,11 @@ const found = staffs.find(obj => {
         }
        console.log(updateStaff)
    
-       fetch('http://localhost:5000/staff/edit', {
+       fetch('https://peaceful-spire-22388.herokuapp.com/staff/edit', {
            method: 'PUT',
+          
            headers: {
-               
+               authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                'content-type': 'application/json'
            },
            body: JSON.stringify(updateStaff)

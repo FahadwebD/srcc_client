@@ -129,9 +129,12 @@ export default function StaffTable({staffs , setStaffs,handleStaffEdit}) {
 
     const handleStaffDelete = (_id) =>{
      
-        const url=`http://localhost:5000/staff/${_id}`
+        const url=`https://peaceful-spire-22388.herokuapp.com/staff/${_id}`
         fetch(url, {
-          method:'DELETE'
+          method:'DELETE',
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        },
         })
         .then(res => res.json())
         .then(data=>{

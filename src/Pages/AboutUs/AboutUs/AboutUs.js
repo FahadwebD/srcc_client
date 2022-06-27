@@ -3,6 +3,7 @@ import Footer from '../../../Shared/Footer/Footer';
 import Navbar from '../../../Shared/Navbar/Navbar';
 
 
+
 import About from '../About/About';
 
 const AboutUs = () => {
@@ -11,7 +12,7 @@ const AboutUs = () => {
             <Navbar></Navbar>
             
             <About></About>
-            
+           
             <Footer></Footer>
         </div>
     );

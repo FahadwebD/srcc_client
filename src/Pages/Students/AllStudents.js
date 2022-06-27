@@ -9,7 +9,7 @@ const AllStudents = () => {
     const [students, setStudents] = useState([]);
     const [displayProducts, setDisplayProducts] = useState([]);
     useEffect( () =>{
-        fetch(`http://localhost:5000/student/home?page=${page}&size=${size}`)
+        fetch(`https://peaceful-spire-22388.herokuapp.com/student/home?page=${page}&size=${size}`)
         .then(res => res.json())
         .then(data => {
         setStudents(data)
@@ -17,7 +17,7 @@ const AllStudents = () => {
     }, [page, size]);
 
     useEffect( () =>{
-        fetch('http://localhost:5000/studentCount')
+        fetch('https://peaceful-spire-22388.herokuapp.com/studentCount')
         .then(res => res.json())
         .then(data =>{
             const count = data.count;

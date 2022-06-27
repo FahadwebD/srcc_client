@@ -12,7 +12,7 @@ const useNumbers =()=>{
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/numbers')
+        fetch('https://peaceful-spire-22388.herokuapp.com/numbers')
         .then(res=>res.json())
         .then(data=>setNumbers(data))
 
@@ -20,7 +20,7 @@ const useNumbers =()=>{
 
     
     useEffect(()=>{
-        fetch('http://localhost:5000/welcome')
+        fetch('https://peaceful-spire-22388.herokuapp.com/welcome')
         .then(res=>res.json())
         .then(data=>setWelcome(data))
 

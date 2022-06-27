@@ -14,7 +14,7 @@ const useWelcome =()=>{
 
     
     useEffect(()=>{
-        fetch('http://localhost:5000/welcome')
+        fetch('https://peaceful-spire-22388.herokuapp.com/welcome')
         .then(res=>res.json())
         .then(data=>setWelcome(data))
 

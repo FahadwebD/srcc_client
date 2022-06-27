@@ -10,7 +10,7 @@ const useCarousel =()=>{
     const [carousel , setCarousel] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/banner')
+        fetch('https://peaceful-spire-22388.herokuapp.com/banner')
         .then(res=>res.json())
         .then(data=>setCarousel(data))
 

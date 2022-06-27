@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import { Button, TextField } from '@mui/material';
+import { Backdrop, Box, Button, Fade, Input,  MenuItem, Modal, Select, TextField } from '@mui/material';
+import { DatePicker } from '@material-ui/pickers';
+import moment from 'moment';
 import AddStudent from './AddStudent';
 import StudentTable from './StudentTable';
+import useCourses from '../../../hooks/useCourses';
 
 const StudentManage = () => {
 
@@ -23,85 +23,101 @@ const StudentManage = () => {
     const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/student')
+        fetch('https://peaceful-spire-22388.herokuapp.com/student')
         .then(res=>res.json())
         .then(data=>setStaffs(data))
 
     },[staffs])
+    // name,
+    // roll,
 
-//     const [editStaff ,setEditStaff] = useState()
-//     const [open, setOpen] = React.useState(false);
-//     const [name , setName] = useState()
-//     const [categoryStaff , setCategoryStaff] = useState()
-//     const [designation , setDesignation] = useState()
-//     const [mobile , setMobile] = useState()
+    // regNo,
+    // category,
+    // course,
+    // mobile,
+    // sessionStart,
+    // sessionEnd,
 
-
-
-
-//     const handleOpen = () => setOpen(true);
-//     const handleClose = () => setOpen(false);
-
-
-
-
-//     const handleNameChange = (event) => {
-//         setName(event.target.value);
-//       };
-//       const handleCatogoryChange = (event) => {
-//         setCategoryStaff(event.target.value);
-//       };
-//       const handleDesignationChange = (event) => {
-//         setDesignation(event.target.value);
-//       };
-//       const handleMobileChange = (event) => {
-//         setMobile(event.target.value);
-//       };
+    const [courses , setCourses] = useCourses()
+    const [editStaff ,setEditStaff] = useState()
+    const [open, setOpen] = React.useState(false);
+    const [name, setName] = useState('');
+    const [roll, setRoll] = useState('');
+    const [course, setCourse] = useState('');
+    const [regNo, setRegNo] = useState('');
+    const [category, setCategory] = useState('');
+    const [mobile, setMobile] = useState('');
+    const [sessionStarted, setSessionStarted] = React.useState(new Date());
+    const [sessionEnded, setSessionEnded] = React.useState(new Date());
 
 
 
-//  const handleStaffEdit = (_id) =>{
 
-//     console.log(_id)
-// const found = staffs.find(obj => {
-//     return obj._id ===_id;
-//   });
-//   setEditStaff(found)
-//     handleOpen()
-//  }
-//     const handleStaffSubmit = e => {
-//         const _id = editStaff._id
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
+const sessionStart = moment(sessionStarted).format('YYYY');
+const sessionEnd =moment(sessionEnded).format('YYYY');
+
+const handleCourseChange = (event) => {
+    setCourse(event.target.value);
+  };
+
+  
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+  };
+
+
+
+ const handleStaffEdit = (_id) =>{
+
+    console.log(_id)
+const found = staffs.find(obj => {
+    return obj._id ===_id;
+  });
+  setEditStaff(found)
+    handleOpen()
+ }
+    const handleStaffSubmit = e => {
+        const _id = editStaff._id
        
-//         const updateStaff = {
-//             name,
-//             designation,
-//             categoryStaff,
-//             mobile,
-//             _id
+        const updateStaff = {
+             name,
+            roll,
+            regNo,
+            category,
+            course,
+            mobile,
+            sessionStart,
+            sessionEnd,
+            _id
             
-//         }
-//        console.log(updateStaff)
+        }
+       console.log(updateStaff)
    
-//        fetch('http://localhost:5000/staff/edit', {
-//            method: 'PUT',
-//            headers: {
-               
-//                'content-type': 'application/json'
-//            },
-//            body: JSON.stringify(updateStaff)
-//        })
-//            .then(res => res.json())
-//            .then(data => {
-//                if (data.modifiedCount) {
-                  
-//                    console.log('ok')
-//                }
-//            })
+       fetch('https://peaceful-spire-22388.herokuapp.com/student/edit', {
+           method: 'PUT',
+           headers: {
+               authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+               'content-type': 'application/json'
+           },
+           body: JSON.stringify(updateStaff)
+       })
+           .then(res => res.json())
+           .then(data => {
+               if (data.modifiedCount) {
+                  handleClose()
+                   console.log('ok')
+               }
+           })
 
       
 
-//         e.preventDefault();
-//     }
+        e.preventDefault();
+    }
     console.log(staffs)
      
     return (
@@ -117,93 +133,149 @@ const StudentManage = () => {
                 </div>
             </div>
             
-           <div> <StudentTable staffs={staffs} setStaffs={setStaffs}></StudentTable></div>
+           <div> <StudentTable staffs={staffs}
+            setStaffs={setStaffs}
+            handleStaffEdit={handleStaffEdit}
+            ></StudentTable></div>
 
 
 
             <div>
-            {/* <div>
-            <Modal
+            <div>
+             <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-           Update Carousel
-          </Typography>
-          <form onSubmit={handleStaffSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
-                      
-          <div >
-          <div>
-                <img
-                style={{ width: '100%', height: '120px' }}
-                src={`data:image/png;base64,${editStaff?.image}`} alt="" />
+        <Fade in={open}>
+          <Box sx={style} style={{textAlign:'center'}}>
+           
+           <h3>Update {editStaff?.name} Profile</h3>
+           <form onSubmit={handleStaffSubmit}>
+         <div style={{display:'flex' , alignItems:'center'}}>
+         <div>
+       
+          
+           </div>
+                <div>
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Name"
+                    required
+                    defaultValue={editStaff?.name}
+                    onChange={e => setName(e.target.value)}
+                    variant="standard" />
                 
-                  
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Admission Roll"
+                    defaultValue={editStaff?.roll}
+                    required
+                    onChange={e => setRoll(e.target.value)}
+                    variant="standard" />
+               
+               
+               <div style={{display:'flex' ,padding:"10px 35px" , alignItems:'center'}}>
+                <div>
+                <DatePicker
+                style={{margin:'10px'}}
+          views={['year']}
+          label="Session Start"
+          
+          value={sessionStarted}
+          onChange={(newValue) => {
+            setSessionStarted(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        />
                 </div>
-                         <div>
-                         <TextField
-                            required
-                           
-                            id="outlined-size-small"
-                            name="Name"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.name}
-                            onChange={handleNameChange}
-                          
-                            
-                        />
-                         <TextField
-                            required
-                           
-                            id="outlined-size-small"
-                            name="Designation"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.designation}
-                            onChange={handleCatogoryChange}
-                          
-                            
-                        />
-                         <TextField
-                            required
-                           
-                            id="outlined-size-small"
-                            name="Category"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.categoryStaff}
-                            onChange={handleDesignationChange}
-                          
-                            
-                        />
-                         <TextField
-                            required
-                           
-                            id="outlined-size-small"
-                            name="Name"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.mobile}
-                            onChange={handleMobileChange}
-                          
-                            
-                        />
-                         </div>
-          </div>
-                      
-                      
-                      
-                         
-                        <div style={{ textAlign:'right' , marginRight:'40px'}}><Button style={{backgroundColor:'#5CE7ED' }} type="submit" variant="contained">Send</Button></div>
+            
+                <div>
+                <DatePicker
+                style={{margin:'10px'}}
+          views={['year']}
+          label="Session end"
+          
+          value={sessionEnded}
+          onChange={(newValue) => {
+            setSessionEnded(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        />
+                </div>
+               </div>
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Registarion No"
+                    defaultValue={editStaff?.regNo}
+                    required
+                    onChange={e => setRegNo(e.target.value)}
+                    variant="standard" />
+                    
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Mobile"
+                    defaultValue={editStaff?.mobile}
+                    required
+                    onChange={e => setMobile(e.target.value)}
+                    variant="standard" />
+                 </div>
+         </div>
+        
+       <div>
+       <Select
+          sx={{ width: '40%', m: 1 , marginTop:'20px !important'}}
+          
+          id="outlined-size-small"
+          value={category}
+          onChange={handleCategoryChange}
+          required
+          label="Category"
+        >
+         
+          <MenuItem value={'poor'}>Poor</MenuItem>
+          <MenuItem value={'maritorious'}>Maritorious</MenuItem>
+          <MenuItem value={'general'}>General</MenuItem>
+        </Select>
+         <TextField
 
-                        </form>
-        </Box>
+          sx={{ width: '40%',  marginTop:'10px !important' , padding:'10px !important'}}
+          id="outlined-size-small"
+          required
+          select
+          label="Which Course"
+         
+          value={course}
+          onChange={handleCourseChange}
+        >
+          {courses?.map((option) => (
+            <MenuItem key={option?.coursename} value={option?.coursename}>
+              Course .{option?.coursename}
+            </MenuItem>
+          ))}
+        </TextField>
+       </div>
+       
+        
+                
+                
+               
+                
+               
+                <Button variant="contained" type="submit" style={{ backgroundColor: 'green' , marginTop:'20px' }}>
+                   Update Student
+                </Button>
+            </form>
+            </Box>
+        </Fade>
       </Modal>
-            </div> */}
+            </div>
             </div>
         </div>
     );

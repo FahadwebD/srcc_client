@@ -3,7 +3,7 @@ import { Backdrop, Box, Button, Fade, Input,  MenuItem, Modal, Select, TextField
 import useCourses from '../../../hooks/useCourses';
 import { DatePicker } from '@material-ui/pickers';
 import { YearRangePicker } from 'react-year-range-picker'
-
+import moment from 'moment';
 
 
 
@@ -36,8 +36,8 @@ const AddStudent = () => {
     const [mobile, setMobile] = useState('');
     const [image, setImage] = useState(null);
     const [img, setImg] = useState();
-    const [sessionStart, setSessionStart] = React.useState(new Date());
-    const [sessionEnd, setSessionEnd] = React.useState(new Date());
+    const [sessionStarted, setSessionStarted] = React.useState(new Date());
+    const [sessionEnded, setSessionEnded] = React.useState(new Date());
     const [success, setSuccess] = useState(false);
     const [open, setOpen] = React.useState(false);
     
@@ -63,7 +63,8 @@ const AddStudent = () => {
       const handleCategoryChange = (event) => {
         setCategory(event.target.value);
       };
-
+      const sessionStart = moment(sessionStarted).format('YYYY');
+      const sessionEnd =moment(sessionEnded).format('YYYY');
     const handleSubmit = e => {
      
         e.preventDefault();
@@ -81,11 +82,9 @@ const AddStudent = () => {
         formData.append('mobile', mobile);
         formData.append('image', image);
         console.log(formData)
-        fetch('http://localhost:5000/student', {
+        fetch('https://peaceful-spire-22388.herokuapp.com/student', {
             method: 'POST',
-            headers: {
-              authorization: `Bearer ${localStorage.getItem('accessToken')}`
-          },
+           
             body: formData
         })
             .then(res => res.json())
@@ -149,9 +148,9 @@ const AddStudent = () => {
                 style={{margin:'10px'}}
           views={['year']}
           label="Session Start"
-          value={sessionStart}
+          value={sessionStarted}
           onChange={(newValue) => {
-            setSessionStart(newValue);
+            setSessionStarted(newValue);
           }}
           renderInput={(params) => <TextField {...params} helperText={null} />}
         />
@@ -162,9 +161,9 @@ const AddStudent = () => {
                 style={{margin:'10px'}}
           views={['year']}
           label="Session end"
-          value={sessionEnd}
+          value={sessionEnded}
           onChange={(newValue) => {
-            setSessionEnd(newValue);
+            setSessionEnded(newValue);
           }}
           renderInput={(params) => <TextField {...params} helperText={null} />}
         />

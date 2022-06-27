@@ -68,10 +68,10 @@ const WelcomeMassage = () => {
         }
        console.log(updateMassage)
    
-       fetch('http://localhost:5000/welcome/edit', {
+       fetch('https://peaceful-spire-22388.herokuapp.com/welcome/edit', {
            method: 'PUT',
            headers: {
-               
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                'content-type': 'application/json'
            },
            body: JSON.stringify(updateMassage)
