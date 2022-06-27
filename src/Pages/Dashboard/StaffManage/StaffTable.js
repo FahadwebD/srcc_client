@@ -103,7 +103,7 @@ const CustomTablePagination = styled(TablePaginationUnstyled)(
 
 
 
-export default function StaffTable({staffs , setStaffs}) {
+export default function StaffTable({staffs , setStaffs,handleStaffEdit}) {
     
 
 
@@ -145,6 +145,9 @@ export default function StaffTable({staffs , setStaffs}) {
           }
         })
       }
+
+
+
     return (
         <div >
             
@@ -178,8 +181,8 @@ export default function StaffTable({staffs , setStaffs}) {
                 {row.mobile}
               </td>
               <td style={{ width: 120 }} align="right">
-                  <Button onClick={()=>handleStaffDelete(row._id)}>Delete</Button>
-                  <Button>Edit</Button>
+                  <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStaffDelete(row._id)}>Delete</Button>
+                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStaffEdit(row._id)}>Edit</Button>
               </td>
               
               

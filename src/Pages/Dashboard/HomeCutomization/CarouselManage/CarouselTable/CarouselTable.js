@@ -1,8 +1,6 @@
 import { Button, Input } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useCarousel from '../../../../../hooks/useCarousel';
-import AddCarouselData from '../AddCarouselData/AddCarouselData';
-import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';

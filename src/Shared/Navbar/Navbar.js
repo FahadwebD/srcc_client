@@ -132,12 +132,16 @@ export default function Navbar() {
                   <Typography textAlign="center">About Us</Typography>
                 </MenuItem>
                 </Link>
+                <Link style={{textDecoration:'none'}} to="/staff">
+                <MenuItem  >
+                  <Typography textAlign="center">Staff</Typography>
+                </MenuItem>
+                </Link>
+                <Link style={{textDecoration:'none'}} to="/gallary">
                 <MenuItem  >
                   <Typography textAlign="center">About Us</Typography>
                 </MenuItem>
-                <MenuItem  >
-                  <Typography textAlign="center">About Us</Typography>
-                </MenuItem>
+                </Link>
                 <MenuItem  >
                   <Typography textAlign="center">About Us</Typography>
                 </MenuItem>
@@ -166,7 +170,7 @@ export default function Navbar() {
             SRCNC
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <Link to="/about">
+          <Link style={{textDecoration:'none'}} to="/about">
               <Button
 
                 
@@ -177,7 +181,7 @@ export default function Navbar() {
                 About Us
               </Button>
               </Link>
-              <Link to="/staff">
+              <Link style={{textDecoration:'none'}} to="/staff">
               <Button
               
               onClick={handleCloseNavMenu}
@@ -187,7 +191,7 @@ export default function Navbar() {
               Staff
             </Button>
             </Link>
-            <Link to="/gallary">
+            <Link style={{textDecoration:'none'}} to="/gallary">
 
             <Button
               

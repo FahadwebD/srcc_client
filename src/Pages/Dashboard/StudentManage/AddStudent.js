@@ -83,6 +83,9 @@ const AddStudent = () => {
         console.log(formData)
         fetch('http://localhost:5000/student', {
             method: 'POST',
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          },
             body: formData
         })
             .then(res => res.json())

@@ -6,6 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 
 
@@ -26,7 +27,7 @@ const ViceCMassage = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button style={{backgroundColor:'red' ,position:'relative', right:'0',bottom:'0'}} variant="contained" size="small">Read More</Button>
+        <Link style={{textDecoration:'none'}} to='chairman'><Button style={{backgroundColor:'red' ,position:'relative', right:'0',bottom:'0'}} variant="contained" size="small">Read More</Button></Link>   
       </CardActions>
     </Card>
 

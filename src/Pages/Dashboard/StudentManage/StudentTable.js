@@ -1,10 +1,8 @@
 import { Button } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-
-import CircularProgress from '@mui/material/CircularProgress';
+import React from 'react';
 import { styled } from '@mui/system';
 import TablePaginationUnstyled from '@mui/base/TablePaginationUnstyled';
-import useStaff from '../../../hooks/useStaff';
+
 
 const blue = {
   200: '#A5D8FF',
@@ -152,10 +150,13 @@ export default function StudentTable({staffs , setStaffs}) {
       <table aria-label="custom pagination table">
         <thead>
           <tr>
-            <th>Profile</th>
+            <th>Image</th>
             <th>Name</th>
-            <th>Designation</th>
-            <th>Mobile</th>
+            <th>Roll</th>
+            <th>Registration</th>
+            <th>Category</th>
+            <th>Course</th>
+            <th>Session</th>
             <th>Action</th>
 
             
@@ -172,14 +173,23 @@ export default function StudentTable({staffs , setStaffs}) {
                 src={`data:image/png;base64,${row.image}`} alt="" />}</td>
               <td>{row.name}</td>
               <td style={{ width: 120 }} align="right">
-                {row.designation}
+                {row.roll}
+              </td>
+              <td style={{ width: 120 }} align="right">
+                {row.regNo}
+              </td>
+              <td style={{ width: 120 }} align="right">
+                {row.category}
+              </td>
+              <td style={{ width: 120 }} align="right">
+                {row.course}
               </td>
               <td style={{ width: 120 }} align="right">
                 {row.mobile}
               </td>
               <td style={{ width: 120 }} align="right">
-                  <Button onClick={()=>handleStudentDelete(row._id)}>Delete</Button>
-                  <Button>Edit</Button>
+                  <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStudentDelete(row._id)}>Delete</Button>
+                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small">Edit</Button>
               </td>
               
               
@@ -188,7 +198,7 @@ export default function StudentTable({staffs , setStaffs}) {
 
           {emptyRows > 0 && (
             <tr style={{ height: 41 * emptyRows }}>
-              <td colSpan={3} />
+              <td colSpan={6} />
             </tr>
           )}
         </tbody>
@@ -196,7 +206,7 @@ export default function StudentTable({staffs , setStaffs}) {
           <tr>
             <CustomTablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={4}
+              colSpan={8}
               count={staffs?.length}
               rowsPerPage={rowsPerPage}
               page={page}
