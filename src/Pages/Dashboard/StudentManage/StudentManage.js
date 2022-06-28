@@ -113,9 +113,9 @@ const found = staffs.find(obj => {
        console.log(updateStaff)
    
        fetch('https://peaceful-spire-22388.herokuapp.com/student/edit', {
-           method: 'PUT',
+           method: 'PATCH',
            headers: {
-               authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+              //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                'content-type': 'application/json'
            },
            body: JSON.stringify(updateStaff)
@@ -183,7 +183,7 @@ const found = staffs.find(obj => {
                     label="Name"
                     required
                     defaultValue={editStaff?.name}
-                    value={editStaff?.name}
+                    
                     onChange={(newValue) => {
                       handleNameChange(newValue);
                     }}
@@ -195,7 +195,7 @@ const found = staffs.find(obj => {
                     label="Admission Roll"
                     defaultValue={editStaff?.roll}
                     required
-                    value={editStaff?.roll}
+                    
                     onChange={(newValue) => {
                       handleRollChange(newValue);
                     }}
@@ -210,7 +210,7 @@ const found = staffs.find(obj => {
           views={['year']}
           label="Session Start"
           
-          value={editStaff?.sessionStart}
+          
           onChange={(newValue) => {
             setSessionStarted(newValue);
           }}
@@ -224,7 +224,7 @@ const found = staffs.find(obj => {
           views={['year']}
           label="Session end"
           
-          value={editStaff?.sessionEnd}
+        
           onChange={(newValue) => {
             setSessionEnded(newValue);
           }}
@@ -237,7 +237,7 @@ const found = staffs.find(obj => {
                     label="Registarion No"
                     defaultValue={editStaff?.regNo}
                     required
-                    value={editStaff?.regNo}
+                 
                     onChange={(newValue) => {
                       handleRegNoChange(newValue);
                     }}
@@ -248,7 +248,7 @@ const found = staffs.find(obj => {
                     label="Mobile"
                     defaultValue={editStaff?.mobile}
                     required
-                    value={editStaff?.mobile}
+                  
           onChange={(newValue) => {
             handleMobileChange(newValue);
           }}
@@ -262,11 +262,11 @@ const found = staffs.find(obj => {
           sx={{ width: '40%', m: 1 , marginTop:'20px !important'}}
           
           id="outlined-size-small"
-          value={editStaff?.category}
+        
+          value={category}
           onChange={(newValue) => {
             handleCategoryChange(newValue);
           }}
-        
           required
           label="Category"
         >
@@ -282,10 +282,10 @@ const found = staffs.find(obj => {
           required
           select
           label="Which Course"
-          value={editStaff?.course}
-                            onChange={(newValue) => {
-                              handleCourseChange(newValue);
-                            }}
+          value={course}
+          onChange={(newValue) => {
+            handleCourseChange(newValue);
+          }}          
           
         >
           {courses?.map((option) => (

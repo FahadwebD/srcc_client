@@ -153,12 +153,9 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Name"
                             style={{ width: '100%' }}
-                            value={editStaff?.name}
-                            onChange={(newValue) => {
-                              handleNameChange(newValue);
-                            }}
-                            defaultValue={editStaff?.name}
                             
+                            defaultValue={editStaff?.name}
+                            onChange={handleNameChange}
                           
                             
                         />
@@ -168,11 +165,9 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Designation"
                             style={{ width: '100%' }}
-                            value={editStaff?.designation}
-                            onChange={(newValue) => {
-                              handleCatogoryChange(newValue);
-                            }}
-                           
+                            
+                            defaultValue={editStaff?.designation}
+                            onChange={handleCatogoryChange}
                           
                             
                         />
@@ -182,12 +177,9 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Category"
                             style={{ width: '100%' }}
-                            value={editStaff?.categoryStaff}
-                            onChange={(newValue) => {
-                              handleDesignationChange(newValue);
-                            }}
-                            defaultValue={editStaff?.categoryStaff}
                             
+                            defaultValue={editStaff?.categoryStaff}
+                            onChange={handleDesignationChange}
                           
                             
                         />
@@ -197,12 +189,9 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Name"
                             style={{ width: '100%' }}
-                            value={editStaff?.mobile}
-                            onChange={(newValue) => {
-                              handleMobileChange(newValue);
-                            }}
-                            defaultValue={editStaff?.mobile}
                             
+                            defaultValue={editStaff?.mobile}
+                            onChange={handleMobileChange}
                           
                             
                         />

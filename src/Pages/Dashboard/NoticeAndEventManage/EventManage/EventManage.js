@@ -151,11 +151,9 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Name"
                             style={{ width: '100%' }}
-                            value={editStaff?.headline}
-                            onChange={(newValue) => {
-                              handleNameChange(newValue);
-                            }}
-                           
+                            
+                            defaultValue={editStaff?.headline}
+                            onChange={handleNameChange}
                           
                             
                         />
@@ -165,11 +163,9 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Designation"
                             style={{ width: '100%' }}
-                            value={editStaff?.date}
-                            onChange={(newValue) => {
-                              handleCatogoryChange(newValue);
-                            }}
                             
+                            defaultValue={editStaff?.date}
+                            onChange={handleCatogoryChange}
                           
                             
                         />
@@ -178,11 +174,9 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Category"
                             style={{ width: '100%' }}
-                            value={editStaff?.description}
-                            onChange={(newValue) => {
-                              handleDesignationChange(newValue);
-                            }}
-                         
+                            
+                            defaultValue={editStaff?.description}
+                            onChange={handleDesignationChange}
                           
                             
                         />
