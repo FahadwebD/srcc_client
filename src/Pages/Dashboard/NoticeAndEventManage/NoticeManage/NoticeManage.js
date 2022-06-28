@@ -81,7 +81,7 @@ const found = staffs.find(obj => {
        console.log(updateStaff)
    
        fetch('https://peaceful-spire-22388.herokuapp.com/notice/edit', {
-           method: 'PUT',
+           method: 'PATCH',
           
            headers: {
               //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -150,9 +150,12 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Name"
                             style={{ width: '100%' }}
-                            
+                            value={editStaff?.headline}
+                            onChange={(newValue) => {
+                              handleNameChange(newValue);
+                            }}
                             defaultValue={editStaff?.headline}
-                            onChange={handleNameChange}
+                            
                           
                             
                         />
@@ -162,9 +165,11 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Designation"
                             style={{ width: '100%' }}
+                            value={editStaff?.date}
+                            onChange={(newValue) => {
+                              handleCatogoryChange(newValue);
+                            }}
                             
-                            defaultValue={editStaff?.date}
-                            onChange={handleCatogoryChange}
                           
                             
                         />
@@ -173,10 +178,11 @@ const found = staffs.find(obj => {
                             id="outlined-size-small"
                             name="Category"
                             style={{ width: '100%' }}
+                            value={editStaff?.notice}
+                            onChange={(newValue) => {
+                              handleDesignationChange(newValue);
+                            }}
                             
-                            defaultValue={editStaff?.notice}
-                            onChange={handleDesignationChange}
-                          
                             
                         />
                          

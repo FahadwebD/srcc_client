@@ -26,7 +26,7 @@ const NumbersCard = ({num}) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [titles, setTitles] = React.useState();
-    const [number, setNumber] = React.useState();
+    const [numbers, setNumber] = React.useState();
 
     const handleTitleChange = (event) => {
         setTitles(event.target.value);
@@ -42,7 +42,7 @@ const NumbersCard = ({num}) => {
       
         const updateNumber = {
             titles,
-            number,
+            numbers,
             _id
             
         }
@@ -73,7 +73,7 @@ const NumbersCard = ({num}) => {
         <div >
           <div style={{display:'flex' , justifyContent:'space-around', alignItems:'center'}}>
           <h1>{num.title} </h1>
-            <h3>{num.number}</h3>
+            <h3>{num.numbers}</h3>
            <div>
            <Button style={{backgroundColor:'green' , color:'white'}} onClick={handleOpen}>Update</Button>
            </div>

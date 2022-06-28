@@ -29,6 +29,7 @@ import StudentManage from '../StudentManage/StudentManage';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import EventNoteIcon from '@mui/icons-material/EventNote';
+import CollectionsIcon from '@mui/icons-material/Collections';
 import Users from '../UserControl/Users';
 import { signOut } from 'firebase/auth';
 import auth from '../../../firebase.init';
@@ -36,6 +37,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Customization from '../FooterCustomization/Customization';
 import NoticeManage from '../NoticeAndEventManage/NoticeManage/NoticeManage';
 import EventManage from '../NoticeAndEventManage/EventManage/EventManage';
+import GallaryCollection from '../GallaryCollection/GallaryCollection';
 const drawerWidth = 250;
 
 
@@ -77,11 +79,8 @@ function Dashboard(props) {
    <Box>
                
             
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px'}}><HistoryEduIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to={'course'}><Button color="inherit">Write Blogs</Button></Link></div>
-           
-                
-                
-                </Box>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px'}}><CollectionsIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to={'gallary'}><Button color="inherit">Gallary Collection</Button></Link></div> 
+            </Box>
             
         
           {user ?  <div style={{display:'flex' , alignItems:'center' ,position: 'absolute',
@@ -194,7 +193,7 @@ function Dashboard(props) {
 
                <Route path="/users" element={<Users/>} />
                <Route path="/addCourse" element={<AddCourses />} />
-               <Route path="/course" element={<Courses/>} />
+               <Route path="/gallary" element={<GallaryCollection/>} />
                </Routes>
 
             </Box>

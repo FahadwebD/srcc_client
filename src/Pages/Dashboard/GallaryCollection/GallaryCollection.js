@@ -3,17 +3,18 @@ import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Button, TextField } from '@mui/material';
-import useNotice from '../../../../hooks/useNotice'
-
-import loading from '../../../../assets/images/Loading-Image-1-1.gif'
-
-import AddEvent from './AddEvent';
-import EventTable from './EventTable';
-import useEvent from '../../../../hooks/useEvent';
+import { Button, Input, TextField } from '@mui/material';
 
 
-const EventManage = () => {
+import loading from '../../../assets/images/Loading-Image-1-1.gif'
+import useGallary from '../../../hooks/useGallary';
+import AddCollection from './AddCollection';
+import CollectionTable from './CollectionTable';
+
+
+
+
+const GallaryCollection = () => {
 
   
 
@@ -30,12 +31,12 @@ const EventManage = () => {
       };
 
 
-    const [staffs , setStaffs] = useEvent([]);
+    const [staffs , setStaffs] = useGallary([]);
     const [editStaff ,setEditStaff] = useState()
     const [open, setOpen] = React.useState(false);
-    const [headline , setHeadline] = useState()
-    const [date , setDate] = useState()
-    const [description , setDescription] = useState()
+    const [title , setTitle] = useState()
+    
+   
     
 
 
@@ -48,14 +49,9 @@ const EventManage = () => {
 
 
     const handleNameChange = (event) => {
-      setHeadline(event.target.value);
+      setTitle(event.target.value);
       };
-      const handleCatogoryChange = (event) => {
-        setDate(event.target.value);
-      };
-      const handleDesignationChange = (event) => {
-        setDescription(event.target.value);
-      };
+    
      
 
 
@@ -71,24 +67,22 @@ const found = staffs.find(obj => {
     const handleStaffSubmit = e => {
         const _id = editStaff._id
        
-        const updateStaff = {
-            headline,
-            date,
-            description,
-            
-            _id
-            
-        }
-       console.log(updateStaff)
+        const updatePhoto = {
+          title,
+                      
+          _id
+          
+      }
+     console.log(updatePhoto)
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/event/edit', {
+       fetch('https://peaceful-spire-22388.herokuapp.com/gallary/edit', {
            method: 'PUT',
           
            headers: {
               //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                'content-type': 'application/json'
            },
-           body: JSON.stringify(updateStaff)
+           body: JSON.stringify(updatePhoto)
        })
            .then(res => res.json())
            .then(data => {
@@ -103,7 +97,7 @@ const found = staffs.find(obj => {
         e.preventDefault();
     }
     console.log(staffs)
-     
+
     return (
         <div style={{marginTop:'50px'}}>
             <div style={{display:'flex' , alignItems:'center' , justifyContent:"space-between"}}>
@@ -111,14 +105,14 @@ const found = staffs.find(obj => {
                      <h1>ALL EVENTS</h1>
                 </div>
                 <div>
-                <AddEvent></AddEvent>
+                <AddCollection></AddCollection>
                 </div>
             </div>
           {staffs.length?<div>
             
-            <EventTable staffs={staffs}
+            <CollectionTable staffs={staffs}
              setStaffs={setStaffs}
-             handleStaffEdit={handleStaffEdit}></EventTable>
+             handleStaffEdit={handleStaffEdit}></CollectionTable>
             </div>:<div>
                 <img src={loading} alt="" srcset="" />
             </div>}  
@@ -132,60 +126,34 @@ const found = staffs.find(obj => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-           Update Carousel
+           Update Photo
           </Typography>
           <form onSubmit={handleStaffSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
           <div >
           <div>
                 <img
-                style={{ width: '100%', height: '120px' }}
+                style={{ width: '130px', height: '120px' }}
                 src={`data:image/png;base64,${editStaff?.image}`} alt="" />
                 
                   
                 </div>
                          <div>
+                         
                          <TextField
                             required
                            
                             id="outlined-size-small"
                             name="Name"
-                            style={{ width: '100%' }}
-                            value={editStaff?.headline}
-                            onChange={(newValue) => {
-                              handleNameChange(newValue);
-                            }}
-                           
+                            style={{ width: '80%' }}
+                            
+                            defaultValue={editStaff?.title}
+                            onChange={handleNameChange}
                           
                             
                         />
-                         <TextField
-                            required
-                           
-                            id="outlined-size-small"
-                            name="Designation"
-                            style={{ width: '100%' }}
-                            value={editStaff?.date}
-                            onChange={(newValue) => {
-                              handleCatogoryChange(newValue);
-                            }}
-                            
-                          
-                            
-                        />
-                         <TextField
-                            required
-                            id="outlined-size-small"
-                            name="Category"
-                            style={{ width: '100%' }}
-                            value={editStaff?.description}
-                            onChange={(newValue) => {
-                              handleDesignationChange(newValue);
-                            }}
+                      
                          
-                          
-                            
-                        />
                          
                          </div>
           </div>
@@ -193,7 +161,7 @@ const found = staffs.find(obj => {
                       
                       
                          
-                        <div style={{ textAlign:'right' , marginRight:'40px'}}><Button style={{backgroundColor:'#5CE7ED' }} type="submit" variant="contained">Send</Button></div>
+                        <div style={{ textAlign:'center' , marginRight:'70px'}}><Button style={{backgroundColor:'red' }} type="submit" variant="contained">Update</Button></div>
 
                         </form>
         </Box>
@@ -203,4 +171,4 @@ const found = staffs.find(obj => {
     );
 };
 
-export default EventManage;
+export default GallaryCollection;
