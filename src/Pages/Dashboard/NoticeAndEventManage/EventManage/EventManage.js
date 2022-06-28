@@ -81,7 +81,7 @@ const found = staffs.find(obj => {
         }
        console.log(updateStaff)
    
-       fetch('http://localhost:5000/event/edit', {
+       fetch('https://peaceful-spire-22388.herokuapp.com/event/edit', {
            method: 'PUT',
           
            headers: {

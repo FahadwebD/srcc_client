@@ -56,7 +56,7 @@ const AddNotice = () => {
         formData.append('notice', notice);
         formData.append('image', image);
         console.log(formData)
-        fetch('http://localhost:5000/notice', {
+        fetch('https://peaceful-spire-22388.herokuapp.com/notice', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

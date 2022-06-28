@@ -10,7 +10,7 @@ const useEvent=()=>{
     const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/event')
+        fetch('https://peaceful-spire-22388.herokuapp.com/event')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
 

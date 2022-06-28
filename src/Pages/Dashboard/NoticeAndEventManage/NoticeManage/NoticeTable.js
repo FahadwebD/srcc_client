@@ -129,7 +129,7 @@ export default function NoticeTable({staffs , setStaffs,handleStaffEdit}) {
 
     const handleStaffDelete = (_id) =>{
      
-        const url=`http://localhost:5000/notice/${_id}`
+        const url=`https://peaceful-spire-22388.herokuapp.com/notice/${_id}`
         fetch(url, {
           method:'DELETE',
           headers: {

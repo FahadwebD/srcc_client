@@ -15,7 +15,7 @@ const FooterManage = () => {
 
   React.useEffect(() =>{
 
-    fetch('http://localhost:5000/footerInfo')
+    fetch('https://peaceful-spire-22388.herokuapp.com/footerInfo')
     .then(res=>res.json())
     .then(data=>setFootInfo(data))
   }, []);
@@ -75,7 +75,7 @@ const found = footInfo.find(obj => {
   }
  console.log(updateStaff)
 
- fetch('http://localhost:5000/footerInfo/edit', {
+ fetch('https://peaceful-spire-22388.herokuapp.com/footerInfo/edit', {
      method: 'PUT',
     
      headers: {

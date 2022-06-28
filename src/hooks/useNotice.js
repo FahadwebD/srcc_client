@@ -10,7 +10,7 @@ const useNotice =()=>{
     const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/notice')
+        fetch('https://peaceful-spire-22388.herokuapp.com/notice')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
 

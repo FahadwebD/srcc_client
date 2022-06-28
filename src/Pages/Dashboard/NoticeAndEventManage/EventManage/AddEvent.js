@@ -57,7 +57,7 @@ const AddEvent = () => {
 
         formData.append('image', image);
         console.log(formData)
-        fetch('http://localhost:5000/event', {
+        fetch('https://peaceful-spire-22388.herokuapp.com/event', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

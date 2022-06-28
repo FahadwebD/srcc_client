@@ -129,7 +129,7 @@ export default function EventTable({staffs , setStaffs,handleStaffEdit}) {
 
     const handleStaffDelete = (_id) =>{
      
-        const url=`http://localhost:5000/event/${_id}`
+        const url=`https://peaceful-spire-22388.herokuapp.com/event/${_id}`
         fetch(url, {
           method:'DELETE',
           headers: {
