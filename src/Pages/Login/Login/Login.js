@@ -5,7 +5,9 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import useToken from '../../../hooks/useToken';
-
+import back from '../../../assets/images/imgonline-com-ua-ReplaceColor-AzIzFjxzuK7sB33A.png'
+import man from '../../../assets/images/imageedit_48_5998438873.png'
+import './loginStyle.css'
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -42,21 +44,41 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password);
     }
 
-    return (
-        <div className='flex h-screen justify-center items-center'>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
 
-                        <div className="form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input
+
+
+
+
+
+
+    return (
+
+
+       <div>
+       <img className="wave" src={back} alt=""/>
+	<div className="container">
+		<div className="img">
+			<img src={man} alt=""/>
+		</div>
+		<div className="login-content">
+			
+            
+            
+            
+            <form onSubmit={handleSubmit(onSubmit)}>
+				<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Bangladesh_Red_Crescent_Society_Logo.png" alt='logo'/>
+				<h2 className="title">Admin</h2>
+           		<div className="input-div one">
+           		   <div className="i">
+           		   		<i className="fas fa-user"></i>
+           		   </div>
+           		   <div className="div">
+           		   		<h5>Email</h5>
+           		   	
+                      <input
                                 type="email"
-                                placeholder="Your Email"
-                                className="input input-bordered w-full max-w-xs"
+                               
+                                className="form-field animation a3 input"
                                 {...register("email", {
                                     required: {
                                         value: true,
@@ -68,48 +90,65 @@ const Login = () => {
                                     }
                                 })}
                             />
-                            <label className="label">
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                            </label>
-                        </div>
-                        <div className="form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                className="input input-bordered w-full max-w-xs"
-                                {...register("password", {
-                                    required: {
-                                        value: true,
-                                        message: 'Password is Required'
-                                    },
-                                    minLength: {
-                                        value: 6,
-                                        message: 'Must be 6 characters or longer'
-                                    }
-                                })}
-                            />
-                            <label className="label">
+
+                    <label className="label">
+                         {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                         {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                     </label>
+                        
+
+
+           		   </div>
+           		</div>
+           		<div className="input-div pass">
+           		   <div className="i"> 
+           		    	<i className="fas fa-lock"></i>
+           		   </div>
+           		   <div className="div">
+           		    	<h5>Password</h5>
+                                                    <input
+                            
+                                                        type="password"
+                                                   
+                                                        className="form-field animation a4 input"
+                                                        {...register("password", {
+                                                            required: {
+                                                                value: true,
+                                                                message: 'Password is Required'
+                                                            },
+                                                            minLength: {
+                                                                value: 6,
+                                                                message: 'Must be 6 characters or longer'
+                                                            }
+                                                        })}
+                                                    />
+                                                     <label className="label">
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
-                        </div>
-
-                        {signInError}
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
-                    </form>
-                    <p><small>New to Doctors Portal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
-                    <div className="divider">OR</div>
-                    <button
+            	   </div>
+            	</div>
+            	<a href="#">Forgot Password?</a>
+                {signInError}
+            	<input type="submit" className="btn" value="Login"/>
+                <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
+                        className="btn"
                     >Continue with Google</button>
-                </div>
-            </div>
-        </div >
+            </form>
+
+
+                 
+
+
+
+
+
+
+        </div>
+    </div>
+       </div>
+ 
     );
 };
 

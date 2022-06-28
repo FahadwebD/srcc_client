@@ -1,10 +1,18 @@
 import React from 'react';
 import g from '../../assets/images/head.png'
+
+import './G.css'
 const GallaryHeader = () => {
     return (
-        <div>
+        <div className='h'>
       
-            <img src={g} alt="" srcset="" style={{width:'100%' , height:'300px'}} />
+      <div className="overlay">
+<h1>Our Gallary</h1>
+<h3>Memorable Moments</h3>
+
+	<br/>
+	<button>READ MORE</button>
+		</div>
        
         </div>
     );

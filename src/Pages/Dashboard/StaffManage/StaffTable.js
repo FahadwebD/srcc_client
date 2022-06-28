@@ -174,7 +174,7 @@ export default function StaffTable({staffs , setStaffs,handleStaffEdit}) {
           )?.map((row) => (
             <tr key={row.name}>
               <td>{<img
-                style={{ width: '40%', height: '80px' }}
+                style={{ height: '80px' }}
                 src={`data:image/png;base64,${row.image}`} alt="" />}</td>
               <td>{row.name}</td>
               <td style={{ width: 120 }} align="right">

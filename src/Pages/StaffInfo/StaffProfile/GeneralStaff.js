@@ -2,11 +2,16 @@ import React from 'react';
 
 const GeneralStaff = () => {
     return (
-        <div
-        style={{backgroundColor:'red' , height:'50vh', display:'flex' , justifyContent:'center' , alignItems:'center' , flexDirection:'column'}}>
-            <h1 style={{margin:'0' , color:'white'}}>Meet The Staff</h1>
-            <h1 style={{margin:'0', color:'white'}}>Our Professionals</h1>
-        </div>
+       <div>
+         <section class="hero">
+  <div class="content">
+    <h2>Meet Our Staffs</h2>
+    <h2>Our Professionals</h2>
+   
+    </div>
+  <div class="waves"></div>
+</section>
+       </div>
     );
 };
 

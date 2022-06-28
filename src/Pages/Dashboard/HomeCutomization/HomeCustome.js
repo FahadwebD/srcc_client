@@ -22,15 +22,21 @@ const HomeCustome = () => {
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={7}>
+          <h3>Banner Management</h3>
           <Item><CarouselManage></CarouselManage></Item>
         </Grid>
         <Grid item xs={12} md={5}>
+          <h3>Numbers Management</h3>
           <Item><CollegeNumber></CollegeNumber></Item>
         </Grid>
-        <Grid item xs={6} md={8}>
+        <Grid item xs={12} md={7}>
+          <h3>Welcome Massage and Video Manage</h3>
           <Item><WelcomeMassage></WelcomeMassage></Item>
         </Grid>
-       
+        <Grid item xs={12} md={5}>
+          <h3>Footer Manage</h3>
+          <Item><FooterManage></FooterManage></Item>
+        </Grid>
       </Grid>
     </Box>
         </div>
