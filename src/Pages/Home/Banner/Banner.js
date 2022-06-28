@@ -23,7 +23,6 @@ const Banner = ({
     showNavBtn = true,
   }) => {
 
-    console.log(data)
    //Initialize States
    const [slide, setSlide] = useState(0);
    const [isPaused, setIsPaused] = useState(false);

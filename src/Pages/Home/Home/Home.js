@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '../../../Shared/Footer/Footer';
+import LogosHeader from '../../../Shared/LogosHeades/LogosHeader';
 import Navbar from '../../../Shared/Navbar/Navbar';
 import CarouselData from '../CaourselData/CarouselData';
 
@@ -15,6 +16,7 @@ import Welcome from '../Welcome/Welcome';
 const Home = () => {
     return (
         <div>
+            
             <Navbar></Navbar>
       <CarouselData></CarouselData>
       <Thicker></Thicker>

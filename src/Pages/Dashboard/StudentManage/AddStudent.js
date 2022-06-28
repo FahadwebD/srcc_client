@@ -84,7 +84,9 @@ const AddStudent = () => {
         console.log(formData)
         fetch('https://peaceful-spire-22388.herokuapp.com/student', {
             method: 'POST',
-           
+            headers: {
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          },
             body: formData
         })
             .then(res => res.json())

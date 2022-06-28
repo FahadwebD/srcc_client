@@ -12,7 +12,7 @@ const useCarousel =()=>{
     useEffect(()=>{
         fetch('https://peaceful-spire-22388.herokuapp.com/banner')
         .then(res=>res.json())
-        .then(data=>setCarousel(data))
+        .then(data=>setCarousel(data.reverse()))
 
     },[])
 

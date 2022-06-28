@@ -19,14 +19,10 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
 
-const Event = () => {
-    const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+const Event = ({ev}) => {
+ 
     return (
-        <div style={{display:'flex'}}>
+        
       <div>
       <Card style={{margin:'10px'}} sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -36,18 +32,19 @@ const Event = () => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Vice Chairman Md. Nur-Ur Rahman visiting Sylhet Red Crescent"
-        subheader="September 14, 2016"
+        title={ev.headline}
+        subheader={ev.date}
       />
       <CardMedia
         component="img"
         height="194"
-        image="https://scontent.fzyl1-1.fna.fbcdn.net/v/t39.30808-6/285546591_4959211087511296_389308980695403123_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=rDPyxbk0ROYAX_X_1pJ&_nc_ht=scontent.fzyl1-1.fna&oh=00_AT-HSiIFEphEePcc616FKjpqPQLR6728jcQohYpBRaEBKg&oe=62A94D1F"
+        width="100%"
+        image={`data:image/png;base64,${ev.image}`} 
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-        Bangladesh Red Crescent Societies honourable Vice Chairman Md. Nur-Ur Rahman visiting Sylhet Red Crescent Nursing College
+       {ev.headline}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -62,42 +59,7 @@ const Event = () => {
    
     </Card>
       </div>
-    <div>
-    <Card style={{margin:'10px'}} sx={{ maxWidth: 345 }}>
-      <CardHeader
        
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Vice Chairman Md. Nur-Ur Rahman visiting Sylhet Red Crescent"
-        subheader="September 14, 2016"
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image="https://scontent.fzyl1-1.fna.fbcdn.net/v/t39.30808-6/285546591_4959211087511296_389308980695403123_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=rDPyxbk0ROYAX_X_1pJ&_nc_ht=scontent.fzyl1-1.fna&oh=00_AT-HSiIFEphEePcc616FKjpqPQLR6728jcQohYpBRaEBKg&oe=62A94D1F"
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-        Bangladesh Red Crescent Societies honourable Vice Chairman Md. Nur-Ur Rahman visiting Sylhet Red Crescent Nursing College
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-       
-      </CardActions>
-   
-    </Card>
-    </div>
-        </div>
     );
 };
 

@@ -24,7 +24,7 @@ margin-right: 2px;
 @media only screen  and (max-width:688px){
     .gridStaff{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-gap: 10px;
     }
 
@@ -32,7 +32,7 @@ margin-right: 2px;
 @media only screen  and (min-width:689px) and (max-width:990px){
     .gridStaff{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-gap: 10px;
     }
   

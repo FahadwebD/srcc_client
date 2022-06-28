@@ -34,7 +34,7 @@ $duration: 30s;
   overflow: hidden;
   height: 4rem;
   background-color: rgba(#000, 0.9); 
-  padding-left: 100%;
+ 
   box-sizing: content-box;
 
   .ticker {
@@ -43,7 +43,7 @@ $duration: 30s;
     height: 4rem;
     line-height: 4rem;  
     white-space: nowrap;
-    padding-right: 100%;
+   
     box-sizing: content-box;
 
     -webkit-animation-iteration-count: infinite; 
@@ -59,7 +59,7 @@ $duration: 30s;
 
       display: inline-block;
 
-      padding: 0 2rem;
+      
       font-size: 2rem;
       color: white;   
 

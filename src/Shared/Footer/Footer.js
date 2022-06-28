@@ -7,11 +7,31 @@ import backg from '../../assets/images/footer.png';
 import footerl from '../../assets/images/footerlogo.png'
 import EditLocationIcon from '@mui/icons-material/EditLocation';
 import './Footer.css'
+import { Link } from 'react-router-dom';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import MailIcon from '@mui/icons-material/Mail';
+import FacebookIcon from '@mui/icons-material/Facebook';
+
 
 
 
 
 const Footer = () => {
+
+
+const [footInfo , setFootInfo] = React.useState('')
+
+
+  React.useEffect(() =>{
+
+    fetch('http://localhost:5000/footerInfo')
+    .then(res=>res.json())
+    .then(data=>setFootInfo(data))
+  }, []);
+
+  
+
     return (
         <div style={{  
        marginTop:'70px', 
@@ -24,64 +44,65 @@ const Footer = () => {
        
        backgroundImage: `linear-gradient(0deg, rgba(250, 0, 0, 0.79),  rgba(250, 0, 0, 0.79)), url(${backg})`}}>
 
-              <Box  sx={{ flexGrow: 1 }}>
-      <Grid style={{padding:'40px'}} container spacing={2}>
-        <Grid item xs={12} md={3}>
-          
-       < div className="footer-col">
-          <h4>company</h4>
-          <hr style={{width:'10%'}} />
-          <ul>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">our services</a></li>
-            <li><a href="#">privacy policy</a></li>
-            <li><a href="#">affiliate program</a></li>
-          </ul>
-        </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-        < div className="footer-col">
-          <h4>company</h4>
-          <hr style={{width:'10%'}} />
-          <ul>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">our services</a></li>
-            <li><a href="#">privacy policy</a></li>
-            <li><a href="#">affiliate program</a></li>
-          </ul>
-        </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-        < div className="footer-col">
-          <h4>company</h4>
-          <hr style={{width:'10%'}} />
-          <ul>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">our services</a></li>
-            <li><a href="#">privacy policy</a></li>
-            <li><a href="#">affiliate program</a></li>
-          </ul>
-        </div>
-        </Grid>
-        <Grid item xs={12} md={3}>
-        <div className="footer-col">
-          <div style={{textAlign:'start'}}>
-            <img src={footerl} style={{width:"200px" , height:'80px'}} alt="" />
-            <p style={{ marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center', textAlign:'left' }}>  <EditLocationIcon></EditLocationIcon>Lorem, ipsum dolor sit amet .</p>
-          </div >
-          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}>Email: sylhet@bdrcs.org</p>
-          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'center' }}> Phone No: 0821-716568</p>
-          <p style={{marginLeft:'10px' , color:"white" , fontWeight:'bold' , marginBottom:"0" , display:'flex' , alignItems:'left' , textAlign:'left' }}>Address: Sylhet Red Crescent Unit, Topakhana (Sarda Holl Shonglogno), Sylhet</p>
-        
-          
+<footer class="footer-distributed">
 
-         
-        </div>
-        </Grid>
-      </Grid>
-    </Box>
+<div class="footer-left">
+  <img src={footerl} style={{    width: '380px',height: '100px',marginLeft: '-20px'}} alt="" />
+  <p class="footer-links">
+    <Link to='/'  class="link-1">Home</Link>
+  
+    <Link to='/about' >About Us</Link>
+    
+    <a href="#">Gallary</a>
+    
+    <a href="#">Contact</a>
+  </p>
+
+  <p class="footer-company-name">Company Name © 2015</p>
+</div>
+
+<div class="footer-center">
+
+  <div>
+    <i class="fa fa-map-marker"><LocationOnIcon/></i>
+    <p>{footInfo[0]?.info}</p>
+  </div>
+
+  <div>
+    <i class="fa fa-phone"><LocalPhoneIcon/></i>
+    <p>{footInfo[1]?.info}</p>
+  </div>
+
+  <div >
+    <i class="fa fa-envelope"><MailIcon/></i>
+    <p><a href={`mailto:${footInfo[2]?.info}`}>{footInfo[2]?.info}</a></p>
+  </div>
+
+</div>
+
+<div class="footer-right">
+
+  <p class="footer-company-about">
+    <span>Useful Links</span>
+    Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+  </p>
+
+ 
+
+    <a href="#"><i class="fa fa-facebook"></i>BDRC</a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-github"></i></a>
+
+
+
+</div>
+
+</footer>
         </div>
     );
 };
 
 export default Footer;
+
+//<img src={footerl} style={{width:"300px" , height:'80px'}} alt="" />

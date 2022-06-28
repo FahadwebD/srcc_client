@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/system';
 import RankedProffesorProfile from './RankedProffesorProfile';
+import useStaff from '../../../hooks/useStaff';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -18,19 +19,27 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const RankedProffesors = () => {
-
+const [staffs] = useStaff()
     return (
         <div>
              <Container style={{marginTop:'20px'}}>
-             <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {Array.from(Array(3)).map((_, index) => (
-          <Grid item xs={12} sm={4} md={4} key={index}>
-            <RankedProffesorProfile></RankedProffesorProfile>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+             
+    
+    
+     <div className='gridStaff'>
+
+     
+        {staffs?.slice(1, 4).map(staff=> <RankedProffesorProfile
+        key={staff._id}
+        staff={staff}></RankedProffesorProfile>)
+         
+            
+          
+        }
+        </div>
+      
+      
+    
              </Container>
         </div>
     );
