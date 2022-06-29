@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Button, TextField } from '@mui/material';
+import { Button, InputLabel, TextField } from '@mui/material';
 
 
 import AddNotice from './AddNotice'
@@ -45,19 +45,33 @@ const NoticeManage = () => {
 
 
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
-
+    const handleClose = () => {
+      setForm({})
+      setOpen(false)};
 
 
    
 
+  
+
+   
+
+
+const callUse= () =>{
+
+
+    fetch('https://peaceful-spire-22388.herokuapp.com/notice')
+    .then(res=>res.json())
+    .then(data=>setNotices(data.reverse()))
+
+
+}
 
  const handleEdit = (_id) =>{
   
 
     
-  fetch(`http://localhost:5000/notice/${_id}`)
+  fetch(`https://peaceful-spire-22388.herokuapp.com/notice/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -71,7 +85,7 @@ const NoticeManage = () => {
 
  }
 
-
+console.log(form?'yes':'no')
 
 function updateForm(value) {
   return setForm((prev) => {
@@ -87,7 +101,7 @@ function updateForm(value) {
         headline: form.headline,
         notice: form.notice,
       };
-       fetch(`http://localhost:5000/notice/edit/${id}`, {
+       fetch(`https://peaceful-spire-22388.herokuapp.com/notice/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -99,7 +113,9 @@ function updateForm(value) {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                  
+                   alert('Notice Edited')
+                   handleClose()
+                   callUse()
                    console.log('ok')
                }
            })
@@ -112,7 +128,27 @@ function updateForm(value) {
      
 
 
-   
+    const handleDelete = (_id) =>{
+     
+  
+         fetch(`https://peaceful-spire-22388.herokuapp.com/notice/${_id}`, {
+           method:'DELETE',
+         //   headers: {
+         //     authorization: `Bearer ${localStorage.getItem('accessToken')}`
+         // },
+         })
+         .then(res => res.json())
+         .then(data=>{
+           if(data.deletedCount>0){
+            
+             alert('delete')
+          
+             const remaining = notices?.filter(staff => staff._id !== _id)
+             
+             setNotices(remaining)
+           }
+         })
+       }
   
   
 
@@ -141,14 +177,19 @@ function updateForm(value) {
                      <h1>ALL Notice</h1>
                 </div>
                 <div>
-                <AddNotice></AddNotice>
+                <AddNotice 
+                callUse={callUse}
+                ></AddNotice>
                 </div>
             </div>
           {notices.length?<div>
             
             <NoticeTable notices={notices}
              setnotices={setNotices}
-             handleEdit={handleEdit}></NoticeTable>
+             handleEdit={handleEdit}
+             handleDelete={handleDelete}>
+              
+             </NoticeTable>
             </div>:<div>
                 <img src={loading} alt="" srcset="" />
             </div>}  
@@ -177,9 +218,13 @@ function updateForm(value) {
                   
                 </div>
                          <div>
+                         <InputLabel shrink htmlFor="bootstrap-input">
+                           Headline
+        </InputLabel>
                          <TextField
-                            required
-                            label="Headline"
+                            variant="standard"
+                          
+                         
                             id="outlined-size-small"
                             name="Headline"
                             style={{ width: '100%' }}
@@ -191,12 +236,16 @@ function updateForm(value) {
                         />
                          <br/>
                          <br/>
+                         <InputLabel shrink htmlFor="bootstrap-input">
+                           Notice
+        </InputLabel>
                          <TextField
-                            required
+                          
+                            variant="standard"
                             id="outlined-size-small"
                             name="Category"
                             style={{ width: '100%' }}
-                            label="Notice"
+                            
                             multiline
                              maxRows={1000}
                             value={form.notice}

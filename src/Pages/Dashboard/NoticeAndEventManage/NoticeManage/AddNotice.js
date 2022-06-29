@@ -19,7 +19,7 @@ const style = {
   };
 
 
-const AddNotice = () => {
+const AddNotice = ({callUse}) => {
     const [headline, setHeadline] = useState('');
     
     const [notice , setNotice] = useState('')
@@ -70,6 +70,7 @@ const AddNotice = () => {
                     setSuccess('Data added successfully')
                     setImg(null);
                     handleClose()
+                    callUse()
                   alert('Notice added successfully')
                 }
             })
@@ -119,7 +120,7 @@ const AddNotice = () => {
                 <br />
                
                 <br />
-                <input type="file" name="images" id="images" required="required" multiple="multiple"/>
+                
                 <Input
                   id="chooseFile"
                 sx={{ width: '75%'  , marginTop:'10px'}}

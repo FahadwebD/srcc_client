@@ -5,32 +5,8 @@ import React, { useEffect, useState } from 'react';
 
 
 
-export default function NoticeTable({notices , setNotices,handleEdit}) {
+export default function NoticeTable({notices ,handleEdit ,handleDelete}) {
     
-
-
-    const handleDelete = (_id) =>{
-     
-        const url=`https://peaceful-spire-22388.herokuapp.com/notice/${_id}`
-        fetch(url, {
-          method:'DELETE',
-          headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        },
-        })
-        .then(res => res.json())
-        .then(data=>{
-          if(data.deletedCount>0){
-           
-            alert('delete')
-         
-            const remaining = notices?.filter(staff => staff._id !== _id)
-            
-            setNotices(remaining)
-          }
-        })
-      }
-
 
 
     return (
@@ -57,7 +33,7 @@ export default function NoticeTable({notices , setNotices,handleEdit}) {
             <td>
 
             <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleDelete(item._id)}>Delete</Button>
-                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleEdit(item._id)}>Edit</Button>
+            <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleEdit(item._id)}>Edit</Button>
             </td>
             
         </tr>;
