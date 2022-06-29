@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Button, TextField } from '@mui/material';
+import { Button, MenuItem, TextField } from '@mui/material';
 
 import StaffTable from './StaffTable';
 import AddStaff from './AddStaff'
@@ -21,7 +21,7 @@ const StaffManage = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: 480,
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
@@ -141,7 +141,7 @@ const found = staffs.find(obj => {
           <div >
           <div>
                 <img
-                style={{ width: '100%', height: '120px' }}
+                style={{ width: '360px', height: '200px' }}
                 src={`data:image/png;base64,${editStaff?.image}`} alt="" />
                 
                   
@@ -161,31 +161,44 @@ const found = staffs.find(obj => {
                         />
                          <TextField
                             required
-                           
+                            label="Vice Ch"
                             id="outlined-size-small"
                             name="Designation"
                             style={{ width: '100%' }}
                             
                             defaultValue={editStaff?.designation}
-                            onChange={handleCatogoryChange}
-                          
                             
-                        />
-                         <TextField
-                            required
-                           
-                            id="outlined-size-small"
-                            name="Category"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.categoryStaff}
                             onChange={handleDesignationChange}
                           
                             
                         />
+                      
+                          
+                            <TextField
+
+          sx={{ width: '81%',  marginTop:'10px !important' , padding:'10px !important'}}
+          id="outlined-size-small"
+          required
+          select
+          label="Which Categories"
+          value={categoryStaff}
+          onChange={handleCatogoryChange}
+        >
+        
+            <MenuItem key='teacher' value='t'>
+              Teacher
+            </MenuItem>
+            <MenuItem key='adminatrator' value='a'>
+              Adminestrator
+            </MenuItem>
+            <MenuItem key='other' value='o'>
+              Other
+            </MenuItem>
+        </TextField>
+                      
                          <TextField
                             required
-                           
+                            label="Mobile"
                             id="outlined-size-small"
                             name="Name"
                             style={{ width: '100%' }}

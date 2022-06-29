@@ -21,7 +21,7 @@ const style = {
 
 const AddNotice = () => {
     const [headline, setHeadline] = useState('');
-    const [date, setDate] = useState('');
+    
     const [notice , setNotice] = useState('')
    
      const [image, setImage] = useState(null);
@@ -47,6 +47,7 @@ const AddNotice = () => {
     const handleSubmit = e => {
      
         e.preventDefault();
+        let date= new Date().toLocaleDateString()
         if (!image) {
             return;
         }
@@ -95,7 +96,7 @@ const AddNotice = () => {
         <Fade in={open}>
           <Box sx={style} style={{textAlign:'center'}}>
            
-           <h3>Add An Item</h3>
+           <h3>Add A Notice</h3>
            <form onSubmit={handleSubmit}>
            <img src={img} alt="" style={{height:'100px' , width:'100px'}}/>
                 <TextField
@@ -105,23 +106,22 @@ const AddNotice = () => {
                     onChange={e => setHeadline(e.target.value)}
                     variant="standard" />
                 <br />
-                <TextField
-                    sx={{ width: '75%' }}
-                    label="Designation"
-                    required
-                    onChange={e => setDate(e.target.value)}
-                    variant="standard" />
+             
                 <br />
                 <TextField
                     sx={{ width: '75%' }}
-                    label="Designation"
+                    label="Notice"
                     required
+                    multiline
+                    maxRows={1000}
                     onChange={e => setNotice(e.target.value)}
                     variant="standard" />
                 <br />
                
                 <br />
+                <input type="file" name="images" id="images" required="required" multiple="multiple"/>
                 <Input
+                  id="chooseFile"
                 sx={{ width: '75%'  , marginTop:'10px'}}
                     accept="image/*"
                     type="file"
@@ -131,7 +131,7 @@ const AddNotice = () => {
         <br></br>
                
                 <Button variant="contained" type="submit" style={{ backgroundColor: 'red' , marginTop:'20px' }}>
-                    Add Staff
+                    Add Notice
                 </Button>
             </form>
             </Box>

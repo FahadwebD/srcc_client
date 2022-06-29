@@ -21,23 +21,27 @@ const NoticeManage = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: 500,
         bgcolor: 'background.paper',
-        border: '2px solid #000',
+       
         boxShadow: 24,
         p: 4,
       };
 
 
-    const [staffs , setStaffs] = useNotice([]);
-    const [editStaff ,setEditStaff] = useState()
+    const [notices , setNotices] = useNotice([]);
     const [open, setOpen] = React.useState(false);
-    const [headline , setHeadline] = useState()
-    const [date , setDate] = useState()
-    const [notice , setNotice] = useState()
-    
+    const [id, setId] =useState()
+    const [form, setForm] = useState({
+      _id:"",
+      image:"",
+      headline: "",
+      date: "",
+      notice: "",
+      records: [],
+    });
 
-
+   
 
 
     const handleOpen = () => setOpen(true);
@@ -46,48 +50,51 @@ const NoticeManage = () => {
 
 
 
-    const handleNameChange = (event) => {
-      setHeadline(event.target.value);
-      };
-      const handleCatogoryChange = (event) => {
-        setDate(event.target.value);
-      };
-      const handleDesignationChange = (event) => {
-        setNotice(event.target.value);
-      };
-     
-
-
- const handleStaffEdit = (_id) =>{
-
-    console.log(_id)
-const found = staffs.find(obj => {
-    return obj._id ===_id;
-  });
-  setEditStaff(found)
-    handleOpen()
- }
-    const handleStaffSubmit = e => {
-        const _id = editStaff._id
-       
-        const updateStaff = {
-            headline,
-            date,
-            notice,
-            
-            _id
-            
-        }
-       console.log(updateStaff)
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/notice/edit', {
+
+
+ const handleEdit = (_id) =>{
+  
+
+    
+  fetch(`http://localhost:5000/notice/${_id}`)
+  .then(res=>res.json())
+  .then(record => {
+    setForm(record)
+  setId(record._id)})
+
+
+ 
+    handleOpen()
+
+
+
+ }
+
+
+
+function updateForm(value) {
+  return setForm((prev) => {
+    return { ...prev, ...value };
+  });
+}
+    const handlenoticesubmit = e => {
+
+      
+   
+      const editedNotice = {
+   
+        headline: form.headline,
+        notice: form.notice,
+      };
+       fetch(`http://localhost:5000/notice/edit/${id}`, {
            method: 'PUT',
           
            headers: {
               //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                'content-type': 'application/json'
            },
-           body: JSON.stringify(updateStaff)
+           body: JSON.stringify(editedNotice)
        })
            .then(res => res.json())
            .then(data => {
@@ -101,8 +108,32 @@ const found = staffs.find(obj => {
 
         e.preventDefault();
     }
-    console.log(staffs)
+    console.log(notices)
      
+
+
+   
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div style={{marginTop:'50px'}}>
             <div style={{display:'flex' , alignItems:'center' , justifyContent:"space-between"}}>
@@ -113,11 +144,11 @@ const found = staffs.find(obj => {
                 <AddNotice></AddNotice>
                 </div>
             </div>
-          {staffs.length?<div>
+          {notices.length?<div>
             
-            <NoticeTable staffs={staffs}
-             setStaffs={setStaffs}
-             handleStaffEdit={handleStaffEdit}></NoticeTable>
+            <NoticeTable notices={notices}
+             setnotices={setNotices}
+             handleEdit={handleEdit}></NoticeTable>
             </div>:<div>
                 <img src={loading} alt="" srcset="" />
             </div>}  
@@ -131,51 +162,45 @@ const found = staffs.find(obj => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-           Update Carousel
+           Update Notice
           </Typography>
-          <form onSubmit={handleStaffSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
+          <form onSubmit={handlenoticesubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
           <div >
           <div>
+                <div>
                 <img
-                style={{ width: '100%', height: '120px' }}
-                src={`data:image/png;base64,${editStaff?.image}`} alt="" />
+                style={{ width: '120px', height: '120px' }}
+                src={`data:image/png;base64,${form.image}`} alt="" />
+                </div>
                 
                   
                 </div>
                          <div>
                          <TextField
                             required
-                           
+                            label="Headline"
                             id="outlined-size-small"
-                            name="Name"
+                            name="Headline"
                             style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.headline}
-                            onChange={handleNameChange}
-                          
+                            value={form.headline}
+                            onChange={(e) => updateForm({ headline: e.target.value })}
+                           
+                         
                             
                         />
-                         <TextField
-                            required
-                           
-                            id="outlined-size-small"
-                            name="Designation"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.date}
-                            onChange={handleCatogoryChange}
-                          
-                            
-                        />
+                         <br/>
+                         <br/>
                          <TextField
                             required
                             id="outlined-size-small"
                             name="Category"
                             style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.notice}
-                            onChange={handleDesignationChange}
+                            label="Notice"
+                            multiline
+                             maxRows={1000}
+                            value={form.notice}
+                            onChange={(e) => updateForm({ notice: e.target.value })}
                           
                             
                         />
@@ -186,7 +211,7 @@ const found = staffs.find(obj => {
                       
                       
                          
-                        <div style={{ textAlign:'right' , marginRight:'40px'}}><Button style={{backgroundColor:'#5CE7ED' }} type="submit" variant="contained">Send</Button></div>
+                        <div style={{ textAlign:'right' ,marginTop:"40px",}}><Button style={{backgroundColor:'green' }} type="submit" variant="contained">Update</Button></div>
 
                         </form>
         </Box>
