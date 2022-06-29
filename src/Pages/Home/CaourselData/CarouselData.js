@@ -3,9 +3,9 @@ import Banner from '../Banner/Banner';
 
 import useCarousel from '../../../hooks/useCarousel';
 import Skeleton from '@mui/material/Skeleton';
-const CarouselData = () => {
+const CarouselData = ({carousel}) => {
 
-  const [carousel , setCarousel] = useCarousel();
+ 
 
     
       const captionStyle = {

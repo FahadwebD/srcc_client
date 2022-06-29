@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgba(241, 6, 6, 0.01)'
     },
     appBarSolid: {
-        backgroundColor: 'rgba(241, 6, 6, 0.91)'
+        backgroundColor: 'rgba(237,26,55,255)'
     }
 }));
 

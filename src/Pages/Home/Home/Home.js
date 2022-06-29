@@ -1,4 +1,5 @@
 import React from 'react';
+import useCarousel from '../../../hooks/useCarousel';
 import Footer from '../../../Shared/Footer/Footer';
 import LogosHeader from '../../../Shared/LogosHeades/LogosHeader';
 import Navbar from '../../../Shared/Navbar/Navbar';
@@ -14,11 +15,16 @@ import Welcome from '../Welcome/Welcome';
 
 
 const Home = () => {
+
+    const [carousel , setCarousel] = useCarousel();
     return (
-        <div>
+      <div>
+        {carousel.length?  <div>
             
             <Navbar></Navbar>
-      <CarouselData></CarouselData>
+      <CarouselData
+      carousel={carousel}
+      ></CarouselData>
       <Thicker></Thicker>
       <ViceCContainer></ViceCContainer>
       <RankedProffesors></RankedProffesors>
@@ -28,7 +34,8 @@ const Home = () => {
       <NoticeAndEvent></NoticeAndEvent>
       <Footer></Footer>
       
-        </div>
+        </div>:<div><img src="https://i.pinimg.com/originals/c4/ea/b4/c4eab4aef31cf79b812dcbb14b55ac3d.gif" alt="" srcset="" /></div>}
+      </div>
     );
 };
 

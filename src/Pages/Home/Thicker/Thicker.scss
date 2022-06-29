@@ -36,7 +36,9 @@ $duration: 30s;
   background-color: rgba(#000, 0.9); 
  
   box-sizing: content-box;
-
+.ticker__item{
+  padding: 0 280px;
+}
   .ticker {
 
     display: inline-block;

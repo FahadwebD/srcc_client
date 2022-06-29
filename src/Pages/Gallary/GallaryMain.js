@@ -1,4 +1,5 @@
 import React from 'react';
+import useGallary from '../../hooks/useGallary';
 
 import Footer from '../../Shared/Footer/Footer';
 import Navbar from '../../Shared/Navbar/Navbar';
@@ -8,12 +9,18 @@ import GallaryHeader from './GallaryHeader';
 
 
 const GallaryMain = () => {
+    const [staffs ] = useGallary()
     return (
         <div>
-            <Navbar></Navbar>
+            {
+                staffs.length? <div>
+                    <Navbar></Navbar>
             <GallaryHeader></GallaryHeader>
-             <Gallary></Gallary>
+             <Gallary staffs={staffs}></Gallary>
             <Footer></Footer>
+                </div>: <div><img src="https://i.pinimg.com/originals/c4/ea/b4/c4eab4aef31cf79b812dcbb14b55ac3d.gif" alt="" srcset="" /></div>
+            }
+            
         </div>
     );
 };

@@ -2,21 +2,45 @@ import React from 'react';
 import useGallary from '../../hooks/useGallary';
 import GallaryPic from './GallaryPic';
 
-const Gallary = () => {
+const Gallary = ({staffs}) => {
 
- const [staffs ] = useGallary()
+
 
 console.log(staffs)
+
+const [value, setValue] = React.useState(0);
+
+const handleChange = (event, newValue) => {
+  
+  setValue(event.target.value)
+};
+console.log(value)
   return (
     <div>
       
-      <br /><br />
+      
 
-      <GallaryPic
+     
+
+<div class="wrapper">
+  
+    <nav>
+      <div class="items">
+        <span class="item active" data-name="all">All</span>
+        <span class="item" data-name="bag">Office</span>
+        <span class="item" data-name="shoe">Outside</span>
+        <span class="item" data-name="shoe">Other</span>
+
+      </div>
+    </nav>
+   <GallaryPic
         staffs={staffs}
       />
+ 
+  </div>
+  
+ 
 
-      <br /><br />
    
     </div>
   );

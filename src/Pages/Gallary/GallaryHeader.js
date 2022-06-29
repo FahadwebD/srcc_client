@@ -1,5 +1,4 @@
 import React from 'react';
-import g from '../../assets/images/head.png'
 
 import './G.css'
 const GallaryHeader = () => {

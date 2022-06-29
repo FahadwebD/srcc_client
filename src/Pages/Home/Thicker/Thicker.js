@@ -14,6 +14,9 @@ console.log(staffs)
             <div class="ticker-wrap">
   <div className="ticker">
   <div className="ticker__item">{staffs[0]?.headline}</div>
+  <div className="ticker__item">{staffs[0]?.headline}</div>
+  <div className="ticker__item">{staffs[0]?.headline}</div>
+  <div className="ticker__item">{staffs[0]?.headline}</div>
 
 </div>
 </div>

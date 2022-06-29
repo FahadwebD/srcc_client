@@ -42,7 +42,7 @@ const [footInfo , setFootInfo] = React.useState('')
        height: 'auto',
        lineHeight: '1.5',
        
-       backgroundImage: `linear-gradient(0deg, rgba(250, 0, 0, 0.79),  rgba(250, 0, 0, 0.79)), url(${backg})`}}>
+       backgroundImage: `linear-gradient(0deg, rgba(250, 0, 0, 0.79),  rgba(0,111,69,255)), url(${backg})`}}>
 
 <footer class="footer-distributed">
 

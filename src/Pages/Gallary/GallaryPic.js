@@ -58,21 +58,24 @@ console.log(staffs)
       Total Slides: {staffs.length}
       <br /><br /> */}
 
-<ul className="grid">
+<div class="gallery">
         {
           staffs && staffs.map((slide, index) => {
             return(
-              <li
-                className='single' 
+              
+              <div
+                className="image" 
                 key={index}
                 onClick={ () => handleOpenModal(index) }
               >
-                <img src={`data:image/png;base64,${slide?.image}`} alt='' />
-              </li>
+                <span>
+                <img style={{width:"300px" , height:'280px'}} src={`data:image/png;base64,${slide?.image}`} alt='' />
+                </span>
+              </div>
             )
           })
         }
-      </ul>
+      </div>
 
     </div>
   )

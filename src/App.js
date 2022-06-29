@@ -13,6 +13,7 @@ import StudentMain from './Pages/Students/StudentMain';
 import SignUp from './Pages/Login/Login/SignUp';
 import RequireAuth from './Pages/Login/Login/RequireAuth';
 import RequireAdmin from './Pages/Login/Login/RequireAdmin';
+import ContactUs from './Pages/ContactUs/ContactUs';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <Route path="about" element={<AboutUs />} />
         <Route path="staff" element={<Staff/> }/>
         <Route path="student" element={<StudentMain/> }/>
+        <Route path="contact" element={<ContactUs/> }/>
+
 
         <Route path="login" element={<Login/> }/>
         <Route path="signup" element={<SignUp/> }/>

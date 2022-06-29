@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-
+import React, { useState } from 'react';
+import './ContactUs.module.css'
 const ContactUs = () => {
+
   const [status, setStatus] = useState("Submit");
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
@@ -11,7 +14,7 @@ const ContactUs = () => {
       email: email.value,
       message: message.value,
     };
-    let response = await fetch("https://peaceful-spire-22388.herokuapp.com/contact", {
+    let response = await fetch("http://localhost:5000/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -23,8 +26,9 @@ const ContactUs = () => {
     alert(result.status);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <div className='contacttForm'>
+       <form onSubmit={handleSubmit}>
+      <div className='c'>
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" required />
       </div>
@@ -38,6 +42,7 @@ const ContactUs = () => {
       </div>
       <button type="submit">{status}</button>
     </form>
+    </div>
   );
 };
 
