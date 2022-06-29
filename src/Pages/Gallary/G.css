@@ -177,6 +177,8 @@ vertical-align: middle;
   }
   .gallery .image span{
 	display: flex;
+	align-items: center;
+    justify-content: center;
 	width: 100%;
 	overflow: hidden;
   }

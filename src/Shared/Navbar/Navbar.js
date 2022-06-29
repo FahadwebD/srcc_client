@@ -18,6 +18,7 @@ import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
 import logo from '../../assets/images/footerlogo.png'
 import './Navbar.css'
+import NavbarDemand from '../NavbarDemand';
 const useStyles = makeStyles((theme) => ({
 
     appBarTransparent: {
@@ -75,8 +76,8 @@ export default function Navbar() {
 
     return (
         <div >
-            <AppBar position="fixed" className={classes[navRef.current]}>
-           
+            <AppBar className={classes[navRef.current]}>
+            <NavbarDemand></NavbarDemand>
                    <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img id='navImg' src={logo} alt='srcc' style={{ height:'70px'}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1  }} />
@@ -187,7 +188,9 @@ export default function Navbar() {
            
           </Box>
         </Toolbar>
+        
       </Container>
+      
             </AppBar>
         </div >
     );
