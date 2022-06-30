@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Box, Button, Tab, Tabs, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
 import AddBusinessRoundedIcon from "@mui/icons-material/AddBusinessRounded";
 import DrawerComp from "./Drawer";
 import { Link } from 'react-router-dom';
-
+import './scroll.css'
 
 import NavbarDemand from '../NavbarDemand';
 const useStyles = makeStyles((theme) => ({
@@ -23,16 +23,32 @@ export default function Navbar() {
     const classes = useStyles();
 
     const [navBackground, setNavBackground] = useState('appBarTransparent')
-   
+    const [isVisible, setIsVisible] = useState(true);
+    const [height, setHeight] = useState(0)
 
 
     const navItems = ['Home', 'About', 'Contact'];
 
+    useEffect(() => {   
+      window.addEventListener("scroll", listenToScroll);
+      return () => 
+         window.removeEventListener("scroll", listenToScroll); 
+    }, [])
 
 
 
-
-
+    const listenToScroll = () => {
+      let heightToHideFrom = 100;
+      const winScroll = document.body.scrollTop || 
+          document.documentElement.scrollTop;
+      setHeight(winScroll);
+  
+      if (winScroll > heightToHideFrom) {  
+           isVisible && setIsVisible(false);
+      } else {
+           setIsVisible(true);
+      }  
+    };
 
 
 
@@ -56,7 +72,7 @@ export default function Navbar() {
         }
     }, [])
 
-    const [value, setValue] = useState();
+   
     const theme = useTheme();
     console.log(theme);
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -66,9 +82,18 @@ export default function Navbar() {
         <div >
           
             <AppBar className={classes[navRef.current]}>
-            <NavbarDemand></NavbarDemand>
+            
                   
-
+             <div id="h">   <div id="height">
+     
+      </div>
+     {
+        isVisible 
+         && 
+       <div id="hide">
+            <NavbarDemand></NavbarDemand>
+       </div>
+      }</div>
 
 <Toolbar>
           
