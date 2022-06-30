@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgba(0, 0, 0, 0)'
     },
     appBarSolid: {
-        backgroundColor: 'rgba(0,111,69,255)'
+        backgroundColor: 'rgba(255,255,255, 255)'
     }
 }));
 
@@ -29,30 +29,31 @@ export default function Navbar() {
 
     const navItems = ['Home', 'About', 'Contact'];
 
-    useEffect(() => {   
+   
+
+
+
+    
+
+
+
+    useEffect(() => {  
+      const listenToScroll = () => {
+        let heightToHideFrom = 110;
+        const winScroll = document.body.scrollTop || 
+            document.documentElement.scrollTop;
+        setHeight(winScroll);
+    
+        if (winScroll > heightToHideFrom) {  
+             isVisible && setIsVisible(false);
+        } else {
+             setIsVisible(true);
+        }  
+      }; 
       window.addEventListener("scroll", listenToScroll);
       return () => 
          window.removeEventListener("scroll", listenToScroll); 
     }, [])
-
-
-
-    const listenToScroll = () => {
-      let heightToHideFrom = 100;
-      const winScroll = document.body.scrollTop || 
-          document.documentElement.scrollTop;
-      setHeight(winScroll);
-  
-      if (winScroll > heightToHideFrom) {  
-           isVisible && setIsVisible(false);
-      } else {
-           setIsVisible(true);
-      }  
-    };
-
-
-
-
  
     const navRef = React.useRef()
     navRef.current = navBackground
@@ -90,7 +91,7 @@ export default function Navbar() {
      {
         isVisible 
          && 
-       <div id="hide">
+       <div className='h' id="hide">
             <NavbarDemand></NavbarDemand>
        </div>
       }</div>
@@ -106,7 +107,7 @@ export default function Navbar() {
             <>
                <Box style={{margin:'auto'}} sx={{ display: { xs: 'none', sm: 'block' } ,  }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
+              <Button key={item} sx={{ color: 'black' }}>
                 {item}
               </Button>
             ))}

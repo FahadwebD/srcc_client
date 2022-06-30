@@ -40,7 +40,7 @@ export default function NavbarDemand(props) {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar style={{backgroundColor:'#ed1a37'}}>
+        <AppBar style={{backgroundColor:'#ed1a37' , borderBottom:"5px solid green"}} sx={{display: { xs: 'none', sm: 'block' }}}>
           <Toolbar>
             
             <img id='navImg' src={logo} alt='srcc' style={{ height:'50px'}} />
