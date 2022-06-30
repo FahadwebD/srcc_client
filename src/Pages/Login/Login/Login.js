@@ -65,7 +65,7 @@ const Login = () => {
             
             
             
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form id='lform' onSubmit={handleSubmit(onSubmit)}>
 				<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Bangladesh_Red_Crescent_Society_Logo.png" alt='logo'/>
 				<h2 className="title">Admin</h2>
            		<div className="input-div one">
@@ -110,7 +110,7 @@ const Login = () => {
                             
                                                         type="password"
                                                    
-                                                        className="form-field animation a4 input"
+                                                        className="form-field  input"
                                                         {...register("password", {
                                                             required: {
                                                                 value: true,

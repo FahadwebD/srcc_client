@@ -36,7 +36,7 @@
 	width: 500px;
 }
 
-form{
+#lform{
 	width: 360px;
 }
 
@@ -141,18 +141,8 @@ form{
 	margin-bottom: 4px;
 }
 
-a{
-	display: block;
-	text-align: right;
-	text-decoration: none;
-	color: #999;
-	font-size: 0.9rem;
-	transition: .3s;
-}
 
-a:hover{
-	color: red;
-}
+
 
 .btn{
 	display: block;
@@ -183,7 +173,7 @@ a:hover{
 }
 
 @media screen and (max-width: 1000px){
-	form{
+	#lform{
 		width: 290px;
 	}
 

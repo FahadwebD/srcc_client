@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, Menu, MenuItem, useMediaQuery, useTheme } from '@mui/material';
 import AddBusinessRoundedIcon from "@mui/icons-material/AddBusinessRounded";
 import DrawerComp from "./Drawer";
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from 'react-router-dom';
 import './scroll.css'
 
@@ -27,26 +29,21 @@ export default function Navbar() {
 
     const [navBackground, setNavBackground] = useState('appBarTransparent')
     const [isVisible, setIsVisible] = useState(true);
-    const [height, setHeight] = useState(0)
 
 
-    const navItems = ['Home', 'About', 'Contact'];
 
+ 
    
+    const [textColor, setTextColor] = useState("text2");
 
-
-
-    
-
+  
 
 
     useEffect(() => {  
       const listenToScroll = () => {
         let heightToHideFrom = 110;
         const winScroll = document.body.scrollTop || 
-            document.documentElement.scrollTop;
-        setHeight(winScroll);
-    
+            document.documentElement.scrollTop; 
         if (winScroll > heightToHideFrom) {  
              isVisible && setIsVisible(false);
         } else {
@@ -58,6 +55,7 @@ export default function Navbar() {
          window.removeEventListener("scroll", listenToScroll); 
     }, [])
  
+
     const navRef = React.useRef()
     navRef.current = navBackground
 
@@ -66,8 +64,10 @@ export default function Navbar() {
             const show = window.scrollY > 210
             if (show) {
                 setNavBackground('appBarSolid')
+                setTextColor('text1')
             } else {
                 setNavBackground('appBarTransparent')
+                setTextColor('text2')
             }
         }
         document.addEventListener('scroll', handleScroll)
@@ -76,7 +76,19 @@ export default function Navbar() {
         }
     }, [])
 
-   
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    function handleClick(event) {
+      if (anchorEl !== event.currentTarget) {
+        setAnchorEl(event.currentTarget);
+      }
+    }
+  
+    function handleClose() {
+      setAnchorEl(null);
+    }
+
     const theme = useTheme();
     console.log(theme);
     const isMatch = useMediaQuery(theme.breakpoints.down("md"));
@@ -88,13 +100,13 @@ export default function Navbar() {
             <AppBar className={classes[navRef.current]}>
             
                   
-             <div id="h">   <div id="height">
+             <div id="f">   <div id="height">
      
       </div>
      {
         isVisible 
          && 
-       <div className='h' id="hide">
+       <div className='f' id="hide">
             <NavbarDemand></NavbarDemand>
        </div>
       }</div>
@@ -109,11 +121,52 @@ export default function Navbar() {
           ) : (
             <>
                <Box style={{margin:'auto'}} sx={{ display: { xs: 'none', sm: 'block' } ,  }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: 'black' }} className='c'>
-                {item}
+           
+              <Link style={{textDecoration:'none'}} to='/'>
+              <Button   className={textColor}>
+                Home
               </Button>
-            ))}
+              </Link>
+              <Link style={{textDecoration:'none'}} to='/about'>
+              <Button   className={textColor}>
+                About Us
+              </Button>
+              </Link>
+
+              
+              <Button 
+              aria-owns={anchorEl ? "simple-menu" : undefined}
+              aria-haspopup="true"
+             
+              onMouseOver={handleClick}
+              
+              className={textColor} endIcon={<  KeyboardArrowDownIcon style={{ marginLeft:'-5px'}} />}>
+                Staff
+              </Button>
+              <Menu
+              style={{width:'400px!important'}}
+        id="simple-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        MenuListProps={{ onMouseLeave: handleClose }}
+      >
+       <Link style={{textDecoration:'none'}} to='/staff'> <MenuItem onClick={handleClose}> <KeyboardDoubleArrowRightIcon/>ALl Staff </MenuItem></Link>
+        <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Adminastrator </MenuItem>
+         <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Instructor</MenuItem>
+        <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Other</MenuItem>
+      </Menu>
+            
+              <Link style={{textDecoration:'none'}} to='/gallary'>
+              <Button   className={textColor}>
+                Gallery
+              </Button>
+              </Link>
+              <Link style={{textDecoration:'none'}} to='/contact'>
+              <Button   className={textColor}>
+                Contact Us
+              </Button>
+              </Link>
           </Box>
             
             </>

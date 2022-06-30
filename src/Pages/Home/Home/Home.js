@@ -20,7 +20,7 @@ const Home = () => {
     const [carousel , setCarousel] = useCarousel();
     return (
       <div>
-        {carousel.length?  <div>
+    <div>
             
             <Navbar></Navbar>
       <CarouselData
@@ -35,10 +35,7 @@ const Home = () => {
       <NoticeAndEvent></NoticeAndEvent>
       <Footer></Footer>
       
-        </div>:<div style={{display:'flex' ,alignItems:'center' , justifyContent:'center' , }}><div style={{width:'400px' , height:'400px' , marginTop:'120px'}}>
-                   
-                   <img style={{width:'100%' }} src="https://i.pinimg.com/originals/c4/ea/b4/c4eab4aef31cf79b812dcbb14b55ac3d.gif" alt="" srcset="" /></div>
-                   </div>}
+        </div>
       </div>
     );
 };

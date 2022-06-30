@@ -1,17 +1,25 @@
 
-.h{
+.f{
     display: unset;
     border-bottom: 5px solid rgb(10, 1, 1);
 }
+.text1{
+    color: black!important;
+    font-weight: bolder!important;
+}
+.text2{
+    color: white!important;
+    font-weight: bolder!important;
+}
 @media only screen  and (max-width:688px){
-    .h{
+    .f{
         display: none;
         
     }
 
 }
 @media only screen  and (min-width:689px) and (max-width:990px){
-    .h{
+    .f{
         display: none;
         
     }

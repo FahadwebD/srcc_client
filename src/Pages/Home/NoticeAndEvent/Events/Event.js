@@ -14,50 +14,49 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useTheme } from 'styled-components';
+import { Button } from '@material-ui/core';
 
 
 
 
 
 const Event = ({ev}) => {
- 
+  const theme = useTheme();
+
+  // My card preferences
+
+  const CARD_PROPERTY = {
+    borderRadius: 3,
+    boxShadow: 10
+  };
     return (
         
       <div>
-      <Card style={{margin:'10px'}} sx={{ maxWidth: 345 }}>
-      <CardHeader
-       
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={ev.headline}
-        subheader={ev.date}
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        width="100%"
-        image={`data:image/png;base64,${ev.image}`} 
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-       {ev.headline}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-       
-      </CardActions>
-   
-    </Card>
+       <Card sx={CARD_PROPERTY}>
+              <CardMedia
+                component="img"
+                height="194"
+                image="https://images.pexels.com/photos/1161771/pexels-photo-1161771.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              />
+              <CardContent sx={{ p: 3 }}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  sx={{ fontWeight: "bold" }}
+                  component="div"
+                >
+                  {ev.headline}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  {ev.description}
+                </Typography>
+              </CardContent>
+              <CardActions sx={{ pt: 0, px: 3, pb: 3 }}>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
+              </CardActions>
+            </Card>
       </div>
        
     );
