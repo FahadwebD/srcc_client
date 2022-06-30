@@ -12,11 +12,14 @@ import NavbarDemand from '../NavbarDemand';
 const useStyles = makeStyles((theme) => ({
 
     appBarTransparent: {
-        backgroundColor: 'rgba(0, 0, 0, 0)'
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        color: 'white'
     },
     appBarSolid: {
-        backgroundColor: 'rgba(255,255,255, 255)'
-    }
+        backgroundColor: 'rgba(255,255,255, 255)',
+        color:'black'
+    },
+    
 }));
 
 export default function Navbar() {
@@ -107,7 +110,7 @@ export default function Navbar() {
             <>
                <Box style={{margin:'auto'}} sx={{ display: { xs: 'none', sm: 'block' } ,  }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: 'black' }}>
+              <Button key={item} sx={{ color: 'black' }} className='c'>
                 {item}
               </Button>
             ))}
