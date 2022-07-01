@@ -24,9 +24,9 @@ function App() {
      
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="chairman" element={<ViceChairmenDetails />} />
+        <Route path="/speech/:id" element={<ViceChairmenDetails />} />
         <Route path="about" element={<AboutUs />} />
-        <Route path="staff" element={<Staff/> }/>
+        <Route path="/staff/:c" element={<Staff/> }/>
         <Route path="student" element={<StudentMain/> }/>
         <Route path="contact" element={<ContactMain/> }/>
         <Route path="contact" element={<ContactMain/> }/>

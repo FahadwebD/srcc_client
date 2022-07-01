@@ -151,10 +151,10 @@ export default function Navbar() {
         onClose={handleClose}
         MenuListProps={{ onMouseLeave: handleClose }}
       >
-       <Link style={{textDecoration:'none'}} to='/staff'> <MenuItem onClick={handleClose}> <KeyboardDoubleArrowRightIcon/>ALl Staff </MenuItem></Link>
-        <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Adminastrator </MenuItem>
-         <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Instructor</MenuItem>
-        <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Other</MenuItem>
+       <Link style={{textDecoration:'none'}} to='/staff/all'> <MenuItem onClick={handleClose}> <KeyboardDoubleArrowRightIcon/>ALl Staff </MenuItem></Link>
+       <Link style={{textDecoration:'none'}} to='/staff/a'> <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Adminastrator </MenuItem></Link>
+       <Link style={{textDecoration:'none'}} to='/staff/t'> <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Instructor</MenuItem></Link>
+       <Link style={{textDecoration:'none'}} to='/staff/o'><MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Other</MenuItem></Link>
       </Menu>
             
               <Link style={{textDecoration:'none'}} to='/gallary'>

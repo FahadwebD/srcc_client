@@ -21,73 +21,96 @@ const StaffManage = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 480,
+        width: '60%',
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
+        
       };
 
 
     const [staffs , setStaffs] = useStaff([]);
-    const [editStaff ,setEditStaff] = useState()
+    
     const [open, setOpen] = React.useState(false);
-    const [name , setName] = useState()
-    const [categoryStaff , setCategoryStaff] = useState()
-    const [designation , setDesignation] = useState()
-    const [mobile , setMobile] = useState()
-
+    
+    const [id, setId] =useState()
+    const [form, setForm] = useState({
+      _id:"",
+      image:"",
+      name: "",
+      categoryStaff: "",
+      designation: "",
+      mobile:"",
+      rank:"",
+      speech:"",
+      records: [],
+    });
 
 
 
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+      setForm({})
+      setOpen(false)};
 
 
+      const callUse= () =>{
 
 
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-      };
-      const handleCatogoryChange = (event) => {
-        setCategoryStaff(event.target.value);
-      };
-      const handleDesignationChange = (event) => {
-        setDesignation(event.target.value);
-      };
-      const handleMobileChange = (event) => {
-        setMobile(event.target.value);
-      };
+        fetch('https://peaceful-spire-22388.herokuapp.com/staff')
+        .then(res=>res.json())
+        .then(data=>setStaffs(data.reverse()))
+    
+    
+    }
 
 
+      function updateForm(value) {
+        return setForm((prev) => {
+          return { ...prev, ...value };
+        });
+      }
 
- const handleStaffEdit = (_id) =>{
+      const handleEdit = (_id) =>{
+  
 
-    console.log(_id)
-const found = staffs.find(obj => {
-    return obj._id ===_id;
-  });
-  setEditStaff(found)
-    handleOpen()
- }
+    
+        fetch(`http://localhost:5000/staff/${_id}`)
+        .then(res=>res.json())
+        .then(record => {
+          setForm(record)
+        setId(record._id)})
+      
+      
+       
+          handleOpen()
+      
+      
+      
+       }
+
+
+ 
     const handleStaffSubmit = e => {
-        const _id = editStaff._id
+       
        
         const updateStaff = {
-            name,
-            designation,
-            categoryStaff,
-            mobile,
-            _id
+            name:form.name,
+            designation:form.designation,
+            categoryStaff:form.categoryStaff,
+            mobile:form.mobile,
+            rank:form.rank,
+            speech:form.speech
             
         }
-       console.log(updateStaff)
+      
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/staff/edit', {
-           method: 'PUT',
+       fetch(`http://localhost:5000/staff/edit/${id}`, {
+           method: 'PATCH',
           
            headers: {
-               authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+              //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                'content-type': 'application/json'
            },
            body: JSON.stringify(updateStaff)
@@ -95,7 +118,7 @@ const found = staffs.find(obj => {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                  
+                callUse()
                    console.log('ok')
                }
            })
@@ -105,7 +128,29 @@ const found = staffs.find(obj => {
         e.preventDefault();
     }
     console.log(staffs)
+
+
+    const handleDelete = (_id) =>{
      
+      const url=`http://localhost:5000/staff/${_id}`
+      fetch(url, {
+        method:'DELETE',
+      
+      })
+      .then(res => res.json())
+      .then(data=>{
+        if(data.deletedCount>0){
+         
+          alert('delete')
+       
+          const remaining = staffs?.filter(staff => staff._id !== _id)
+          
+          setStaffs(remaining)
+        }
+      })
+    }
+
+
     return (
         <div style={{marginTop:'50px'}}>
             <div style={{display:'flex' , alignItems:'center' , justifyContent:"space-between"}}>
@@ -113,14 +158,16 @@ const found = staffs.find(obj => {
                      <h1>ALL STAFF</h1>
                 </div>
                 <div>
-                <AddStaff></AddStaff>
+            <AddStaff callUse={callUse}></AddStaff>
                 </div>
             </div>
           {staffs.length?<div>
             
             <StaffTable staffs={staffs}
              setStaffs={setStaffs}
-             handleStaffEdit={handleStaffEdit}></StaffTable>
+             handleDelete={handleDelete}
+             callUse={callUse}
+             handleEdit={handleEdit}></StaffTable>
             </div>:<div>
                 <img src={loading} alt="" srcset="" />
             </div>}  
@@ -134,55 +181,59 @@ const found = staffs.find(obj => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-           Update Carousel
+           Update Staff Profile
           </Typography>
-          <form onSubmit={handleStaffSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
+          <form onSubmit={handleStaffSubmit} >
                       
-          <div >
+          <div style={{display:'flex' , justifyContent:'center' , alignItems:'center'}} >
           <div>
                 <img
-                style={{ width: '360px', height: '200px' }}
-                src={`data:image/png;base64,${editStaff?.image}`} alt="" />
+                style={{ width: '200px', height: '250px' }}
+                src={`data:image/png;base64,${form.image}`} alt="" />
                 
                   
                 </div>
                          <div>
+                         <div>
                          <TextField
+                            variant="standard"
                             required
-                           
+                            label="Name"
                             id="outlined-size-small"
                             name="Name"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.name}
-                            onChange={handleNameChange}
+                            style={{ width: '40%' , margin:'10px' }}
+                            value={form.name}
+                            onChange={(e) => updateForm({ name: e.target.value })}
+                           
                           
                             
                         />
                          <TextField
+                            variant="standard"
                             required
-                            label="Vice Ch"
+                            label="Designation"
                             id="outlined-size-small"
                             name="Designation"
-                            style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.designation}
-                            
-                            onChange={handleDesignationChange}
+                            style={{ width: '40%' , margin:'10px'}}
+                            value={form.designation}
+                            onChange={(e) => updateForm({ designation: e.target.value })}
+                           
                           
                             
                         />
+                         </div>
                       
                           
                             <TextField
-
-          sx={{ width: '81%',  marginTop:'10px !important' , padding:'10px !important'}}
+          variant="standard"
+          sx={{ width: '40%',  margin:'10px !important' , padding:'10px !important'}}
           id="outlined-size-small"
           required
           select
-          label="Which Categories"
-          value={categoryStaff}
-          onChange={handleCatogoryChange}
+          label=" Categories"
+        
+          value={form.categoryStaff}
+      onChange={(e) => updateForm({ categoryStaff: e.target.value })}
         >
         
             <MenuItem key='teacher' value='t'>
@@ -195,22 +246,54 @@ const found = staffs.find(obj => {
               Other
             </MenuItem>
         </TextField>
+        <TextField
+          variant="standard"
+          sx={{ width: '40%',  margin:'10px !important' , padding:'10px !important'}}
+          id="outlined-size-small"
+          required
+          select
+          label="Ranking"
+        
+          value={form.rank}
+      onChange={(e) => updateForm({ rank: e.target.value })}
+        >
+        
+        <MenuItem key='teacher' value='high'>
+              High
+            </MenuItem>
+            <MenuItem key='adminatrator' value='higher'>
+              Higher 
+            </MenuItem>
+            <MenuItem key='other' value='highest'>
+              Highest
+            </MenuItem>
+        </TextField>
                       
                          <TextField
+                            variant="standard"
                             required
                             label="Mobile"
                             id="outlined-size-small"
                             name="Name"
-                            style={{ width: '100%' }}
+                            style={{ width: '40%' , margin:'10px'}}
                             
-                            defaultValue={editStaff?.mobile}
-                            onChange={handleMobileChange}
-                          
+                            
+                            value={form.mobile}
+                            onChange={(e) => updateForm({ mobile: e.target.value })}
                             
                         />
                          </div>
           </div>
-                      
+          <TextField
+                    style={{height:"200px" , overflowY:"scroll"}}
+                    sx={{ width: '100%', m:1 }}
+                    label="Speech"
+                    required
+                    multiline
+                    maxRows={1000}
+                    value={form.speech}
+                    onChange={e => updateForm({ speech: e.target.value })}
+                    variant="standard" />
                       
                       
                          

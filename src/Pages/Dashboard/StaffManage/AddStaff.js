@@ -8,7 +8,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 650,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -19,16 +19,19 @@ const style = {
   };
 
 
-const AddStaff = () => {
+const AddStaff = ({callUse}) => {
     const [name, setName] = useState('');
     const [designation, setDesignation] = useState('');
 
     const [mobile, setMobile] = useState('');
      const [image, setImage] = useState(null);
      const [img, setImg] = useState();
-    const [success, setSuccess] = useState(false);
     const [open, setOpen] = React.useState(false);
     const [categoryStaff , setCategoryStaff] = useState()
+    const [rank , setRank] = useState()
+    const [speech , setSpeech] = useState()
+
+
 
     const onImageChange = (e) => {
       setImage(e.target.files[0])
@@ -38,7 +41,10 @@ const AddStaff = () => {
     const handleStaffChange = (event) => {
       setCategoryStaff(event.target.value);
     };
-   console.log(categoryStaff)
+    const handleRankChange = (event) => {
+      setRank(event.target.value);
+    };
+   console.log(name)
     const handleOpen = () => {
       setOpen(true);
     };
@@ -57,22 +63,22 @@ const AddStaff = () => {
         formData.append('designation', designation);
         formData.append('mobile', mobile);
         formData.append('categoryStaff', categoryStaff);
-
+        formData.append('rank', rank);
+        formData.append('speech', speech);
         formData.append('image', image);
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/staff', {
+        fetch('http://localhost:5000/staff', {
             method: 'POST',
-            headers: {
-              authorization: `Bearer ${localStorage.getItem('accessToken')}`
-          },
+           
             body: formData
         })
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    setSuccess('Data added successfully')
+                    
                     setImg(null);
                     handleClose()
+                    callUse()
                   alert('Staff added successfully')
                 }
             })
@@ -101,35 +107,43 @@ const AddStaff = () => {
            
            <h3>Add An Item</h3>
            <form onSubmit={handleSubmit}>
-           <img src={img} alt="" style={{height:'100px' , width:'100px'}}/>
-                <TextField
-                    sx={{ width: '75%' }}
+          <div style={{display:'flex' , justifyContent:'center'}}>
+          <div> <img src={img} alt="" style={{height:'100px' , width:'100px'}}/>
+          <Input
+                sx={{ width: '75%'  , marginTop:'10px'}}
+                    accept="image/*"
+                    type="file"
+                    onChange={onImageChange}
+                /></div>
+                <div>
+                  <TextField
+                    sx={{ width: '40%'   , m:2}}
                     label="Name"
                     required
                     onChange={e => setName(e.target.value)}
                     variant="standard" />
-                <br />
+              
                 <TextField
-                    sx={{ width: '75%' }}
+                    sx={{ width: '40%' , m:2}}
                     label="Designation"
                     required
                     onChange={e => setDesignation(e.target.value)}
                     variant="standard" />
-                <br />
+                
                 <TextField
-                    sx={{ width: '75%' }}
+                    sx={{ width: '25%', m:1 }}
                     label="Mobile"
                     required
                     onChange={e => setMobile(e.target.value)}
                     variant="standard" />
-                <br />
+               
                 <TextField
-
-          sx={{ width: '81%',  marginTop:'10px !important' , padding:'10px !important'}}
+           variant="standard" 
+          sx={{ width: '25%',  m:1 }}
           id="outlined-size-small"
           required
           select
-          label="Which Categories"
+          label="Categories"
           value={categoryStaff}
           onChange={handleStaffChange}
         >
@@ -144,14 +158,40 @@ const AddStaff = () => {
               Other
             </MenuItem>
         </TextField>
-        <br></br>
-                <Input
-                sx={{ width: '75%'  , marginTop:'10px'}}
-                    accept="image/*"
-                    type="file"
-                    onChange={onImageChange}
-                />
-                <br />
+
+
+        <TextField
+           variant="standard" 
+          sx={{ width: '20%',  m:1}}
+          id="outlined-size-small"
+          required
+          select
+          label="Ranking"
+          value={rank}
+          onChange={handleRankChange}
+        >
+        
+            <MenuItem key='teacher' value='high'>
+              High
+            </MenuItem>
+            <MenuItem key='adminatrator' value='higher'>
+              Higher 
+            </MenuItem>
+            <MenuItem key='other' value='highest'>
+              Highest
+            </MenuItem>
+        </TextField>
+               </div>
+          </div>
+          <TextField
+                    style={{height:"200px" , overflowY:"scroll"}}
+                    sx={{ width: '100%', m:1 }}
+                    label="Speech"
+                    required
+                    multiline
+                    maxRows={1000}
+                    onChange={e => setSpeech(e.target.value)}
+                    variant="standard" />
                 <Button variant="contained" type="submit" style={{ backgroundColor: 'red' , marginTop:'20px' }}>
                     Add Staff
                 </Button>

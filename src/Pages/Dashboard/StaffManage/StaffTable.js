@@ -103,7 +103,7 @@ const CustomTablePagination = styled(TablePaginationUnstyled)(
 
 
 
-export default function StaffTable({staffs , setStaffs,handleStaffEdit}) {
+export default function StaffTable({staffs  ,handleDelete,handleEdit}) {
     
 
 
@@ -127,27 +127,7 @@ export default function StaffTable({staffs , setStaffs,handleStaffEdit}) {
     setPage(0);
   };
 
-    const handleStaffDelete = (_id) =>{
-     
-        const url=`https://peaceful-spire-22388.herokuapp.com/staff/${_id}`
-        fetch(url, {
-          method:'DELETE',
-          headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        },
-        })
-        .then(res => res.json())
-        .then(data=>{
-          if(data.deletedCount>0){
-           
-            alert('delete')
-         
-            const remaining = staffs?.filter(staff => staff._id !== _id)
-            
-            setStaffs(remaining)
-          }
-        })
-      }
+    
 
 
 
@@ -184,8 +164,8 @@ export default function StaffTable({staffs , setStaffs,handleStaffEdit}) {
                 {row.mobile}
               </td>
               <td style={{ width: 120 }} align="right">
-                  <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStaffDelete(row._id)}>Delete</Button>
-                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStaffEdit(row._id)}>Edit</Button>
+                  <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleDelete(row._id)}>Delete</Button>
+                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleEdit(row._id)}>Edit</Button>
               </td>
               
               
