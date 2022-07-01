@@ -3,6 +3,9 @@
     display: unset;
     border-bottom: 5px solid rgb(10, 1, 1);
 }
+.navImg{
+    display: none;
+}
 .text1{
     color: black!important;
     font-weight: bolder!important;
@@ -16,13 +19,17 @@
         display: none;
         
     }
-
+    .navImg{
+        display: unset;
+    }
 }
 @media only screen  and (min-width:689px) and (max-width:990px){
     .f{
         display: none;
         
     }
-
+    .navImg{
+        display: unset;
+    }
   
 }

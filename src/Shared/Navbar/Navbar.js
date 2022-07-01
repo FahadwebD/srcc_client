@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Box, Button, Menu, MenuItem, useMediaQuery, useTheme } from '@mui/material';
-import AddBusinessRoundedIcon from "@mui/icons-material/AddBusinessRounded";
+import logo from '../../assets/images/footerlogo.png'
 import DrawerComp from "./Drawer";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -115,8 +115,8 @@ export default function Navbar() {
           
           {isMatch ? (
             <>
-              <AddBusinessRoundedIcon sx={{ transform: "scale(2)" }} />
-              <DrawerComp />
+              <img id='navImg' src={logo} alt='srcc' style={{ height:'50px'}} />
+              <DrawerComp style={{backgroundColor:'black!important'}} />
             </>
           ) : (
             <>

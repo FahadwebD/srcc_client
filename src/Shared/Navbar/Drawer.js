@@ -8,9 +8,9 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import { Link } from 'react-router-dom';
 
-const pages = ["Products", "Services", "ABoutUs", "ContactUs"];
+
 const DrawerComp = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -23,38 +23,48 @@ const DrawerComp = () => {
       >
         <List>
        
+            <Link style={{textDecoration:'none'}} to='/'>
             <ListItemButton>
               <ListItemIcon>
                 <ListItemText>Home</ListItemText>
               </ListItemIcon>
             </ListItemButton>
+            </Link>
+            <Link style={{textDecoration:'none'}} to='/about'>
             <ListItemButton>
               <ListItemIcon>
                 <ListItemText>About Us</ListItemText>
               </ListItemIcon>
             </ListItemButton>
+            </Link>
+            <Link style={{textDecoration:'none'}} to='/staff'>
             <ListItemButton>
               <ListItemIcon>
-                <ListItemText>Staffs</ListItemText>
+                <ListItemText>Staff</ListItemText>
               </ListItemIcon>
             </ListItemButton>
+            </Link>
+            <Link style={{textDecoration:'none'}} to='/gallary'>
             <ListItemButton>
               <ListItemIcon>
                 <ListItemText>Gallery</ListItemText>
               </ListItemIcon>
             </ListItemButton>
+            </Link>
+            <Link style={{textDecoration:'none'}} to='/contact'>
             <ListItemButton>
               <ListItemIcon>
                 <ListItemText>Contact Us</ListItemText>
               </ListItemIcon>
             </ListItemButton>
+            </Link>
         </List>
       </Drawer>
       <IconButton
         sx={{ color: "white", marginLeft: "auto" }}
         onClick={() => setOpenDrawer(!openDrawer)}
       >
-        <MenuIcon color="white" />
+        <MenuIcon style={{color:'black'}} />
       </IconButton>
     </React.Fragment>
   );

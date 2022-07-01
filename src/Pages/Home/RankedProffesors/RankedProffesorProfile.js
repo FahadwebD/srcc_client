@@ -3,13 +3,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import viceChairmen from '../../../assets/images/Secretary-Md.-Abdur-Rahman-Jamil.jpg'
+import { Link } from 'react-router-dom';
 
 const RankedProffesorProfile = ({staff}) => {
     return (
         <div>
-          
-           <Card style={{padding:'10px' ,margin:'10px', height:"290px" ,width:''}}  sx={{ boxShadow: 3 }}  >
+          <Link style={{textDecoration:'none'}} to={`/speech/${staff._id}`}>
+           <Card  style={{padding:'10px' ,margin:'10px', height:"290px" ,width:''}}  sx={{ boxShadow: 3 }}  >
       <CardActionArea>
        <img src={`data:image/png;base64,${staff.image}`} alt=""  style={{width:"200px" , height:'180px'}}/>
         <CardContent>
@@ -23,7 +23,7 @@ const RankedProffesorProfile = ({staff}) => {
       </CardActionArea>
     </Card>
     
-    
+    </Link>
         </div>
        
     );
