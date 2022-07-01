@@ -1,45 +1,30 @@
-import { Box, Button, IconButton } from '@material-ui/core';
-import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
-import { useTheme } from 'styled-components';
+import { Link } from 'react-router-dom';
 
+import './Notice.scss'
 const Notice = ({note}) => {
-    const theme = useTheme();
-
-    // My card preferences
   
-    const CARD_PROPERTY = {
-      borderRadius: 3,
-      boxShadow: 0,
-      textAlign:'left'
-    };
+
+  
     return (
-            <div >
-                <Card sx={CARD_PROPERTY}>
-              <CardContent sx={{ p: 3 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "left",
-                    mb: 3
-                  }}
-                >
-                  <Box>
-                    <Typography variant="h5" sx={{ fontWeight: 500 }}>
-                      
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-                      Created on {note.date}
-                    </Typography>
-                  </Box>
-                </Box>
-                <Typography variant="body1" color="#000000" sx={{ mb: 3 }}>
-                  This impressive paella is a perfect party dish and a fun meal
-                  to cook together with your guests. Add 1 cup of frozen..
-                </Typography>
-              </CardContent>
-            </Card>
+      
+            <div class="blog-card">
+            <div class="meta">
+              <div class="photo" style={{backgroundImage:`url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)` }} ></div>
+              <ul class="details">
+                <li class="author">John Doe</li>
+                <li class="date">{note.date}</li>
+            
+              </ul>
             </div>
+            <div class="description" style={{textAlign:'left'}}>
+              <h2>{note.headline}</h2>
+              <p> Lorem ipsum dolor sit amet</p>
+              <p class="read-more">
+                <Link to={`/detail/${note._id}`}>Read More</Link>
+              </p>
+            </div>
+          </div>
         
     );
 };

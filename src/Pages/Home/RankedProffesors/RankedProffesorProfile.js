@@ -9,9 +9,9 @@ const RankedProffesorProfile = ({staff}) => {
     return (
         <div>
           
-           <Card style={{padding:'10px' ,margin:'10px', height:"290px"}}  sx={{ boxShadow: 3 }}  >
+           <Card style={{padding:'10px' ,margin:'10px', height:"290px" ,width:''}}  sx={{ boxShadow: 3 }}  >
       <CardActionArea>
-       <img src={`data:image/png;base64,${staff.image}`} alt=""  style={{width:"200px" , height:'200px'}}/>
+       <img src={`data:image/png;base64,${staff.image}`} alt=""  style={{width:"200px" , height:'180px'}}/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
           {staff.name}
@@ -22,6 +22,8 @@ const RankedProffesorProfile = ({staff}) => {
         </CardContent>
       </CardActionArea>
     </Card>
+    
+    
         </div>
        
     );

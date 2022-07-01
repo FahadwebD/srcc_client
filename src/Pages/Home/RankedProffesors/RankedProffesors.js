@@ -29,7 +29,7 @@ const [staffs] = useStaff()
      <div className='gridStaff'>
 
      
-        {staffs?.slice(1, 4).map(staff=> <RankedProffesorProfile
+        {staffs?.slice(0, 4).map(staff=> <RankedProffesorProfile
         key={staff._id}
         staff={staff}></RankedProffesorProfile>)
          

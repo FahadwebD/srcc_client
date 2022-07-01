@@ -26,7 +26,21 @@ $duration: 30s;
     transform: translate3d(-100%, 0, 0);
   }
 }
-
+.heading{
+	background-color: #1c6547;
+	color: #fff;
+	padding: 5px 10px;
+	flex: 0 0 auto;
+	z-index: 1000;
+}
+.heading:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	border-left: 20px solid #1c6547;
+	border-top: 17px solid transparent;
+	border-bottom: 15px solid transparent;
+}
 .ticker-wrap {
   
 

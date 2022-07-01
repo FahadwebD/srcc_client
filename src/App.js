@@ -15,6 +15,7 @@ import RequireAuth from './Pages/Login/Login/RequireAuth';
 import RequireAdmin from './Pages/Login/Login/RequireAdmin';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import ContactMain from './Pages/ContactUs/ContactMain';
+import NoticeDetail from './Pages/NoticeDetail/NoticeDetail';
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
         <Route path="staff" element={<Staff/> }/>
         <Route path="student" element={<StudentMain/> }/>
         <Route path="contact" element={<ContactMain/> }/>
+        <Route path="contact" element={<ContactMain/> }/>
+        <Route path="/detail/:id" element={<NoticeDetail/> }/>
+
 
 
         <Route path="login" element={<Login/> }/>
