@@ -122,7 +122,7 @@ export default function Navbar() {
             <>
                <Box style={{margin:'auto'}} sx={{ display: { xs: 'none', sm: 'block' } ,  }}>
            
-              <Link style={{textDecoration:'none'}} to='/'>
+              {/* <Link style={{textDecoration:'none'}} to='/'>
               <Button   className={textColor}>
                 Home
               </Button>
@@ -166,7 +166,37 @@ export default function Navbar() {
               <Button   className={textColor}>
                 Contact Us
               </Button>
-              </Link>
+              </Link> */}
+              <ul class="navbar-links">
+        <li class="navbar-dropdown">
+          <Link to="/">Home</Link>
+         
+        </li>
+        <li class="navbar-dropdown">
+          <Link to='/staff/all'>Staff</Link>
+          <div class="dropdown">
+            <Link to='/staff/a'>Adminastrator</Link>
+            <Link to='/staff/t'>Teacher</Link>
+            <Link to='/staff/o'>Other</Link>
+          </div>
+        </li>
+        <li class="navbar-dropdown">
+          <Link to='/about'>About Us</Link>
+
+        </li>
+        <li class="navbar-dropdown">
+          <Link to='/gallary'>Gallery</Link>
+          <div class="dropdown">
+            <Link to='/'>All</Link>
+            <Link to='/'>Office</Link>
+            <Link to='/'>Other</Link>
+            
+          </div>
+        </li>
+        <li class="navbar-dropdown">
+          <Link to='/contact'>Contact</Link>
+        </li>
+      </ul>
           </Box>
             
             </>
