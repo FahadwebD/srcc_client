@@ -19,7 +19,7 @@ const style = {
   };
 
 
-const AddEvent = () => {
+const AddEvent = ({call}) => {
     const [headline, setHeadline] = useState('');
     const [date, setDate] = useState('');
     const [description , setDescription] = useState('')
@@ -70,6 +70,7 @@ const AddEvent = () => {
                     setSuccess('Data added successfully')
                     setImg(null);
                     handleClose()
+                    call()
                   alert('Event added successfully')
                 }
             })

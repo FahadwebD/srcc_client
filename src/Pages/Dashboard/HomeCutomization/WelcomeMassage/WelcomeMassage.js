@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import welcomepic from '../../../../assets/images/welcome.jpg'
+
+
+
+import welcomepic from '../../../../assets/images/w.JPG'
 
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/system';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { IoCloseOutline } from "react-icons/io5";
 import { BiLoaderAlt } from "react-icons/bi";
 import useWelcome from '../../../../hooks/useWelcome';
@@ -88,7 +90,7 @@ const WelcomeMassage = () => {
         }
        console.log(updateMassage)
    
-       fetch('http://localhost:5000/welcome/edit', {
+       fetch('https://peaceful-spire-22388.herokuapp.com/welcome/edit', {
            method: 'PUT',
            headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -207,7 +209,7 @@ const WelcomeMassage = () => {
                            
                             multiline
                             maxRows={1000}
-                            
+                            style={{height:'200px' , overflowY:'scroll'}}
                             value={form.massage}
                             onChange={(e) => updateForm({ massage: e.target.value })}
                             size="small"

@@ -25,8 +25,8 @@ var settings = {
     speed: 500,
 
     initialSlide: 0,
-    slidesToShow: 2,
-    slidesToScroll: 1,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     nextArrow: <SlickArrowLeft />,
     prevArrow: <SlickArrowRight />,
     responsive: [
@@ -58,6 +58,8 @@ var settings = {
   };
     return (
         <div style={{padding:'50px'}}>
+          <h1>Our Facilities</h1>
+        <hr style={{width:'10%' , backgroundColor:'red' , border: '1px solid red'}} />
              <Slider {...settings}>
             {carousel?.map(c=><CarouselCard
             c={c}

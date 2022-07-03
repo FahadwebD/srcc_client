@@ -28,18 +28,19 @@ const Event = ({ev}) => {
 
   const CARD_PROPERTY = {
     borderRadius: 3,
-    boxShadow: 10
+    boxShadow: 10,
+    margin:2
   };
     return (
         
-      <div>
+      <div style={{textAlign:'left'}}>
        <Card sx={CARD_PROPERTY}>
               <CardMedia
                 component="img"
                 height="194"
-                image="https://images.pexels.com/photos/1161771/pexels-photo-1161771.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                image={`data:image/png;base64,${ev.image}`}
               />
-              <CardContent sx={{ p: 3 }}>
+              <CardContent sx={{ p: 3 }} style={{maxHeight:'180px' , overflowY:'scroll'}}>
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -51,10 +52,12 @@ const Event = ({ev}) => {
                 <Typography variant="body1" color="text.secondary">
                   {ev.description}
                 </Typography>
+                <span style={{fontSize:'10px' , color:'red'}} >{ev.date}</span>
               </CardContent>
+              
               <CardActions sx={{ pt: 0, px: 3, pb: 3 }}>
+                
                 <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
               </CardActions>
             </Card>
       </div>

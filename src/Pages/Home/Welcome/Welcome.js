@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import welcomepic from '../../../assets/images/welcome.jpg'
+
 import './button.css'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -7,6 +7,7 @@ import { Container } from '@mui/system';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { IoCloseOutline } from "react-icons/io5";
 import { BiLoaderAlt } from "react-icons/bi";
+import welcomepic from '../../../assets/images/w.JPG'
 import useWelcome from '../../../hooks/useWelcome';
 
 

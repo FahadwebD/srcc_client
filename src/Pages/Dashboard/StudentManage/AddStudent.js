@@ -26,7 +26,7 @@ const style = {
   };
 
 
-const AddStudent = () => {
+const AddStudent = ({call}) => {
     const [name, setName] = useState('');
     const [roll, setRoll] = useState('');
     const [session, setSession] = useState('');
@@ -95,6 +95,7 @@ const AddStudent = () => {
                     setSuccess('Data added successfully')
                     setImg(null);
                     handleClose()
+                    call()
                   alert('Staff added successfully')
                 }
             })

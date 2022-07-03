@@ -105,7 +105,7 @@ const call =()=>{
         }
        console.log(updateStaff)
    
-       fetch('http://localhost:5000/student/edit', {
+       fetch('https://peaceful-spire-22388.herokuapp.com/student/edit', {
            method: 'PATCH',
            headers: {
               //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -137,7 +137,7 @@ const call =()=>{
                      <h1>ALL STUDENT</h1>
                 </div>
                 <div>
-                <AddStudent></AddStudent>
+                <AddStudent call={call}></AddStudent>
                     </div>
                 </div>
             </div>

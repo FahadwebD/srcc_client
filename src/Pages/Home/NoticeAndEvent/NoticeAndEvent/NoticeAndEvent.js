@@ -23,10 +23,10 @@ const NoticeAndEvent = () => {
          <div>
             <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid  item xs={12} md={7}>
+        <Grid  item xs={12} md={8}>
           <Events></Events>
         </Grid>
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={4}>
         <h1>Notices</h1>
         <hr style={{width:'10%' , backgroundColor:'red' , border: '1px solid red'}} />
           <Item><Notices></Notices></Item>

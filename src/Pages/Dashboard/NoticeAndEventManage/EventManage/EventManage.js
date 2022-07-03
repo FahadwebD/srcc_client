@@ -31,12 +31,18 @@ const EventManage = () => {
 
 
     const [staffs , setStaffs] = useEvent([]);
-    const [editStaff ,setEditStaff] = useState()
-    const [open, setOpen] = React.useState(false);
-    const [headline , setHeadline] = useState()
-    const [date , setDate] = useState()
-    const [description , setDescription] = useState()
     
+    const [open, setOpen] = React.useState(false);
+
+    const [form, setForm] = useState({
+      _id:"",
+      image:"",
+      headline: "",
+      date: "",
+      description: "",
+      records: [],
+    });
+
 
 
 
@@ -47,16 +53,7 @@ const EventManage = () => {
 
 
 
-    const handleNameChange = (event) => {
-      setHeadline(event.target.value);
-      };
-      const handleCatogoryChange = (event) => {
-        setDate(event.target.value);
-      };
-      const handleDesignationChange = (event) => {
-        setDescription(event.target.value);
-      };
-     
+ 
 
 
  const handleStaffEdit = (_id) =>{
@@ -65,18 +62,32 @@ const EventManage = () => {
 const found = staffs.find(obj => {
     return obj._id ===_id;
   });
-  setEditStaff(found)
+
+  setForm(found)
     handleOpen()
  }
+
+
+ function updateForm(value) {
+  return setForm((prev) => {
+    return { ...prev, ...value };
+  });
+}
+const call=() =>{
+  fetch('https://peaceful-spire-22388.herokuapp.com/event')
+  .then(res=>res.json())
+  .then(data=>setStaffs(data.reverse()))
+}
+
     const handleStaffSubmit = e => {
-        const _id = editStaff._id
+       
        
         const updateStaff = {
-            headline,
-            date,
-            description,
+            headline:form.headline,
+            date:form.date,
+            description:form.description,
             
-            _id
+            _id:form._id
             
         }
        console.log(updateStaff)
@@ -93,7 +104,8 @@ const found = staffs.find(obj => {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                  
+                  alert('Event Updated')
+                  call()
                    console.log('ok')
                }
            })
@@ -111,7 +123,7 @@ const found = staffs.find(obj => {
                      <h1>ALL EVENTS</h1>
                 </div>
                 <div>
-                <AddEvent></AddEvent>
+                <AddEvent call={call}></AddEvent>
                 </div>
             </div>
           {staffs.length?<div>
@@ -132,7 +144,7 @@ const found = staffs.find(obj => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-           Update Carousel
+           Update Event
           </Typography>
           <form onSubmit={handleStaffSubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
@@ -140,43 +152,46 @@ const found = staffs.find(obj => {
           <div>
                 <img
                 style={{ width: '100%', height: '120px' }}
-                src={`data:image/png;base64,${editStaff?.image}`} alt="" />
+                src={`data:image/png;base64,${form?.image}`} alt="" />
                 
                   
                 </div>
                          <div>
                          <TextField
                             required
-                           
+                            label="Headline"
+                            variant='standard'
                             id="outlined-size-small"
                             name="Name"
                             style={{ width: '100%' }}
-                            
-                            defaultValue={editStaff?.headline}
-                            onChange={handleNameChange}
-                          
+                         
+                            value={form.headline}
+                            onChange={(e) => updateForm({ headline: e.target.value })}
                             
                         />
                          <TextField
                             required
-                           
+                            label="Date"
+                            variant='standard'
                             id="outlined-size-small"
                             name="Designation"
                             style={{ width: '100%' }}
                             
-                            defaultValue={editStaff?.date}
-                            onChange={handleCatogoryChange}
+                            value={form.date}
+                            onChange={(e) => updateForm({ date: e.target.value })}
                           
                             
                         />
                          <TextField
                             required
+                            label="Description"
+                            variant='standard'
                             id="outlined-size-small"
                             name="Category"
                             style={{ width: '100%' }}
+                            value={form.description}
+                            onChange={(e) => updateForm({ description: e.target.value })}
                             
-                            defaultValue={editStaff?.description}
-                            onChange={handleDesignationChange}
                           
                             
                         />

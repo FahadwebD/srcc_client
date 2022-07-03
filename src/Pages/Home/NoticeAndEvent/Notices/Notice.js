@@ -10,7 +10,7 @@ const Notice = ({note}) => {
       
             <div class="blog-card">
             <div class="meta">
-              <div class="photo" style={{backgroundImage:`url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)` }} ></div>
+              <div class="photo" style={{backgroundImage:`url(data:image/png;base64,${note.image})` }} ></div>
               <ul class="details">
                 <li class="author">{note.headline}</li>
                 <li class="date">{note.date}</li>
