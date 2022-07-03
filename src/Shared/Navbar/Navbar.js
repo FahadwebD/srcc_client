@@ -14,7 +14,7 @@ import NavbarDemand from '../NavbarDemand';
 const useStyles = makeStyles((theme) => ({
 
     appBarTransparent: {
-        backgroundColor: 'rgba(0, 0, 0, 0)',
+        backgroundColor: 'rgba(255,255,255, 100)',
         color: 'white'
     },
     appBarSolid: {
@@ -77,17 +77,8 @@ export default function Navbar() {
     }, [])
 
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
 
-    function handleClick(event) {
-      if (anchorEl !== event.currentTarget) {
-        setAnchorEl(event.currentTarget);
-      }
-    }
-  
-    function handleClose() {
-      setAnchorEl(null);
-    }
+ 
 
     const theme = useTheme();
     console.log(theme);
@@ -121,79 +112,33 @@ export default function Navbar() {
           ) : (
             <>
                <Box style={{margin:'auto'}} sx={{ display: { xs: 'none', sm: 'block' } ,  }}>
-           
-              {/* <Link style={{textDecoration:'none'}} to='/'>
-              <Button   className={textColor}>
-                Home
-              </Button>
-              </Link>
-              <Link style={{textDecoration:'none'}} to='/about'>
-              <Button   className={textColor}>
-                About Us
-              </Button>
-              </Link>
-
-              
-              <Button 
-              aria-owns={anchorEl ? "simple-menu" : undefined}
-              aria-haspopup="true"
-             
-              onMouseOver={handleClick}
-              
-              className={textColor} endIcon={<  KeyboardArrowDownIcon style={{ marginLeft:'-5px'}} />}>
-                Staff
-              </Button>
-              <Menu
-              style={{width:'400px!important'}}
-        id="simple-menu"
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        MenuListProps={{ onMouseLeave: handleClose }}
-      >
-       <Link style={{textDecoration:'none'}} to='/staff/all'> <MenuItem onClick={handleClose}> <KeyboardDoubleArrowRightIcon/>ALl Staff </MenuItem></Link>
-       <Link style={{textDecoration:'none'}} to='/staff/a'> <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Adminastrator </MenuItem></Link>
-       <Link style={{textDecoration:'none'}} to='/staff/t'> <MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Instructor</MenuItem></Link>
-       <Link style={{textDecoration:'none'}} to='/staff/o'><MenuItem onClick={handleClose}><KeyboardDoubleArrowRightIcon  />Other</MenuItem></Link>
-      </Menu>
-            
-              <Link style={{textDecoration:'none'}} to='/gallary'>
-              <Button   className={textColor}>
-                Gallery
-              </Button>
-              </Link>
-              <Link style={{textDecoration:'none'}} to='/contact'>
-              <Button   className={textColor}>
-                Contact Us
-              </Button>
-              </Link> */}
-              <ul class="navbar-links">
-        <li class="navbar-dropdown">
+              <ul className="navbar-links">
+        <li className="navbar-dropdown">
           <Link to="/">Home</Link>
          
         </li>
-        <li class="navbar-dropdown">
-          <Link to='/staff/all'>Staff</Link>
-          <div class="dropdown">
-            <Link to='/staff/a'>Adminastrator</Link>
-            <Link to='/staff/t'>Teacher</Link>
-            <Link to='/staff/o'>Other</Link>
+        <li className="navbar-dropdown">
+          <Link to='/staff/all'>Staff  +</Link>
+          <div className="dropdown">
+            <Link style={{display:'flex'}} to='/staff/a'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Adminastrator </Link>
+            <Link style={{display:'flex'}} to='/staff/t'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Teacher</Link>
+            <Link style={{display:'flex'}} to='/staff/o'><div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Other</Link>
           </div>
         </li>
-        <li class="navbar-dropdown">
+        <li className="navbar-dropdown">
           <Link to='/about'>About Us</Link>
 
         </li>
-        <li class="navbar-dropdown">
-          <Link to='/gallary'>Gallery</Link>
-          <div class="dropdown">
-            <Link to='/'>All</Link>
-            <Link to='/'>Office</Link>
-            <Link to='/'>Other</Link>
+        <li className="navbar-dropdown">
+          <Link to='/gallary'>Gallery  +</Link>
+          <div className="dropdown">
+            <Link style={{display:'flex'}} to='/'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>All</Link>
+            <Link style={{display:'flex'}} to='/'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Office</Link>
+            <Link style={{display:'flex'}} to='/'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Other</Link>
             
           </div>
         </li>
-        <li class="navbar-dropdown">
+        <li className="navbar-dropdown">
           <Link to='/contact'>Contact</Link>
         </li>
       </ul>

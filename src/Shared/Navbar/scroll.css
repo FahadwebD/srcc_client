@@ -30,6 +30,7 @@
   
   .navbar-links li.navbar-dropdown {
     position: relative;
+    text-align: left;
   }
   
   .navbar-links li.navbar-dropdown:hover .dropdown {

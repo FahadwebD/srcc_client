@@ -18,7 +18,7 @@ const CarouselData = ({carousel}) => {
       };
      
       return (
-        <div>
+        <div style={{marginTop:'50px'}}>
           <div>
             {carousel.length?  <Banner
                 data={carousel}
