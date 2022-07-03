@@ -12,14 +12,14 @@ const Notice = ({note}) => {
             <div class="meta">
               <div class="photo" style={{backgroundImage:`url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)` }} ></div>
               <ul class="details">
-                <li class="author">John Doe</li>
+                <li class="author">{note.headline}</li>
                 <li class="date">{note.date}</li>
             
               </ul>
             </div>
             <div class="description" style={{textAlign:'left'}}>
               <h2>{note.headline}</h2>
-              <p> Lorem ipsum dolor sit amet</p>
+              <p>{note.notice}</p>
               <p class="read-more">
                 <Link to={`/detail/${note._id}`}>Read More</Link>
               </p>

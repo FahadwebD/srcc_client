@@ -108,17 +108,7 @@
   position: relative;
   color: #ea1d6f;
   font-size: 26px;
-}
-
-.app-title:after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 25px;
-  height: 4px;
-  background: #ea1d6f;
+  
 }
 
 .app-contact {
@@ -132,7 +122,7 @@
 }
 
 .app-form-group.message {
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .app-form-group.buttons {
@@ -144,21 +134,18 @@
   width: 100%;
   padding: 10px 0;
   background: none;
-  border: none;
-  border-bottom: 1px solid #666;
-  color: #ddd;
+
+  border: 1px solid #666;
   font-size: 14px;
-  text-transform: uppercase;
   outline: none;
-  transition: border-color .2s;
+  transition: border .2s;
 }
 
-.app-form-control::placeholder {
-  color: #666;
-}
+
 
 .app-form-control:focus {
-  border-bottom-color: #ddd;
+  border-color: #ddd;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .app-form-button {
@@ -174,24 +161,7 @@
   color: #b9134f;
 }
 
-.credits {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  color: #ffa4bd;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-}
 
-.credits-link {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-}
 
 .dribbble {
   width: 20px;

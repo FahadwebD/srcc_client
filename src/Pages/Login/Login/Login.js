@@ -78,7 +78,7 @@ const Login = () => {
                       <input
                                 type="email"
                                
-                                className="form-field animation a3 input"
+                                className="input"
                                 {...register("email", {
                                     required: {
                                         value: true,

@@ -1,8 +1,9 @@
+
+import { Avatar } from '@mui/material';
 import React, { useState } from 'react';
-import Footer from '../../Shared/Footer/Footer';
-import Navbar from '../../Shared/Navbar/Navbar';
-import ContactHeader from './ContactHeader';
+
 import './ContactUs.css'
+import logo from '../../assets/images/head.png'
 const ContactUs = () => {
 
   const [status, setStatus] = useState("Submit");
@@ -39,9 +40,7 @@ const ContactUs = () => {
     <div className="screen">
       <div className="screen-header">
         <div className="screen-header-left">
-          <div className="screen-header-button close"></div>
-          <div className="screen-header-button maximize"></div>
-          <div className="screen-header-button minimize"></div>
+        <Avatar className='avatar'  src='https://upload.wikimedia.org/wikipedia/commons/7/74/Bangladesh_Red_Crescent_Society_Logo.png' />
         </div>
         <div className="screen-header-right">
           <div className="screen-header-ellipsis"></div>
@@ -50,32 +49,57 @@ const ContactUs = () => {
         </div>
       </div>
       <div className="screen-body">
-        <div style={{textAlign:'left'}} className="screen-body-item left">
-          <div className="app-title">
-            <span>CONTACT</span>
-            <span>US</span>
+        <div  className="screen-body-item left">
+          
+          <div style={{textAlign:'left' , marginBottom:'40px'}}>
+            <h3 style={{marginBottom:'5px'}}>Physical and Mailing Adress</h3>
+            <p style={{margin:'0'}}>Bangladesh Red Crescent Society</p>
+            <p style={{margin:'0'}}>National Headquarters</p>
+            <p style={{margin:'0'}}>684-686, Red Crescent Sarak</p>
+            <p style={{margin:'0'}}>Bara Maghbazar, Dhaka 1217</p>
+
           </div>
-          <div>Hi</div>
-          <div>Hi</div>
-          <div>Hi</div>
-          <div>Hi</div>
+          <div style={{textAlign:'left' , marginBottom:'40px'}}>
+            <h3 style={{marginBottom:'5px'}}>Contact Information</h3>
+            <p style={{margin:'0'}}>Tel: (880) +88 02 48310188 / +88 02 48310189;</p>
+            <p style={{margin:'0'}}>Fax: +88 02 9352303</p>
+            <p style={{margin:'0'}}>Email: info@bdrcs.org</p>
+            
+
+          </div>
           <div className="app-contact">CONTACT INFO : +62 81 314 928 595</div>
         </div>
         <div className="screen-body-item">
+        <div className="app-title" style={{textAlign:'left' , marginBottom:'10px'}}>
+            <span>Give Us Your Feed Back</span>
+          
+          </div>
           <div className="app-form">
           <form onSubmit={handleSubmit}>
-            <div className="app-form-group">
-              <input type="text" id="name"   className="app-form-control" placeholder="NAME" />
+          <div style={{color:'gray' , textAlign:'left'}}>
+            <label >Name</label>
             </div>
             <div className="app-form-group">
-              <input type="email" id="email" className="app-form-control" placeholder="EMAIL"/>
+              <input type="text" id="name"   className="app-form-control" />
+            </div>
+            <div style={{color:'gray' , textAlign:'left'}}>
+            <label >Email</label>
             </div>
             <div className="app-form-group">
-              <input type="text" id="subject" className="app-form-control" placeholder="Subject"/>
+              <input type="email" id="email" className="app-form-control" />
             </div>
-            
+            <div style={{color:'gray' , textAlign:'left'}}>
+            <label >Subject</label>
+            </div>
+            <div className="app-form-group">
+              
+              <input type="text" id="subject" className="app-form-control" />
+            </div>
+            <div style={{color:'gray' , textAlign:'left'}}>
+            <label >Massage</label>
+            </div>
             <div className="app-form-group message">
-              <input id="message"  className="app-form-control" placeholder="MESSAGE"/>
+              <textarea id="message"  className="app-form-control"  style={{height:'90px'}}/>
             </div>
             <div className="app-form-group buttons">
               <button className="app-form-button">{status}</button>
