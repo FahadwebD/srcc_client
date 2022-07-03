@@ -11,13 +11,14 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
-    const { name, email, message } = e.target.elements;
+    const { name, email, subject, message  } = e.target.elements;
     let details = {
       name: name.value,
       email: email.value,
+      subject: subject.value,
       message: message.value,
     };
-    let response = await fetch("https://peaceful-spire-22388.herokuapp.com/contact", {
+    let response = await fetch("http://localhost:5000/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -54,6 +55,10 @@ const ContactUs = () => {
             <span>CONTACT</span>
             <span>US</span>
           </div>
+          <div>Hi</div>
+          <div>Hi</div>
+          <div>Hi</div>
+          <div>Hi</div>
           <div className="app-contact">CONTACT INFO : +62 81 314 928 595</div>
         </div>
         <div className="screen-body-item">
@@ -64,6 +69,9 @@ const ContactUs = () => {
             </div>
             <div className="app-form-group">
               <input type="email" id="email" className="app-form-control" placeholder="EMAIL"/>
+            </div>
+            <div className="app-form-group">
+              <input type="text" id="subject" className="app-form-control" placeholder="Subject"/>
             </div>
             
             <div className="app-form-group message">

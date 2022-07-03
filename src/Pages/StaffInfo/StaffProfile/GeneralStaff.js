@@ -18,7 +18,7 @@ const GeneralStaff = ({c}) => {
 
     },[c])
     return (
-      <div className='h'>
+      <div className='h'  style={{marginTop:'100px'}}>
       
       <div className="overlay">
 <h1>Our Staff</h1>
