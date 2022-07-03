@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import welcomepic from '../../../../assets/images/welcome.jpg'
 
 import Grid from '@mui/material/Grid';
@@ -33,20 +33,23 @@ const WelcomeMassage = () => {
     const [modal, setModal] = useState(false);
     const [videoLoading, setVideoLoading] = useState(true);
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const [welcome] = useWelcome();
+    const [welcome , setWelcome] = useWelcome();
+    const [form, setForm] = useState({
+      _id:"",
+      massage: "",
+      linkYoutube: "",
+      records: [],
+    });
+    const handleOpen = () => {
+      setForm(welcome[0])
+      setOpen(true)};
+    const handleClose = () => {
+      call()
+      setOpen(false)};
 
 
-    const [massage, setMassage] = React.useState();
-    const [youtube, setYoutube] = React.useState();
+    
 
-    const handleTitleChange = (event) => {
-        setMassage(event.target.value);
-      };
-      const handleNumChange = (event) => {
-        setYoutube(event.target.value);
-      };
     
     const openModal = () => {
       setModal(!modal);
@@ -55,20 +58,37 @@ const WelcomeMassage = () => {
     const spinner = () => {
       setVideoLoading(!videoLoading);
     };
+ 
+ 
+   
+   
+   
+    const call=()=>{
 
+        fetch('https://peaceful-spire-22388.herokuapp.com/welcome')
+        .then(res=>res.json())
+        .then(data=>setWelcome(data))
 
+  
+ }
+
+    function updateForm(value) {
+      return setForm((prev) => {
+        return { ...prev, ...value };
+      });
+    }
     const handleWelcomeSubmit = e => {
         const _id = welcome[0]._id
       
         const updateMassage = {
-            massage,
-            youtube,
-            _id
+            massage: form.massage,
+            linkYoutube: form.linkYoutube,
+            _id 
             
         }
        console.log(updateMassage)
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/welcome/edit', {
+       fetch('http://localhost:5000/welcome/edit', {
            method: 'PUT',
            headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -79,7 +99,8 @@ const WelcomeMassage = () => {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                  
+                  alert('Updated Welcome');
+                  handleClose()
                    console.log('ok')
                }
            })
@@ -184,10 +205,11 @@ const WelcomeMassage = () => {
                             id="outlined-size-small"
                             name="Time"
                            
+                            multiline
+                            maxRows={1000}
                             
-                            defaultValue={welcome[0]?.massage}
-                            onChange={handleTitleChange}
-                          
+                            value={form.massage}
+                            onChange={(e) => updateForm({ massage: e.target.value })}
                             size="small"
                         />
                          <TextField
@@ -195,11 +217,8 @@ const WelcomeMassage = () => {
                             sx={{ width: '90%', m: 1 }}
                             id="outlined-size-small"
                             name="Time"
-                           
-                            
-                            defaultValue={welcome[0]?.linkYoutube}
-                            onChange={handleNumChange}
-                          
+                            value={form.linkYoutube}
+                            onChange={(e) => updateForm({ linkYoutube: e.target.value })}
                             size="small"
                         />
                       

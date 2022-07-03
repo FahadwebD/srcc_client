@@ -101,7 +101,7 @@ const CustomTablePagination = styled(TablePaginationUnstyled)(
 
 
 
-export default function StudentTable({staffs , setStaffs ,handleStaffEdit}) {
+export default function StudentTable({student , setStudent ,handleStudentEdit}) {
     
 
 
@@ -114,7 +114,7 @@ export default function StudentTable({staffs , setStaffs ,handleStaffEdit}) {
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - staffs?.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - student?.length) : 0;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -140,9 +140,9 @@ export default function StudentTable({staffs , setStaffs ,handleStaffEdit}) {
            
             alert('delete')
          
-            const remaining = staffs?.filter(staff => staff._id !== _id)
+            const remaining = setStudent?.filter(staff => staff._id !== _id)
             
-            setStaffs(remaining)
+            setStudent(remaining)
           }
         })
       }
@@ -167,8 +167,8 @@ export default function StudentTable({staffs , setStaffs ,handleStaffEdit}) {
         </thead>
         <tbody>
           {(rowsPerPage > 0
-            ? staffs?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : staffs
+            ? student?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : student
           )?.map((row) => (
             <tr key={row.name}>
               <td>{<img
@@ -192,7 +192,7 @@ export default function StudentTable({staffs , setStaffs ,handleStaffEdit}) {
               </td>
               <td style={{ width: 120 }} align="right">
                   <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStudentDelete(row._id)}>Delete</Button>
-                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStaffEdit(row._id)}>Edit</Button>
+                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStudentEdit(row._id)}>Edit</Button>
               </td>
               
               
@@ -210,7 +210,7 @@ export default function StudentTable({staffs , setStaffs ,handleStaffEdit}) {
             <CustomTablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={8}
-              count={staffs?.length}
+              count={student?.length}
               rowsPerPage={rowsPerPage}
               page={page}
               componentsProps={{

@@ -49,7 +49,7 @@ const CountUps= () => {
           
           
           
-        <CountUp start={focus ? 0 : null} end={numbers[0]?.number} duration={2} redraw={true}>
+        <CountUp start={focus ? 0 : null} end={parseFloat(numbers[0]?.numbers)}duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -85,7 +85,7 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={numbers[1]?.number} duration={2} redraw={true}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={parseFloat(numbers[1]?.numbers)} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -117,7 +117,7 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={numbers[2]?.number} duration={2} redraw={true}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={parseFloat(numbers[2]?.numbers)} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -149,7 +149,7 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={numbers[3]?.number} duration={2} redraw={true}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={parseFloat(numbers[3]?.numbers)} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />

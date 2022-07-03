@@ -5,6 +5,7 @@ import moment from 'moment';
 import AddStudent from './AddStudent';
 import StudentTable from './StudentTable';
 import useCourses from '../../../hooks/useCourses';
+import useStudent from '../../../hooks/useStudent';
 
 const StudentManage = () => {
 
@@ -20,14 +21,7 @@ const StudentManage = () => {
         p: 4,
       };
 
-    const [staffs , setStaffs] = useState([]);
-
-    useEffect(()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/student')
-        .then(res=>res.json())
-        .then(data=>setStaffs(data))
-
-    },[staffs])
+   
     // name,
     // roll,
 
@@ -38,17 +32,24 @@ const StudentManage = () => {
     // sessionStart,
     // sessionEnd,
 
-    const [courses , setCourses] = useCourses()
-    const [editStaff ,setEditStaff] = useState()
+    const [courses ] = useCourses()
+    
     const [open, setOpen] = React.useState(false);
-    const [name, setName] = useState('');
-    const [roll, setRoll] = useState('');
-    const [course, setCourse] = useState('');
-    const [regNo, setRegNo] = useState('');
-    const [category, setCategory] = useState('');
-    const [mobile, setMobile] = useState('');
-    const [sessionStarted, setSessionStarted] = React.useState(new Date());
-    const [sessionEnded, setSessionEnded] = React.useState(new Date());
+    const [student,setStudent] = useStudent()
+ 
+    const [form, setForm] = useState({
+      _id:"",
+      image:"",
+      name: "",
+      roll: "",
+      course: "",
+      regNo:"",
+      category:"",
+      speech:"",
+      sessionStart:"",
+      sessionEnd:"",
+      records: [],
+    });
 
 
 
@@ -57,62 +58,54 @@ const StudentManage = () => {
     const handleClose = () => setOpen(false);
 
 
-const sessionStart = moment(sessionStarted).format('YYYY');
-const sessionEnd =moment(sessionEnded).format('YYYY');
 
 
 
-const handleNameChange = (event) => {
-  setName(event.target.value);
-};
-const handleRollChange = (event) => {
-  setRoll(event.target.value);
-};
-const handleRegNoChange = (event) => {
-  setRegNo(event.target.value);
-};
-const handleMobileChange = (event) => {
-  setMobile(event.target.value);
-};
-const handleCourseChange = (event) => {
-    setCourse(event.target.value);
-  };
 
-  
-
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-  };
 
 
 
  const handleStaffEdit = (_id) =>{
 
     console.log(_id)
-const found = staffs.find(obj => {
+const found = student.find(obj => {
     return obj._id ===_id;
   });
-  setEditStaff(found)
+ 
+  setForm(found)
     handleOpen()
  }
+
+const call =()=>{
+  fetch('https://peaceful-spire-22388.herokuapp.com/student')
+  .then(res=>res.json())
+  .then(data=>setStudent(data))
+}
+ function updateForm(value) {
+  return setForm((prev) => {
+    return { ...prev, ...value };
+  });
+}
+
+
     const handleStaffSubmit = e => {
-        const _id = editStaff._id
+      
        
         const updateStaff = {
-             name,
-            roll,
-            regNo,
-            category,
-            course,
-            mobile,
-            sessionStart,
-            sessionEnd,
-            _id
+             name:form.name,
+            roll:form.roll,
+            regNo:form.regNo,
+            category:form.category,
+            course:form.course,
+            mobile:form.mobile,
+            sessionStart:form.sessionStart,
+            sessionEnd:form.sessionEnd,
+            _id:form._id
             
         }
        console.log(updateStaff)
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/student/edit', {
+       fetch('http://localhost:5000/student/edit', {
            method: 'PATCH',
            headers: {
               //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -124,6 +117,8 @@ const found = staffs.find(obj => {
            .then(data => {
                if (data.modifiedCount) {
                   handleClose()
+                  alert('Student Updated')
+                  call ()
                    console.log('ok')
                }
            })
@@ -132,7 +127,7 @@ const found = staffs.find(obj => {
 
         e.preventDefault();
     }
-    console.log(staffs)
+    console.log(student)
      
     return (
         <div>
@@ -147,9 +142,9 @@ const found = staffs.find(obj => {
                 </div>
             </div>
             
-           <div> <StudentTable staffs={staffs}
-            setStaffs={setStaffs}
-            handleStaffEdit={handleStaffEdit}
+           <div> <StudentTable student={student}
+            setStudent={setStudent}
+            handleStudentEdit={handleStaffEdit}
             ></StudentTable></div>
 
 
@@ -170,7 +165,7 @@ const found = staffs.find(obj => {
         <Fade in={open}>
           <Box sx={style} style={{textAlign:'center'}}>
            
-           <h3>Update {editStaff?.name} Profile</h3>
+           <h3>Update {form.name} Profile</h3>
            <form onSubmit={handleStaffSubmit}>
          <div style={{display:'flex' , alignItems:'center'}}>
          <div>
@@ -181,77 +176,62 @@ const found = staffs.find(obj => {
                 <TextField
                     sx={{ width: '75%' }}
                     label="Name"
-                    required
-                    defaultValue={editStaff?.name}
-                    
-                    onChange={(newValue) => {
-                      handleNameChange(newValue);
-                    }}
+                  
+                    value={form.name}
+                    onChange={(e) => updateForm({ name: e.target.value })}
                    
                     variant="standard" />
                 
                 <TextField
                     sx={{ width: '75%' }}
                     label="Admission Roll"
-                    defaultValue={editStaff?.roll}
-                    required
-                    
-                    onChange={(newValue) => {
-                      handleRollChange(newValue);
-                    }}
                    
+                    value={form.roll}
+                    onChange={(e) => updateForm({ roll: e.target.value })}
                     variant="standard" />
                
                
                <div style={{display:'flex' ,padding:"10px 35px" , alignItems:'center'}}>
                 <div>
-                <DatePicker
+                <TextField
                 style={{margin:'10px'}}
-          views={['year']}
+          
           label="Session Start"
-          
-          
-          onChange={(newValue) => {
-            setSessionStarted(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} helperText={null} />}
+          variant="standard" 
+          value={form.sessionStart}
+          onChange={(e) => updateForm({ sessionStart: e.target.value })}
+         
         />
                 </div>
             
                 <div>
-                <DatePicker
+                <TextField
                 style={{margin:'10px'}}
-          views={['year']}
+         
           label="Session end"
-          
+          variant="standard" 
         
-          onChange={(newValue) => {
-            setSessionEnded(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} helperText={null} />}
+          value={form.sessionEnd}
+          onChange={(e) => updateForm({ sessionEnd: e.target.value })}
+          
         />
                 </div>
                </div>
                 <TextField
                     sx={{ width: '75%' }}
                     label="Registarion No"
-                    defaultValue={editStaff?.regNo}
-                    required
-                 
-                    onChange={(newValue) => {
-                      handleRegNoChange(newValue);
-                    }}
+                    
+                    value={form.regNo}
+          onChange={(e) => updateForm({ regNo: e.target.value })}
                     variant="standard" />
                     
                 <TextField
                     sx={{ width: '75%' }}
                     label="Mobile"
-                    defaultValue={editStaff?.mobile}
-                    required
-                  
-          onChange={(newValue) => {
-            handleMobileChange(newValue);
-          }}
+                    
+                    value={form.mobile}
+                    onChange={(e) => updateForm({ mobile: e.target.value })}
+       
                    
                     variant="standard" />
                  </div>
@@ -262,11 +242,10 @@ const found = staffs.find(obj => {
           sx={{ width: '40%', m: 1 , marginTop:'20px !important'}}
           
           id="outlined-size-small"
-        
-          value={category}
-          onChange={(newValue) => {
-            handleCategoryChange(newValue);
-          }}
+          
+          value={form.category}
+          onChange={(e) => updateForm({ category: e.target.value })}
+       
           required
           label="Category"
         >
@@ -279,14 +258,11 @@ const found = staffs.find(obj => {
 
           sx={{ width: '40%',  marginTop:'10px !important' , padding:'10px !important'}}
           id="outlined-size-small"
-          required
+       
           select
           label="Which Course"
-          value={course}
-          onChange={(newValue) => {
-            handleCourseChange(newValue);
-          }}          
-          
+          value={form.course}
+          onChange={(e) => updateForm({ course: e.target.value })}
         >
           {courses?.map((option) => (
             <MenuItem key={option?.coursename} value={option?.coursename}>

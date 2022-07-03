@@ -118,8 +118,8 @@ const found = footInfo.find(obj => {
           <Button onClick={()=>handleStaffEdit(footInfo[1]?._id)}>Update</Button>
         </div>
         <div style={{display:'flex' , justifyContent:'space-around', alignItems:'center'}}>
-        <h4>{footInfo[1]?.option}</h4>
-          <h4>{footInfo[1]?.info}</h4>
+        <h4>{footInfo[2]?.option}</h4>
+          <h4>{footInfo[2]?.info}</h4>
           <Button onClick={()=>handleStaffEdit(footInfo[2]?._id)}>Update</Button>
         </div>
 

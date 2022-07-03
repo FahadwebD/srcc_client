@@ -79,8 +79,9 @@ const DrawerComp = () => {
         <li><Link to =" ">Outside</Link></li>
         <li><Link to =" ">Other</Link></li>
       </ul>
-    <li><Link to="">Contact Us</Link></li>
+    
     </li>
+    <li><Link to="/contact">Contact Us</Link></li>
   </ul>
 </nav>
       </Drawer>

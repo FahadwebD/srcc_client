@@ -5,6 +5,7 @@ import Navbar from '../../../Shared/Navbar/Navbar';
 
 
 import About from '../About/About';
+import Carousel from '../AboutCarousel/Carousel';
 
 const AboutUs = () => {
     return (
@@ -12,7 +13,7 @@ const AboutUs = () => {
             <Navbar></Navbar>
             
             <About></About>
-           
+           <Carousel></Carousel>
             <Footer></Footer>
         </div>
     );
