@@ -16,6 +16,8 @@ import RequireAdmin from './Pages/Login/Login/RequireAdmin';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import ContactMain from './Pages/ContactUs/ContactMain';
 import NoticeDetail from './Pages/NoticeDetail/NoticeDetail';
+import NoticesMain from './Pages/AllNotices/NoticesMain';
+import ImportantInformation from './Pages/ImportantInformation/ImportantInformation';
 
 
 function App() {
@@ -28,8 +30,11 @@ function App() {
         <Route path="about" element={<AboutUs />} />
         <Route path="/staff/:c" element={<Staff/> }/>
         <Route path="student" element={<StudentMain/> }/>
+        <Route path="notices" element={<NoticesMain/> }/>
         <Route path="contact" element={<ContactMain/> }/>
-        <Route path="contact" element={<ContactMain/> }/>
+        <Route path="important" element={<ImportantInformation/> }/>
+
+       
         <Route path="/detail/:id" element={<NoticeDetail/> }/>
 
 

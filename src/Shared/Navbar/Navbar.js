@@ -140,8 +140,12 @@ export default function Navbar() {
           </div>
         </li>
         <li className="navbar-dropdown">
+          <Link to='/notices'>Notices</Link>
+        </li>
+        <li className="navbar-dropdown">
           <Link to='/contact'>Contact</Link>
         </li>
+
       </ul>
           </Box>
             

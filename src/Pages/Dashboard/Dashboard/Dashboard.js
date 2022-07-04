@@ -11,17 +11,17 @@ import Typography from '@mui/material/Typography';
 import {
     Route,
     Link,
-    useNavigate,
+   
     Routes
 } from "react-router-dom";
 import { Button } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import KeyIcon from '@mui/icons-material/Key';
 import HomeIcon from '@mui/icons-material/Home';
-import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+
 import AddCourses from '../AllCourses/AddCourses';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import Courses from '../../Home/Courses/Courses/Courses';
+
 import logo from '../../../assets/images/footerlogo.png'
 import HomeCustome from '../HomeCutomization/HomeCustome';
 import StaffManage from '../StaffManage/StaffManage';
@@ -39,6 +39,10 @@ import NoticeManage from '../NoticeAndEventManage/NoticeManage/NoticeManage';
 import EventManage from '../NoticeAndEventManage/EventManage/EventManage';
 import GallaryCollection from '../GallaryCollection/GallaryCollection';
 import DashboardMain from '../DashboardMain/DashboardMain';
+import FacilitiesManage from '../FacilitiesManage/FacilitiesManage';
+import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 const drawerWidth = 250;
 
 
@@ -66,17 +70,20 @@ function Dashboard(props) {
                 top: '0px',left:'10px'}}><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='/'> <img src={logo} alt="" style={{width:'100%' , height:'80px'}} srcset="" /></Link></div>
             
 
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' , marginTop:'30px'}}> <HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='homeCustom'><Button color="inherit">Home Customization </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' , marginTop:'30px'}}> <DashboardCustomizeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='/dashboard'><Button color="inherit">Dashboard </Button></Link></div>
 
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}><HomeIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='homeCustom'><Button color="inherit">Home Customization </Button></Link></div>
 
-
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <PersonSearchIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='staffManage'><Button color="inherit">Staff Manage </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <PersonSearchIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='staffManage'><Button color="inherit">Staff Management </Button></Link></div>
           
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <AdminPanelSettingsIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='studentManage'><Button color="inherit">Student Manage </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <AdminPanelSettingsIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='studentManage'><Button color="inherit">Student Management </Button></Link></div>
            
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <NewspaperIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='noticeManage'><Button color="inherit">Notice Manage</Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <NewspaperIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='noticeManage'><Button color="inherit">Notice Management</Button></Link></div>
 
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <EventNoteIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='eventManage'><Button color="inherit">Event Manage </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <EventNoteIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='eventManage'><Button color="inherit">Event Management </Button></Link></div>
+
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <AspectRatioIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='facilitiesManage'><Button color="inherit">Facilities Management </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <CastForEducationIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='facilitiesManage'><Button color="inherit">Course Management </Button></Link></div>
    <Box>
                
             
@@ -191,8 +198,8 @@ function Dashboard(props) {
                <Route path="/staffManage" element={<StaffManage/>} />
                <Route path="/studentManage" element={<StudentManage/>} />
                <Route path="/noticeManage" element={<NoticeManage/>} />
-               <Route path="/eventManage" element={<EventManage/>} />
-
+               <Route path="/eventManage" element={<EventManage/>} />    
+               <Route path="/facilitiesManage" element={<FacilitiesManage/>} /> 
 
                <Route path="/users" element={<Users/>} />
                <Route path="/addCourse" element={<AddCourses />} />
