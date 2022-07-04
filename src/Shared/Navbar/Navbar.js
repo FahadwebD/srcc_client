@@ -132,9 +132,10 @@ export default function Navbar() {
         <li className="navbar-dropdown">
           <Link to='/gallary'>Gallery  +</Link>
           <div className="dropdown">
-            <Link style={{display:'flex'}} to='/'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>All</Link>
-            <Link style={{display:'flex'}} to='/'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Office</Link>
-            <Link style={{display:'flex'}} to='/'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Other</Link>
+            <Link style={{display:'flex'}} to='/gallary/all'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>All</Link>
+            <Link style={{display:'flex'}} to='/gallary/office'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Office</Link>
+            <Link style={{display:'flex'}} to='/gallary/outside'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Other</Link>
+            <Link style={{display:'flex'}} to='/gallary/other'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Other</Link>
             
           </div>
         </li>

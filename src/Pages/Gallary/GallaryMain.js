@@ -1,22 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useGallary from '../../hooks/useGallary';
-
 import Footer from '../../Shared/Footer/Footer';
 import Navbar from '../../Shared/Navbar/Navbar';
 import Gallary from './Gallary';
-
 import GallaryHeader from './GallaryHeader';
-
+import { useParams } from "react-router-dom";
 
 const GallaryMain = () => {
-    const [staffs ] = useGallary()
+    
+    let {c} = useParams()
+    const [collection , setCollection] = useState([])
+    console.log(c)
+    const uri = `https://peaceful-spire-22388.herokuapp.com/gallary/${c}`
+    console.log(uri)
+    useEffect(()=>{
+    
+        fetch(`https://peaceful-spire-22388.herokuapp.com/gallary/${c}`)
+        .then(res => res.json())
+        .then(data => setCollection(data))
+
+        
+    },[c])
+
+    console.log(collection)
     return (
         <div>
             {
-                staffs.length? <div>
+                collection.length? <div>
                     <Navbar></Navbar>
             <GallaryHeader></GallaryHeader>
-             <Gallary staffs={staffs}></Gallary>
+             <Gallary 
+             c={c}
+             collection={collection}></Gallary>
             <Footer></Footer>
                 </div>: <div style={{display:'flex' ,alignItems:'center' , justifyContent:'center' , }}><div style={{width:'400px' , height:'400px' , marginTop:'120px'}}>
                    

@@ -16,8 +16,9 @@ export default function NoticeTable({notices ,handleEdit ,handleDelete}) {
   <tr>
     <th>Image</th>
     <th>Headline</th>
-    <th>Notice</th>
     <th>Date</th>
+    <th>Notice</th>
+    
     <th>Action</th>
     
     

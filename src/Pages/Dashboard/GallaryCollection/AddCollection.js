@@ -19,7 +19,7 @@ const style = {
   };
 
 
-const AddCollection = () => {
+const AddCollection = ({call}) => {
     const [title, setTitle] = useState('');
     
     const [category, setCategory] = useState('');
@@ -66,6 +66,7 @@ const AddCollection = () => {
                 if (data.insertedId) {
                     setSuccess('Data added successfully')
                     setImg(null);
+                    call()
                     handleClose()
                   alert('Photo added successfully')
                 }
@@ -117,9 +118,9 @@ const AddCollection = () => {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={'b'}>Office</MenuItem>
-          <MenuItem value={'c'}>Outside</MenuItem>
-          <MenuItem value={'o'}>Other</MenuItem>
+          <MenuItem value={'office'}>Office</MenuItem>
+          <MenuItem value={'outside'}>Outside</MenuItem>
+          <MenuItem value={'other'}>Other</MenuItem>
         </Select>
                 <Input
                 sx={{ width: '75%'  , marginTop:'10px'}}

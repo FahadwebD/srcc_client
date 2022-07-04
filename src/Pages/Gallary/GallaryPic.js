@@ -9,8 +9,8 @@ import {
 
 import './G.css'
 
-const GallaryPic = ({staffs}) => {
-console.log(staffs)
+const GallaryPic = ({collection}) => {
+console.log(collection)
   const [slideNumber, setSlideNumber] = useState(0)
   const [openModal, setOpenModal] = useState(false)
 
@@ -27,13 +27,13 @@ console.log(staffs)
   // Previous Image
   const prevSlide = () => {
     slideNumber === 0 
-    ? setSlideNumber( staffs.length -1 ) 
+    ? setSlideNumber( collection.length -1 ) 
     : setSlideNumber( slideNumber - 1 )
   }
 
   // Next Image  
   const nextSlide = () => {
-    slideNumber + 1 === staffs.length 
+    slideNumber + 1 === collection.length 
     ? setSlideNumber(0) 
     : setSlideNumber(slideNumber + 1)
   }
@@ -47,20 +47,15 @@ console.log(staffs)
           <FontAwesomeIcon icon={faCircleChevronLeft} className='btnPrev' onClick={prevSlide} />
           <FontAwesomeIcon icon={faCircleChevronRight} className='btnNext' onClick={nextSlide} />
           <div className='fullScreenImage'>
-            <img src={`data:image/png;base64,${staffs[slideNumber].image}`} alt='' />
+            <img src={`data:image/png;base64,${collection[slideNumber].image}`} alt='' />
           </div>
         </div>
       }
 
-      {/* <br />
-      Current slide number:  {slideNumber}
-      <br />
-      Total Slides: {staffs.length}
-      <br /><br /> */}
-
+   
 <div class="gallery">
         {
-          staffs && staffs.map((slide, index) => {
+          collection && collection.map((slide, index) => {
             return(
               
               <div

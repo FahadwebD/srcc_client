@@ -32,11 +32,17 @@ const GallaryCollection = () => {
 
 
     const [staffs , setStaffs] = useGallary([]);
-    const [editStaff ,setEditStaff] = useState()
+  
     const [open, setOpen] = React.useState(false);
-    const [title , setTitle] = useState()
+  
     
-   
+    const [form, setForm] = useState({
+      _id:"",
+      image:"",
+      title: "",
+      records: [],
+    });
+
     
 
 
@@ -48,12 +54,18 @@ const GallaryCollection = () => {
 
 
 
-    const handleNameChange = (event) => {
-      setTitle(event.target.value);
-      };
-    
-     
 
+     
+      function updateForm(value) {
+        return setForm((prev) => {
+          return { ...prev, ...value };
+        });
+      }
+      const call=() =>{
+        fetch('https://peaceful-spire-22388.herokuapp.com/gallary')
+        .then(res=>res.json())
+        .then(data=>setStaffs(data.reverse()))
+      }
 
  const handleStaffEdit = (_id) =>{
 
@@ -61,16 +73,16 @@ const GallaryCollection = () => {
 const found = staffs.find(obj => {
     return obj._id ===_id;
   });
-  setEditStaff(found)
+  setForm(found)
     handleOpen()
  }
     const handleStaffSubmit = e => {
-        const _id = editStaff._id
+       
        
         const updatePhoto = {
-          title,
+          title:form.title,
                       
-          _id
+          _id:form._id
           
       }
      console.log(updatePhoto)
@@ -87,7 +99,9 @@ const found = staffs.find(obj => {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                  
+                  call()
+                  alert('Updated Title')
+                  handleClose()
                    console.log('ok')
                }
            })
@@ -102,10 +116,10 @@ const found = staffs.find(obj => {
         <div style={{marginTop:'50px'}}>
             <div style={{display:'flex' , alignItems:'center' , justifyContent:"space-between"}}>
                 <div>
-                     <h1>ALL EVENTS</h1>
+                     <h1>ALL Collection Of Gallery</h1>
                 </div>
                 <div>
-                <AddCollection></AddCollection>
+                <AddCollection call={call}></AddCollection>
                 </div>
             </div>
           {staffs.length?<div>
@@ -134,7 +148,7 @@ const found = staffs.find(obj => {
           <div>
                 <img
                 style={{ width: '130px', height: '120px' }}
-                src={`data:image/png;base64,${editStaff?.image}`} alt="" />
+                src={`data:image/png;base64,${form?.image}`} alt="" />
                 
                   
                 </div>
@@ -147,8 +161,8 @@ const found = staffs.find(obj => {
                             name="Name"
                             style={{ width: '80%' }}
                             
-                            defaultValue={editStaff?.title}
-                            onChange={handleNameChange}
+                            value={form.title}
+                            onChange={(e) => updateForm({ title: e.target.value })}
                           
                             
                         />

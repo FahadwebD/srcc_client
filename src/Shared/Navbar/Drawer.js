@@ -73,11 +73,11 @@ const DrawerComp = () => {
     </li>
  
     
-    <li><Link to ="/staff/all">Gallery +</Link>
+    <li><Link to ="/gallary/all">Gallery +</Link>
       <ul>
-        <li><Link to =" ">Office</Link></li>
-        <li><Link to =" ">Outside</Link></li>
-        <li><Link to =" ">Other</Link></li>
+        <li><Link to ="/gallary/office">Office</Link></li>
+        <li><Link to ="/gallary/outside">Outside</Link></li>
+        <li><Link to ="/gallary/other">Other</Link></li>
       </ul>
     
     </li>
