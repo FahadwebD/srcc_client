@@ -1,129 +1,17 @@
+import { Avatar, Box, Card, CardContent, Typography } from '@material-ui/core';
 import { Button } from '@mui/material';
 import React from 'react';
-import { styled } from '@mui/system';
-import TablePaginationUnstyled from '@mui/base/TablePaginationUnstyled';
-
-
-const blue = {
-  200: '#A5D8FF',
-  400: '#3399FF',
-};
-
-const grey = {
-  50: '#F3F6F9',
-  100: '#E7EBF0',
-  200: '#E0E3E7',
-  300: '#CDD2D7',
-  400: '#B2BAC2',
-  500: '#A0AAB4',
-  600: '#6F7E8C',
-  700: '#3E5060',
-  800: '#2D3843',
-  900: '#1A2027',
-};
-
-const Root = styled('div')(
-  ({ theme }) => `
-  table {
-    font-family: IBM Plex Sans, sans-serif;
-    font-size: 0.875rem;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  td,
-  th {
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
-    text-align: left;
-    padding: 6px;
-  }
-  th {
-    background-color: ${theme.palette.mode === 'dark' ? grey[900] : grey[100]};
-  }
-  `,
-);
-
-const CustomTablePagination = styled(TablePaginationUnstyled)(
-  ({ theme }) => `
-  & .MuiTablePaginationUnstyled-spacer {
-    display: none;
-  }
-  & .MuiTablePaginationUnstyled-toolbar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    @media (min-width: 768px) {
-      flex-direction: row;
-      align-items: center;
-    }
-  }
-  & .MuiTablePaginationUnstyled-selectLabel {
-    margin: 0;
-  }
-  & .MuiTablePaginationUnstyled-select {
-    padding: 2px;
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
-    border-radius: 50px;
-    background-color: transparent;
-    &:hover {
-      background-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[50]};
-    }
-    &:focus {
-      outline: 1px solid ${theme.palette.mode === 'dark' ? blue[400] : blue[200]};
-    }
-  }
-  & .MuiTablePaginationUnstyled-displayedRows {
-    margin: 0;
-    @media (min-width: 768px) {
-      margin-left: auto;
-    }
-  }
-  & .MuiTablePaginationUnstyled-actions {
-    padding: 2px;
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
-    border-radius: 50px;
-    text-align: center;
-  }
-  & .MuiTablePaginationUnstyled-actions > button {
-    margin: 0 8px;
-    border: transparent;
-    border-radius: 2px;
-    background-color: transparent;
-    &:hover {
-      background-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[50]};
-    }
-    &:focus {
-      outline: 1px solid ${theme.palette.mode === 'dark' ? blue[400] : blue[200]};
-    }
-  }
-  `,
-);
 
 
 
-export default function StudentTable({student , setStudent ,handleStudentEdit}) {
+export default function StudentTable({student , students, setDisplayProducts ,handleStudentEdit}) {
     
 
-
-
-
-  
-    const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - student?.length) : 0;
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
+  const CARD_PROPERTY = {
+    borderRadius: 5,
+    boxShadow: 10,
   };
 
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
 
     const handleStudentDelete = (_id) =>{
      
@@ -140,96 +28,51 @@ export default function StudentTable({student , setStudent ,handleStudentEdit}) 
            
             alert('delete')
          
-            const remaining = setStudent?.filter(staff => staff._id !== _id)
+            const remaining = students?.filter(staff => staff._id !== _id)
             
-            setStudent(remaining)
+            setDisplayProducts(remaining)
           }
         })
       }
     return (
         <div>
             
-            <Root sx={{ width: 1100, maxWidth: '100%' }}>
-      <table aria-label="custom pagination table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Roll</th>
-            <th>Registration</th>
-            <th>Category</th>
-            <th>Course</th>
-            <th>Session</th>
-            <th>Action</th>
-
-            
-          </tr>
-        </thead>
-        <tbody>
-          {(rowsPerPage > 0
-            ? student?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : student
-          )?.map((row) => (
-            <tr key={row.name}>
-              <td>{<img
-                style={{ width: '100%', height: '80px' }}
-                src={`data:image/png;base64,${row.image}`} alt="" />}</td>
-              <td>{row.name}</td>
-              <td style={{ width: 120 }} align="right">
-                {row.roll}
-              </td>
-              <td style={{ width: 120 }} align="right">
-                {row.regNo}
-              </td>
-              <td style={{ width: 120 }} align="right">
-                {row.category}
-              </td>
-              <td style={{ width: 120 }} align="right">
-                {row.course}
-              </td>
-              <td style={{ width: 120 }} align="right">
-                {row.sessionStart}-{row.sessionEnd}
-              </td>
-              <td style={{ width: 120 }} align="right">
-                  <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStudentDelete(row._id)}>Delete</Button>
-                  <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStudentEdit(row._id)}>Edit</Button>
-              </td>
-              
-              
-            </tr>
-          ))}
-
-          {emptyRows > 0 && (
-            <tr style={{ height: 41 * emptyRows }}>
-              <td colSpan={6} />
-            </tr>
-          )}
-        </tbody>
-        <tfoot>
-          <tr>
-            <CustomTablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={8}
-              count={student?.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              componentsProps={{
-                select: {
-                  'aria-label': 'rows per page',
-                },
-                actions: {
-                  showFirstButton: true,
-                  showLastButton: true,
-                },
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </tr>
-        </tfoot>
-      </table>
-    </Root>
-       
+          {/* <h1>{student.name}</h1>
+          <Button >Edit </Button> <Button > Delete</Button> */}
+        <Card sx={CARD_PROPERTY}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "left",
+                  
+                  p: 2
+                }}
+              >
+              <div style={{padding:'20px'}}> <img style={{width:'100%' , height:'230px' , borderRadius:'50%'}} src={`data:image/png;base64,${student.image}`}alt="" srcset="" />
+              </div>
+                
+                
+              <div style={{textAlign:'left' , padding:'10px'}}>
+              <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                Name :{student.name}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Course: {student.course}
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                  Category :{student.category}
+                </Typography>
+              </div>
+              </Box>
+              <CardContent sx={{ textAlign: "center" }}>
+                <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small"  onClick={()=>handleStudentEdit(student._id)} variant="text">Edit</Button>
+                <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small"  onClick={()=>handleStudentDelete(student._id)} variant="text">
+                  Delete
+                </Button>
+              </CardContent>
+            </Card>
         </div>
     );
 };

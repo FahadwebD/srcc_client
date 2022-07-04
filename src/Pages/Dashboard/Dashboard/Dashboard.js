@@ -38,6 +38,7 @@ import Customization from '../FooterCustomization/Customization';
 import NoticeManage from '../NoticeAndEventManage/NoticeManage/NoticeManage';
 import EventManage from '../NoticeAndEventManage/EventManage/EventManage';
 import GallaryCollection from '../GallaryCollection/GallaryCollection';
+import DashboardMain from '../DashboardMain/DashboardMain';
 const drawerWidth = 250;
 
 
@@ -131,7 +132,8 @@ function Dashboard(props) {
             >
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        
+                        style={{color:'black!important'}}
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
@@ -140,7 +142,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography sx={{color:'black'}} variant="h6" noWrap component="div">
-                        <img src={logo} alt="" srcset="" />
+                       
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -182,6 +184,7 @@ function Dashboard(props) {
                 <Toolbar />
 
                <Routes>
+                <Route index element={<DashboardMain/>} />
                <Route path="/homeCustom" element={<HomeCustome/>} />
                <Route path="/otherCustom" element={<Customization/>} />
 

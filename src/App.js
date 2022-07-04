@@ -38,7 +38,7 @@ function App() {
         <Route path="signup" element={<SignUp/> }/>
 
         <Route path="/gallary/:c" element={<GallaryMain/> }/>
-        <Route path="dashboard/*" element={<RequireAdmin><Dashboard /></RequireAdmin>} >
+        <Route path="/dashboard/*" element={<RequireAdmin><Dashboard /></RequireAdmin>} >
 
       
 

@@ -149,7 +149,7 @@ export default function CollectionTable({staffs , setStaffs ,handleStaffEdit}) {
     return (
         <div>
             
-            <Root sx={{ width: 400, maxWidth: '100%' }}>
+            <Root sx={{ width: '100%', maxWidth: '100%' }}>
       <table aria-label="custom pagination table">
         <thead>
           <tr>

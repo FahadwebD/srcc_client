@@ -35,7 +35,7 @@ const StudentManage = () => {
     const [courses ] = useCourses()
     
     const [open, setOpen] = React.useState(false);
-    const [student,setStudent] = useStudent()
+  
  
     const [form, setForm] = useState({
       _id:"",
@@ -60,6 +60,82 @@ const StudentManage = () => {
 
 
 
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(10);
+    const [students, setStudents] = useState([]);
+    const [displayProducts, setDisplayProducts] = useState([]);
+  
+  
+  
+    useEffect( () =>{
+        fetch(`https://peaceful-spire-22388.herokuapp.com/student/home?page=${page}&size=${size}`)
+        .then(res => res.json())
+        .then(data => {
+        setStudents(data)
+        setDisplayProducts(data)});
+    }, [page, size]);
+
+    useEffect( () =>{
+        fetch('https://peaceful-spire-22388.herokuapp.com/studentCount')
+        .then(res => res.json())
+        .then(data =>{
+            const count = data.count;
+            const pages = Math.ceil(count/10);
+            setPageCount(pages);
+        })
+    }, [])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -68,7 +144,7 @@ const StudentManage = () => {
  const handleStaffEdit = (_id) =>{
 
     console.log(_id)
-const found = student.find(obj => {
+const found = students.find(obj => {
     return obj._id ===_id;
   });
  
@@ -79,7 +155,7 @@ const found = student.find(obj => {
 const call =()=>{
   fetch('https://peaceful-spire-22388.herokuapp.com/student')
   .then(res=>res.json())
-  .then(data=>setStudent(data))
+  .then(data=>setStudents(data))
 }
  function updateForm(value) {
   return setForm((prev) => {
@@ -127,8 +203,18 @@ const call =()=>{
 
         e.preventDefault();
     }
-    console.log(student)
-     
+    console.log(students)
+
+
+    const handleSearch = event => {
+      const searchText = event.target.value;
+
+      const matchedProducts = students.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
+
+      setDisplayProducts(matchedProducts);
+  }
+
+
     return (
         <div>
             <div style={{marginTop:'50px'}}>
@@ -141,12 +227,39 @@ const call =()=>{
                     </div>
                 </div>
             </div>
-            
-           <div> <StudentTable student={student}
-            setStudent={setStudent}
-            handleStudentEdit={handleStaffEdit}
-            ></StudentTable></div>
-
+             <div className="search-container">
+                <input
+                    type="text"
+                    onChange={handleSearch}
+                    placeholder="Search Student By Name" />
+            </div>
+       <div>
+       <div className="products-container">
+      {displayProducts?.map(student => <StudentTable
+       key={student._id}
+       student={student}
+       students={students}
+       setDisplayProducts={setDisplayProducts}
+       handleStudentEdit={handleStaffEdit}
+      ></StudentTable>)}
+</div>
+<div className='pagination'>
+                    {
+                        [...Array(pageCount).keys()]
+                        .map(number => <button
+                            className={page=== number ? 'selected': ''}
+                            onClick={() => setPage(number)}
+                        >{number + 1}</button>)
+                    }
+                    
+                    <select onChange={e => setSize(e.target.value)}>
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+       </div>
 
 
             <div>

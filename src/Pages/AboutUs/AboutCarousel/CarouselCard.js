@@ -3,12 +3,12 @@ import './Carousel.css'
 const CarouselCard = ({c}) => {
     return (
         <div>
-               <div class="card">
-    <div class="card-header">
+               <div className="card">
+    <div className="card-header">
       <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
     </div>
-    <div class="card-body">
-      <span class="tag tag-teal">{c.title}</span>
+    <div className="card-body">
+      <span className="tag tag-teal">{c.title}</span>
       <h4>
         Why is the Tesla Cybertruck designed the way it
         is?
@@ -16,11 +16,11 @@ const CarouselCard = ({c}) => {
       <p>
         An exploration into the truck's polarising design
       </p>
-      <div class="user">
-        <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-        <div class="user-info">
-          <h5>July Dec</h5>
-          <small>2h ago</small>
+      <div className="user">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Bangladesh_Red_Crescent_Society_Logo.png" alt="user" />
+        <div style={{textAlign:'left'}} className="user-info">
+          <h5>Sylhet Red Crescent Nursing College</h5>
+          <small>Sylhet Bangladesh</small>
         </div>
       </div>
     </div>

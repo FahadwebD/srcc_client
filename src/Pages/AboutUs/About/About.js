@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div>
             <div>
-            <div className='h'  style={{marginTop:'100px'}}>
+            <div className='h'  >
       
       <div className="overlay">
             <h1>About Us</h1>

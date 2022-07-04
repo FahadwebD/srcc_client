@@ -5,7 +5,7 @@ const ContactHeader = () => {
     return (
         <div>
             
-            <div className='h'  style={{marginTop:'100px'}}>
+            <div className='h'>
       
       <div className="overlay">
             <h1>Contact Us</h1>
