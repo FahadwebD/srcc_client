@@ -43,6 +43,7 @@ import FacilitiesManage from '../FacilitiesManage/FacilitiesManage';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
+import AddInformation from '../InformationManagment/AddInformation';
 const drawerWidth = 250;
 
 
@@ -200,6 +201,8 @@ function Dashboard(props) {
                <Route path="/noticeManage" element={<NoticeManage/>} />
                <Route path="/eventManage" element={<EventManage/>} />    
                <Route path="/facilitiesManage" element={<FacilitiesManage/>} /> 
+               <Route path="/nacessaryInfo" element={<AddInformation/>} /> 
+
 
                <Route path="/users" element={<Users/>} />
                <Route path="/addCourse" element={<AddCourses />} />

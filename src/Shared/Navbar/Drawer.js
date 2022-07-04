@@ -21,45 +21,7 @@ const DrawerComp = () => {
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >
-        {/* <List>
-       
-            <Link style={{textDecoration:'none'}} to='/'>
-            <ListItemButton>
-              <ListItemIcon>
-                <ListItemText>Home</ListItemText>
-              </ListItemIcon>
-            </ListItemButton>
-            </Link>
-            <Link style={{textDecoration:'none'}} to='/about'>
-            <ListItemButton>
-              <ListItemIcon>
-                <ListItemText>About Us</ListItemText>
-              </ListItemIcon>
-            </ListItemButton>
-            </Link>
-            <Link style={{textDecoration:'none'}} to='/staff'>
-            <ListItemButton>
-              <ListItemIcon>
-                <ListItemText>Staff</ListItemText>
-              </ListItemIcon>
-            </ListItemButton>
-            </Link>
-            <Link style={{textDecoration:'none'}} to='/gallary'>
-            <ListItemButton>
-              <ListItemIcon>
-                <ListItemText>Gallery</ListItemText>
-              </ListItemIcon>
-            </ListItemButton>
-            </Link>
-            <Link style={{textDecoration:'none'}} to='/contact'>
-            <ListItemButton>
-              <ListItemIcon>
-                <ListItemText>Contact Us</ListItemText>
-              </ListItemIcon>
-            </ListItemButton>
-            </Link>
-        </List> */}
-
+    
 <nav class="vertical">
   <ul style={{textAlign:'left'}} >
     <li><Link to ="/">Home</Link></li>

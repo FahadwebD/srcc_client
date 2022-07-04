@@ -10,14 +10,14 @@ const ImportantInformation = () => {
         <Navbar></Navbar>
         <InformationsHeader></InformationsHeader>
         <div id='students'>
-           <table  style={{width:'100%'}}>
+           <table >
 
 <thead>
 <tr>
-<th rowspan="3" ><p>Session</p></th>
-<th colspan="4" ><p>Students Category</p></th>
-<th rowspan="3" ><p>Numbers </p></th>
-<th rowspan="3" ><p>Enrolled</p></th>
+<th rowspan="3" >Session</th>
+<th colspan="4" >Students Category</th>
+<th rowspan="3" >Numbers </th>
+<th rowspan="3" >Enrolled</th>
 </tr>
 
 <tr>
@@ -26,21 +26,21 @@ const ImportantInformation = () => {
 </tr>
 
 <tr>
-<th><p>genera;</p></th>
-<th><p>poor</p></th>
-<th><p>general</p></th>
-<th><p>poor</p></th>
+<th>general</th>
+<th>poor</th>
+<th>general</th>
+<th>poor</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><p>2022</p></td>
-<td><p>2</p></td>
-<td><p>2</p></td>
-<td><p>3</p></td>
-<td><p>2</p></td>
-<td><p>23</p></td>
-<td><p>23</p></td>
+<td>2022</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>23</td>
+<td>23</td>
 </tr>
 
 <tr>

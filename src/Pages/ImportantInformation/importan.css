@@ -23,4 +23,24 @@
     background-color: rgba(8, 1, 1, 0.788);
     color: white;
   }
-  
+  #students table{
+    width: 100%;
+  }
+
+  @media only screen  and (max-width:688px){
+
+    #students {
+        width: 360px;
+        overflow-x: scroll;
+        padding: 0px;
+    }
+   
+  }
+@media only screen  and (min-width:689px) and (max-width:990px){
+    #students {
+        width: 360px;
+        overflow-x: scroll;
+        padding: 0px;
+    }
+   
+}
