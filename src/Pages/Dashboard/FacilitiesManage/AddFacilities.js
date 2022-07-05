@@ -97,7 +97,7 @@ const AddFacilities = ({callUse}) => {
         <Fade in={open}>
           <Box sx={style} style={{textAlign:'center'}}>
            
-           <h3>Add A Notice</h3>
+           <h3>Add A Facilities</h3>
            <form onSubmit={handleSubmit}>
            <img src={img} alt="" style={{height:'100px' , width:'100px'}}/>
                 <TextField

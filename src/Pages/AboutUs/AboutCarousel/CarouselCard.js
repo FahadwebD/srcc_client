@@ -5,17 +5,14 @@ const CarouselCard = ({c}) => {
         <div>
                <div className="card">
     <div className="card-header">
-      <img src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg" alt="rover" />
+      <img src={`data:image/png;base64,${c.image}`} alt="rover" />
     </div>
     <div className="card-body">
-      <span className="tag tag-teal">{c.title}</span>
+      <span className="tag tag-teal">{c.headline}</span>
       <h4>
-        Why is the Tesla Cybertruck designed the way it
-        is?
+        {c.facilities}
       </h4>
-      <p>
-        An exploration into the truck's polarising design
-      </p>
+    
       <div className="user">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Bangladesh_Red_Crescent_Society_Logo.png" alt="user" />
         <div style={{textAlign:'left'}} className="user-info">

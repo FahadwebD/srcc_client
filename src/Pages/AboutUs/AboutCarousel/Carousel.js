@@ -6,9 +6,12 @@ import "slick-carousel/slick/slick-theme.css";
 import useCarousel from '../../../hooks/useCarousel';
 import CarouselCard from './CarouselCard';
 import './silk.scss'
+import useFacilities from '../../../hooks/useFacilities';
 const Carousel = () => {
 
 const [carousel] = useCarousel()
+
+const [facilities , setFacilities] = useFacilities()
 
 
 const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -61,7 +64,7 @@ var settings = {
           <h1>Our Facilities</h1>
         <hr style={{width:'10%' , backgroundColor:'red' , border: '1px solid red'}} />
              <Slider {...settings}>
-            {carousel?.map(c=><CarouselCard
+            {facilities?.map(c=><CarouselCard
             c={c}
             ></CarouselCard>)}
             </Slider>

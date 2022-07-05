@@ -1,9 +1,14 @@
 import React from 'react';
+import useInfo from '../../hooks/useInfo';
 import Footer from '../../Shared/Footer/Footer';
 import Navbar from '../../Shared/Navbar/Navbar';
 import './importan.css'
 import InformationsHeader from './InformationsHeader';
 const ImportantInformation = () => {
+
+    const [information , setInformation] = useInfo()
+
+
     return (
         <>
 
@@ -33,27 +38,29 @@ const ImportantInformation = () => {
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>2022</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-<td>23</td>
-<td>23</td>
-</tr>
 
-<tr>
-<td><p>2021</p></td>
-<td><p>12</p></td>
-<td><p>2</p></td>
-<td><p>3</p></td>
-<td><p>1</p></td>
-<td><p>3</p></td>
-<td><p>2</p></td>
-</tr>
 
+
+  {information?.map((item, i) => {
+        return <tr key={i} >
+            <td>{item.session}</td>
+            <td>{item.maleGenaral}</td>
+            <td>{item.malePoor}</td>
+            <td>{item.femaleGenaral}</td>
+            <td>{item.femalePoor}</td>
+
+            
+
+            <td>{item.numbers}</td>
+            <td>{item.enrolled}</td>
+
+    
+            
+        </tr>;
+        })
+    }
 </tbody>
+
 </table>
         </div>
         <Footer></Footer>

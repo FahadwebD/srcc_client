@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import CountUp from 'react-countup/build/'
-import backg from '../../../assets/images/BDRCS-Managing-Board-Induction-2021-695x400.jpg'
+import backg from '../../../assets/images/w.JPG'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
-import ReactVisibilitySensor from 'react-visibility-sensor';
-import useNumbers from '../../../hooks/useNumbers';
 
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+
+import ReactVisibilitySensor from 'react-visibility-sensor';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import useNumbers from '../../../hooks/useNumbers';
+import SchoolIcon from '@mui/icons-material/School';
 
 
 const CountUps= () => {
@@ -41,7 +43,7 @@ const CountUps= () => {
        <div style={{backgroundColor: 'rgba(222, 216, 216, 0.45)' , border:"solid 1px red", borderRadius: '50%',
     width: '100px',
     height: '100px' , display:'flex' , justifyContent:'center' , alignItems:'center'}}>
-         <AccountBalanceIcon style={{color:"red" , fontSize:'50px'}}></AccountBalanceIcon>
+         <HowToRegIcon style={{color:"red" , fontSize:'50px'}}></HowToRegIcon>
        </div>
        <div>
         <div style={{textAlign:'start'}}>
@@ -113,7 +115,7 @@ const CountUps= () => {
        <div style={{backgroundColor: 'rgba(222, 216, 216, 0.45)' , border:"solid 1px red" , borderRadius: '50%',
     width: '100px',
     height: '100px' , display:'flex' , justifyContent:'center' , alignItems:'center'}}>
-         <AdminPanelSettingsIcon style={{color:"red" , fontSize:'50px'}}></AdminPanelSettingsIcon>
+         <SchoolIcon style={{color:"red" , fontSize:'50px'}}></SchoolIcon>
        </div>
        <div>
         <div style={{textAlign:'start'}}>
@@ -145,7 +147,7 @@ const CountUps= () => {
        <div style={{backgroundColor: 'rgba(222, 216, 216, 0.45)' , border:"solid 1px red" , borderRadius: '50%',
     width: '100px',
     height: '100px' , display:'flex' , justifyContent:'center' , alignItems:'center'}}>
-         <MapsHomeWorkIcon style={{color:"red" , fontSize:'50px'}}></MapsHomeWorkIcon>
+         <MenuBookIcon style={{color:"red" , fontSize:'50px'}}></MenuBookIcon>
        </div>
        <div>
         <div style={{textAlign:'start'}}>

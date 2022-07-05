@@ -4,16 +4,15 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Button, InputLabel, TextField } from '@mui/material';
-import useFacilities from '../../../hooks/useFacilities';
-import AddFacilities from './AddFacilities';
-import Facilities from './Facilities';
+import useCourses from '../../../hooks/useCourses';
+import AddCourses from './AddCourses';
+import AllCourses from './AllCourses';
 
 
 
 
 
-
-const FacilitiesManage = () => {
+const CourseManage = () => {
 
   
 
@@ -30,15 +29,15 @@ const FacilitiesManage = () => {
       };
 
 
-    const [facilities , setFacilities] = useFacilities()
+    const [courses , setCourses] = useCourses()
     const [open, setOpen] = React.useState(false);
     const [id, setId] =useState()
     const [form, setForm] = useState({
       _id:"",
       image:"",
-      headline: "",
-      date: "",
-      facilities: "",
+      courseName: "",
+      duration: "",
+      sit: "",
       records: [],
     });
 
@@ -60,10 +59,9 @@ const FacilitiesManage = () => {
 
 const callUse= () =>{
 
-
-    fetch('http://localhost:5000/facilities')
+    fetch('http://localhost:5000/courses')
     .then(res=>res.json())
-    .then(data=> setFacilities(data.reverse()))
+    .then(data=>setCourses(data))
 
 
 }
@@ -72,7 +70,7 @@ const callUse= () =>{
   
 
     
-  fetch(`http://localhost:5000/facilities/${_id}`)
+  fetch(`http://localhost:5000/courses/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -99,10 +97,16 @@ function updateForm(value) {
    
       const editedNotice = {
    
-        headline: form.headline,
-        facilities: form.facilities,
+        courseName: form.courseName,
+        duration: form.duration,
+        sit: form.sit,
+
+      
+
+        
+
       };
-       fetch(`http://localhost:5000/facilities/edit/${id}`, {
+       fetch(`http://localhost:5000/courses/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -125,14 +129,14 @@ function updateForm(value) {
 
         e.preventDefault();
     }
-    
+   
      
 
 
     const handleDelete = (_id) =>{
      
   
-         fetch(`http://localhost:5000/facilities/${_id}`, {
+         fetch(`http://localhost:5000/courses/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -144,9 +148,9 @@ function updateForm(value) {
             
              alert('delete')
           
-             const remaining = facilities?.filter(staff => staff._id !== _id)
+             const remaining = courses?.filter(staff => staff._id !== _id)
              
-             setFacilities(remaining)
+             setCourses(remaining)
            }
          })
        }
@@ -175,24 +179,24 @@ function updateForm(value) {
         <div style={{marginTop:'50px'}}>
             <div style={{display:'flex' , alignItems:'center' , justifyContent:"space-between"}}>
                 <div>
-                     <h1>ALL Facilities</h1>
+                     <h1>ALL Course</h1>
                 </div>
                 <div>
-                <AddFacilities
+                <AddCourses
                 callUse={callUse}
-                ></AddFacilities>
+                ></AddCourses>
                 </div>
             </div>
-          {facilities.length?<div>
+          {courses.length?<div>
             
-            <Facilities facilities={facilities}
-             setFacilities={setFacilities}
+            <AllCourses courses={courses}
+             setCourses={setCourses}
              handleEdit={handleEdit}
              handleDelete={handleDelete}>
               
-             </Facilities>
+             </AllCourses>
             </div>:<div>
-                loading
+              'loading'
             </div>}  
             
             <div>
@@ -204,7 +208,7 @@ function updateForm(value) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-           Update Notice
+           Update Course
           </Typography>
           <form onSubmit={handlenoticesubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
@@ -220,17 +224,17 @@ function updateForm(value) {
                 </div>
                          <div>
                          <InputLabel shrink htmlFor="bootstrap-input">
-                           Headline
+                           Course Name
         </InputLabel>
                          <TextField
                             variant="standard"
                           
                          
                             id="outlined-size-small"
-                            name="Headline"
+                            name="Name"
                             style={{ width: '100%' }}
-                            value={form.headline}
-                            onChange={(e) => updateForm({ headline: e.target.value })}
+                            value={form.courseName}
+                            onChange={(e) => updateForm({ courseName: e.target.value })}
                            
                          
                             
@@ -238,19 +242,36 @@ function updateForm(value) {
                          <br/>
                          <br/>
                          <InputLabel shrink htmlFor="bootstrap-input">
-                           Facilities
+                           Duration
         </InputLabel>
                          <TextField
                           
                             variant="standard"
                             id="outlined-size-small"
-                            name="Category"
+                            name=" Duration"
                             style={{ width: '100%' }}
                             
                             multiline
                              maxRows={1000}
-                            value={form.facilities}
-                            onChange={(e) => updateForm({ facilities: e.target.value })}
+                            value={form.duration}
+                            onChange={(e) => updateForm({ duration: e.target.value })}
+                          
+                            
+                        />
+                                   <InputLabel shrink htmlFor="bootstrap-input">
+                           Sit
+        </InputLabel>
+                         <TextField
+                          
+                            variant="standard"
+                            id="outlined-size-small"
+                            name="Sit"
+                            style={{ width: '100%' }}
+                            
+                            multiline
+                             maxRows={1000}
+                            value={form.sit}
+                            onChange={(e) => updateForm({ sit: e.target.value })}
                           
                             
                         />
@@ -271,4 +292,4 @@ function updateForm(value) {
     );
 };
 
-export default FacilitiesManage;
+export default CourseManage;

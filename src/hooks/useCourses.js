@@ -10,7 +10,7 @@ const useCourses =()=>{
     const [courses , setCourses] = useState([]);
 
     useEffect(()=>{
-        fetch('https://raw.githubusercontent.com/FahadwebD/datasrc/main/data.json')
+        fetch('http://localhost:5000/courses')
         .then(res=>res.json())
         .then(data=>setCourses(data))
 

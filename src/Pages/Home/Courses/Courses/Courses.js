@@ -1,8 +1,10 @@
 import { Container } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import useCourses from '../../../../hooks/useCourses';
 import CourseCard from '../CourseCard/CourseCard';
 import './Courses.css'
+import { Button } from '@mui/material';
 
 const Courses = () => {
 
@@ -28,6 +30,9 @@ const Courses = () => {
             }
         </div>
              </Container>
+             <div style={{textAlign:"right" , padding:'20px'}}>
+             <Link style={{textDecoration:'none'}} to='/important'> <Button style={{backgroundColor:'red' , color:'white'}}> Necessary Information</Button></Link>
+             </div>
         </div>
         </>
     );

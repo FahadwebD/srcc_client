@@ -36,13 +36,13 @@ const NoticesMain = () => {
            <div style={{marginTop:'140px' , padding:'20px'}}>
            <Box  sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={8}>
+        <Grid item xs={12} md={8}>
             <h1 style={{textAlign:'left' , color:'green'}}>Recent Notices</h1>
           <AllNotices 
           notices={notices}
           ></AllNotices>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
         <h2 style={{textAlign:'left' , color:'green' , marginTop:'32px'}}>Events</h2>
           <Item  style={{height:'400px' }}>
        <div >

@@ -1,11 +1,161 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Backdrop, Box, Button, Fade, Input, MenuItem, Modal, TextField } from '@mui/material';
 
-const AddCourses = () => {
+
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    pt: 2,
+    px: 4,
+    pb: 3,
+    
+  };
+
+
+const AddCourses = ({callUse}) => {
+    const [courseName, setCourseName] = useState('');
+    
+    const [duration , setDuration] = useState('')
+    const [sit , setSit] = useState('')
+
+   
+     const [image, setImage] = useState(null);
+     const [img, setImg] = useState();
+    const [success, setSuccess] = useState(false);
+    const [open, setOpen] = React.useState(false);
+  
+
+    const onImageChange = (e) => {
+      setImage(e.target.files[0])
+      const [file] = e.target.files;
+      setImg(URL.createObjectURL(file));
+    };
+  
+
+    const handleOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    const handleSubmit = e => {
+     
+        e.preventDefault();
+     
+        if (!image) {
+            return;
+        }
+        const formData = new FormData();
+        formData.append('courseName', courseName);
+        formData.append('duration', duration);
+        formData.append('sit', sit);
+        formData.append('image', image);
+        console.log(formData)
+        fetch('http://localhost:5000/courses', {
+            method: 'POST',
+        //     headers: {
+        //       authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        //   },
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    setSuccess('Data added successfully')
+                    setImg(null);
+                    callUse()
+                    handleClose()
+                
+                  alert('Course added successfully')
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
     return (
+        <>
         <div>
-            <h1>Hi Add </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus qui natus ad, aut molestiae blanditiis sapiente, facere sunt nam autem doloremque cum? Suscipit alias nemo provident excepturi incidunt aliquam quod consequatur vel sed autem, sint exercitationem reprehenderit nobis fuga, iure iste voluptas doloribus quo animi? Hic consequatur incidunt excepturi sed harum enim ipsam cum mollitia! Asperiores assumenda molestias nostrum. Porro soluta ea nihil veritatis excepturi repudiandae commodi vitae totam, sunt quos quibusdam modi vero aut quae in pariatur officiis hic, sed omnis iure voluptate labore error at dolorum? Incidunt omnis sit sint quisquam voluptates autem, fugiat quas, commodi, deserunt culpa quae! Inventore, doloribus voluptatem cupiditate consequuntur laborum quo quia a corporis error dolores obcaecati animi. Commodi fugiat, nihil perspiciatis ratione minima molestias animi eligendi omnis, eos blanditiis veritatis. Ducimus error eos unde odio sint repellendus saepe totam, iusto nulla. Aperiam voluptatibus eligendi asperiores. Neque earum perferendis, nam amet deserunt mollitia ratione iure dignissimos rem dolor? Natus laborum corrupti libero rem expedita id quaerat, vero beatae velit maxime eius quibusdam est dolorem ipsum amet aliquam provident dolor similique! Magnam soluta voluptatum enim alias tempore, reiciendis culpa cumque. Quidem vitae ut error non vero minus fugiat tenetur velit laudantium nisi, corporis et!</p>
+        <Button style={{backgroundColor:'red' , color:'white'}} onClick={handleOpen} >Insert Data</Button>
+        <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style} style={{textAlign:'center'}}>
+           
+           <h3>Add A Course</h3>
+           <form onSubmit={handleSubmit}>
+           <img src={img} alt="" style={{height:'100px' , width:'100px'}}/>
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Course Name"
+                  
+                    onChange={e => setCourseName(e.target.value)}
+                    variant="standard" />
+                <br />
+             
+                <br />
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Duration"
+                    required
+                    multiline
+                    maxRows={1000}
+                    onChange={e => setDuration(e.target.value)}
+                    variant="standard" />
+                <br />
+               
+                <br />
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Sit"
+                    required
+                    multiline
+                    maxRows={1000}
+                    onChange={e => setSit(e.target.value)}
+                    variant="standard" />
+                <br />
+               
+                <br />
+                
+                <Input
+                  id="chooseFile"
+                sx={{ width: '75%'  , marginTop:'10px'}}
+                    accept="image/*"
+                    type="file"
+                    onChange={onImageChange}
+                />
+            
+        <br></br>
+               
+                <Button variant="contained" type="submit" style={{ backgroundColor: 'red' , marginTop:'20px' }}>
+                    Add Notice
+                </Button>
+            </form>
+            </Box>
+        </Fade>
+      </Modal>
         </div>
+       
+        
+        </>
     );
 };
 

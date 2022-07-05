@@ -7,6 +7,7 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import DnsIcon from '@mui/icons-material/Dns';
 import Typography from '@mui/material/Typography';
 import {
     Route,
@@ -43,7 +44,9 @@ import FacilitiesManage from '../FacilitiesManage/FacilitiesManage';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import CastForEducationIcon from '@mui/icons-material/CastForEducation';
-import AddInformation from '../InformationManagment/AddInformation';
+
+import InformationManage from '../InformationManagment/InformationManage';
+import CourseManage from '../AllCourses/CourseManage';
 const drawerWidth = 250;
 
 
@@ -85,6 +88,9 @@ function Dashboard(props) {
 
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <AspectRatioIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='facilitiesManage'><Button color="inherit">Facilities Management </Button></Link></div>
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <CastForEducationIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='facilitiesManage'><Button color="inherit">Course Management </Button></Link></div>
+
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <DnsIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='nacessaryInfo'><Button color="inherit">Information Manage </Button></Link></div>
+
    <Box>
                
             
@@ -201,11 +207,11 @@ function Dashboard(props) {
                <Route path="/noticeManage" element={<NoticeManage/>} />
                <Route path="/eventManage" element={<EventManage/>} />    
                <Route path="/facilitiesManage" element={<FacilitiesManage/>} /> 
-               <Route path="/nacessaryInfo" element={<AddInformation/>} /> 
+               <Route path="/nacessaryInfo" element={<InformationManage/>} /> 
 
-
+               
                <Route path="/users" element={<Users/>} />
-               <Route path="/addCourse" element={<AddCourses />} />
+               <Route path="/addc" element={<CourseManage />} />
                <Route path="/gallary" element={<GallaryCollection/>} />
                </Routes>
 

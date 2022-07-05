@@ -13,7 +13,7 @@ import '../Courses/Courses.css'
 
 
 const CourseCard = ({courses}) => {
-    const{duration,image ,coursename} = courses
+    const{duration,image ,courseName} = courses
     // const url = `/appointed/${id}`
 
     const faces = [
@@ -22,6 +22,7 @@ const CourseCard = ({courses}) => {
     const CARD_PROPERTY = {
       borderRadius: 4,
       boxShadow: 10,
+      
     
     };
     
@@ -31,12 +32,12 @@ const CourseCard = ({courses}) => {
          component="img"
          height="auto"
          style={{padding:"30px" , height:'220px'}}
-         image={`${image}`}
+         image={`data:image/png;base64,${image}`}
          alt={image}
         
       />
       
-      <CardContent className='content'>
+      <CardContent  className='content'>
       {faces.map(face => (
           <Avatar className='avatar' key={face} src={face} />
         ))}
@@ -46,13 +47,13 @@ const CourseCard = ({courses}) => {
           paddingBottom={"55px"}
         >
            
-    Requirements
+    {courseName}
         </Typography>
         <Typography
           className={"MuiTypography--subheading"}
           variant={"caption"}
         >
-          Post Your requirements and hire genuine people
+          {duration}
         </Typography>
         <Divider className='divider' light />
         

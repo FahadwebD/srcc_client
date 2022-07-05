@@ -12,7 +12,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { TextField } from '@mui/material';
 
-export default function AddInformation() {
+export default function AddInformation({callUse}) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -38,28 +38,7 @@ export default function AddInformation() {
     setState({ ...state, [anchor]: open });
   };
 
-  const handleSessionChange = (event) => {
-    setSession(event.target.value);
-  };
-  const handleMalePoorChange = (event) => {
-    setMalePoor(event.target.value);
-  };
-  const handleMaleGenaralChange = (event) => {
-    setMaleGenaral(event.target.value);
-  };
-  const handleFemaleGenaralChange = (event) => {
-    setFemaleGenaral(event.target.value);
-  };
-  const handleFemalePoorChange = (event) => {
-    setFemalePoor(event.target.value);
-  };
-  const handleNumbersChange = (event) => {
-    setNumbers(event.target.value);
-  };
 
-  const handleEnrolledChange = (event) => {
-    setEnrolled(event.target.value);
-  };
 
 
 
@@ -80,21 +59,23 @@ export default function AddInformation() {
     formData.append('enrolled', enrolled);
     
     console.log(formData)
-    // fetch('https://peaceful-spire-22388.herokuapp.com/student', {
-    //     method: 'POST',
+    fetch('http://localhost:5000/info', {
+        method: 'POST',
  
-    //     body: formData
-    // })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if (data.insertedId) {
-               
-    //           alert('Staff added successfully')
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
+        body: formData
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.insertedId) {
+              
+              alert('Information added successfully')
+              callUse()
+              toggleDrawer('top', false)
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 
@@ -109,7 +90,7 @@ export default function AddInformation() {
   return (
     <div>
     
-          <Button onClick={toggleDrawer('top', true)}>{'top'}</Button>
+          <Button style={{backgroundColor:'green' , color:'white'}}  onClick={toggleDrawer('top', true)}>Add Information</Button>
           <Drawer
             anchor={'top'}
             open={state['top']}
@@ -194,7 +175,7 @@ export default function AddInformation() {
                    
                   /></td>
 
-<Button type="submit" >Add </Button>
+<Button style={{backgroundColor:'green'}} type="submit" >Add Information </Button>
 </form>
 
         </div>

@@ -35,7 +35,7 @@ const Welcome = () => {
           <div style={{textAlign:'start'}}>
               <h2>Welcome to Sylhet Red Crecent Nursing College</h2>
                <p>{welcome[0]?.massage}.</p>
-               <div style={{width:'100%', padding:"10px" ,border:'none' , backgroundColor:'red', borderRadius:'10px' , color:'white' , display:'flex', alignItems:'center' ,justifyContent:'space-between'}}><small>READ MORE.. </small><small><CheckCircleIcon /></small></div>
+               
            </div>
          
         </Grid> 
