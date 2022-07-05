@@ -19,7 +19,7 @@ const ImportantInformation = () => {
   
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/coursesInfo/${course}`)
+        fetch(`https://peaceful-spire-22388.herokuapp.com/coursesInfo/${course}`)
         .then(res=>res.json())
         .then(data=>setCourseInfo(data))
 
@@ -27,14 +27,14 @@ const ImportantInformation = () => {
 
 
 
- console.log(`http://localhost:5000/coursesInfo/${course}`)
+ console.log(`https://peaceful-spire-22388.herokuapp.com/coursesInfo/${course}`)
     useEffect(()=>{
-        fetch(`http://localhost:5000/info/${course}`)
+        fetch(`https://peaceful-spire-22388.herokuapp.com/info/${course}`)
         .then(res=>res.json())
         .then(data=>setInformation(data))
 
     },[course])
-    console.log(`http://localhost:5000/info/${course}`)
+    console.log(`https://peaceful-spire-22388.herokuapp.com/info/${course}`)
 
 
 

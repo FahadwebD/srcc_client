@@ -126,7 +126,7 @@ function updateForm(value) {
         course: form.course,
       
       };
-       fetch(`http://localhost:5000/info/edit/${id}`, {
+       fetch(`https://peaceful-spire-22388.herokuapp.com/info/edit/${id}`, {
            method: 'PUT',
           
            headers: {

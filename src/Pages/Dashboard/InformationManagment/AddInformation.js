@@ -71,7 +71,7 @@ export default function AddInformation({callUse}) {
     formData.append('course' ,course)
     formData.append('courseId' ,id)
     console.log(formData)
-    fetch('http://localhost:5000/info', {
+    fetch('https://peaceful-spire-22388.herokuapp.com/info', {
         method: 'POST',
  
         body: formData
