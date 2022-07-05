@@ -10,7 +10,7 @@ const useFacilities =()=>{
     const [facilities , setFacilities] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/facilities')
+        fetch('https://peaceful-spire-22388.herokuapp.com/facilities')
         .then(res=>res.json())
         .then(data=>setFacilities(data.reverse()))
 

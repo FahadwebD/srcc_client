@@ -59,7 +59,7 @@ export default function AddInformation({callUse}) {
     formData.append('enrolled', enrolled);
     
     console.log(formData)
-    fetch('http://localhost:5000/info', {
+    fetch('https://peaceful-spire-22388.herokuapp.com/info', {
         method: 'POST',
  
         body: formData

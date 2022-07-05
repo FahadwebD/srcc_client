@@ -59,7 +59,7 @@ const AddCourses = ({callUse}) => {
         formData.append('sit', sit);
         formData.append('image', image);
         console.log(formData)
-        fetch('http://localhost:5000/courses', {
+        fetch('https://peaceful-spire-22388.herokuapp.com/courses', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -12,7 +12,7 @@ const useInfo =()=>{
     const [information , setInformation] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/info')
+        fetch('https://peaceful-spire-22388.herokuapp.com/info')
         .then(res=>res.json())
         .then(data=>setInformation(data.reverse()))
 

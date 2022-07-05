@@ -68,7 +68,7 @@ console.log(information)
 const callUse= () =>{
 
 
-    fetch('http://localhost:5000/info')
+    fetch('https://peaceful-spire-22388.herokuapp.com/info')
     .then(res=>res.json())
     .then(data=>setInformation(data.reverse()))
 
@@ -79,7 +79,7 @@ const callUse= () =>{
   
 
     
-  fetch(`http://localhost:5000/info/${_id}`)
+  fetch(`https://peaceful-spire-22388.herokuapp.com/info/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -120,7 +120,7 @@ function updateForm(value) {
         enrolled: form.enrolled,
 
       };
-       fetch(`http://localhost:5000/info/edit/${id}`, {
+       fetch(`https://peaceful-spire-22388.herokuapp.com/info/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -150,7 +150,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`http://localhost:5000/info/${_id}`, {
+         fetch(`https://peaceful-spire-22388.herokuapp.com/info/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

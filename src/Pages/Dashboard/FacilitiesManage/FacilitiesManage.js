@@ -61,7 +61,7 @@ const FacilitiesManage = () => {
 const callUse= () =>{
 
 
-    fetch('http://localhost:5000/facilities')
+    fetch('https://peaceful-spire-22388.herokuapp.com/facilities')
     .then(res=>res.json())
     .then(data=> setFacilities(data.reverse()))
 
@@ -72,7 +72,7 @@ const callUse= () =>{
   
 
     
-  fetch(`http://localhost:5000/facilities/${_id}`)
+  fetch(`https://peaceful-spire-22388.herokuapp.com/facilities/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -102,7 +102,7 @@ function updateForm(value) {
         headline: form.headline,
         facilities: form.facilities,
       };
-       fetch(`http://localhost:5000/facilities/edit/${id}`, {
+       fetch(`https://peaceful-spire-22388.herokuapp.com/facilities/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -132,7 +132,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`http://localhost:5000/facilities/${_id}`, {
+         fetch(`https://peaceful-spire-22388.herokuapp.com/facilities/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

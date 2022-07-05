@@ -59,7 +59,7 @@ const CourseManage = () => {
 
 const callUse= () =>{
 
-    fetch('http://localhost:5000/courses')
+    fetch('https://peaceful-spire-22388.herokuapp.com/courses')
     .then(res=>res.json())
     .then(data=>setCourses(data))
 
@@ -70,7 +70,7 @@ const callUse= () =>{
   
 
     
-  fetch(`http://localhost:5000/courses/${_id}`)
+  fetch(`https://peaceful-spire-22388.herokuapp.com/courses/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -106,7 +106,7 @@ function updateForm(value) {
         
 
       };
-       fetch(`http://localhost:5000/courses/edit/${id}`, {
+       fetch(`https://peaceful-spire-22388.herokuapp.com/courses/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -136,7 +136,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`http://localhost:5000/courses/${_id}`, {
+         fetch(`https://peaceful-spire-22388.herokuapp.com/courses/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

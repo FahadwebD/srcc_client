@@ -57,7 +57,7 @@ const AddFacilities = ({callUse}) => {
         formData.append('facilities', facilities);
         formData.append('image', image);
         console.log(formData)
-        fetch('http://localhost:5000/facilities', {
+        fetch('https://peaceful-spire-22388.herokuapp.com/facilities', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`
