@@ -8,12 +8,12 @@ import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
-
+import { Link } from 'react-router-dom';
 import '../Courses/Courses.css'
 
 
 const CourseCard = ({courses}) => {
-    const{duration,image ,courseName} = courses
+    const{duration,image ,courseName ,_id} = courses
     // const url = `/appointed/${id}`
 
     const faces = [
@@ -41,7 +41,8 @@ const CourseCard = ({courses}) => {
       {faces.map(face => (
           <Avatar className='avatar' key={face} src={face} />
         ))}
-        <Typography
+       <div style={{textAlign:'left'}}>
+       <Typography
           className={"MuiTypography--heading"}
           variant={"h6"} display={"inline-block"}
           paddingBottom={"55px"}
@@ -55,6 +56,9 @@ const CourseCard = ({courses}) => {
         >
           {duration}
         </Typography>
+
+        <Link to={`/important/${_id}`}><Button >Learn More</Button></Link>
+       </div>
         <Divider className='divider' light />
         
       </CardContent>

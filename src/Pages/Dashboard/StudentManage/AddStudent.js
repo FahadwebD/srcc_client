@@ -221,7 +221,7 @@ const AddStudent = ({call}) => {
           onChange={handleCourseChange}
         >
           {courses?.map((option) => (
-            <MenuItem key={option?.coursename} value={option?.coursename}>
+            <MenuItem key={option?.courseName} value={option?.courseName}>
               Course .{option?.coursename}
             </MenuItem>
           ))}

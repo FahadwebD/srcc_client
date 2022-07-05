@@ -10,7 +10,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { TextField } from '@mui/material';
+import { MenuItem, TextField } from '@mui/material';
+import useCourses from '../../../hooks/useCourses';
+import { useState } from 'react';
 
 export default function AddInformation({callUse}) {
   const [state, setState] = React.useState({
@@ -27,9 +29,10 @@ export default function AddInformation({callUse}) {
     const [femalePoor, setFemalePoor] = React.useState('');
     const [numbers, setNumbers] = React.useState('');
     const [enrolled, setEnrolled] = React.useState('');
-   
-   
-
+    const [course, setCourse] = React.useState('');
+    const [courses , setCourses] = useCourses()
+    const [id , setId] = useState()
+  
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -43,7 +46,15 @@ export default function AddInformation({callUse}) {
 
 
 
+  const handleCourseChange = (event) => {
+    setCourse(event.target.value);
+    const found =courses.find(obj => {
+      return obj.courseName ===event.target.value;
 
+
+    });
+    setId(found._id)
+  };
 
   const handleSubmit = e => {
      
@@ -57,9 +68,10 @@ export default function AddInformation({callUse}) {
     formData.append('femalePoor', femalePoor);
     formData.append('numbers', numbers);
     formData.append('enrolled', enrolled);
-    
+    formData.append('course' ,course)
+    formData.append('courseId' ,id)
     console.log(formData)
-    fetch('https://peaceful-spire-22388.herokuapp.com/info', {
+    fetch('http://localhost:5000/info', {
         method: 'POST',
  
         body: formData
@@ -174,6 +186,22 @@ export default function AddInformation({callUse}) {
                     onChange={e => setEnrolled(e.target.value)}
                    
                   /></td>
+                  <TextField
+
+sx={{ width: '40%',  marginTop:'10px !important' , padding:'10px !important'}}
+id="outlined-size-small"
+required
+select
+label="Which Course"
+value={courses?.courseName}
+onChange={handleCourseChange}
+>
+{courses?.map((option) => (
+  <MenuItem key={option?.courseName} value={option?.courseName}>
+    Course .{option?.courseName}
+  </MenuItem>
+))}
+</TextField>
 
 <Button style={{backgroundColor:'green'}} type="submit" >Add Information </Button>
 </form>

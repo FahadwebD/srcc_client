@@ -31,6 +31,8 @@ const InformationManage = () => {
        
         boxShadow: 24,
         p: 4,
+        height:500 ,
+        overflowY:'scroll'
       };
 
 
@@ -39,6 +41,9 @@ const InformationManage = () => {
     const [id, setId] =useState()
     const [form, setForm] = useState({
       _id:"",
+  
+      course: "",
+  
       session:"",
       maleGenaral: "",
       malePoor: "",
@@ -118,9 +123,10 @@ function updateForm(value) {
         numbers: form.numbers,
 
         enrolled: form.enrolled,
-
+        course: form.course,
+      
       };
-       fetch(`https://peaceful-spire-22388.herokuapp.com/info/edit/${id}`, {
+       fetch(`http://localhost:5000/info/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -226,12 +232,31 @@ function updateForm(value) {
           </Typography>
           <form onSubmit={handlenoticesubmit} style={{ maxWidth:'400px',margin:'30px 30px 30px 30px'}}>
                       
+          
+                
           <div >
-          <div>
-                
-                
-                  
-                </div>
+         
+                         <div>
+                         <InputLabel shrink htmlFor="bootstrap-input">
+                           Course Name
+        </InputLabel>
+                         <TextField
+                            variant="standard"
+                          
+                         
+                            id="outlined-size-small"
+                            name="Name"
+                            style={{ width: '100%' }}
+                            value={form.course}
+                            disabled
+                            onChange={(e) => updateForm({ course: e.target.value })}
+                           
+                         
+                            
+                        />
+                     
+                         
+                         </div>
                          <div>
                          <InputLabel shrink htmlFor="bootstrap-input">
                            Session
@@ -354,6 +379,7 @@ function updateForm(value) {
                         
                           
                       />
+                      
                          
                          </div>
           </div>

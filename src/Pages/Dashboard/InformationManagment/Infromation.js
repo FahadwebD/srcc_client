@@ -18,6 +18,7 @@ console.log(information)
 
 <thead>
 <tr>
+<th rowspan="3" >Course Name</th>
 <th rowspan="3" >Session</th>
 <th colspan="4" >Students Category</th>
 <th rowspan="3" >Numbers </th>
@@ -45,6 +46,8 @@ console.log(information)
 
   {information?.map((item, i) => {
         return <tr key={i} >
+            <td>{item.course}</td>
+
             <td>{item.session}</td>
             <td>{item.maleGenaral}</td>
             <td>{item.malePoor}</td>
