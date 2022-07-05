@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Container from '@mui/material/Container';
-import logo from '../assets/images/footerlogo.png'
+import logo from '../assets/images/WEB HEAD.png'
 import Slide from '@mui/material/Slide';
 
 function HideOnScroll(props) {
@@ -40,7 +40,7 @@ export default function NavbarDemand(props) {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar style={{backgroundColor:'#ed1a37' , borderBottom:"5px solid green"}} sx={{display: { xs: 'none', sm: 'block' }}}>
+        <AppBar style={{backgroundColor:'#c60000' , borderBottom:"5px solid green"}} sx={{display: { xs: 'none', sm: 'block' }}}>
           <Toolbar>
             
             <img id='navImg' src={logo} alt='srcc' style={{ height:'50px'}} />

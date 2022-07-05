@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Box, Button, Menu, MenuItem, useMediaQuery, useTheme } from '@mui/material';
-import logo from '../../assets/images/footerlogo.png'
+import logo from '../../assets/images/WEB HEAD.png'
 import DrawerComp from "./Drawer";
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -88,7 +88,7 @@ export default function Navbar() {
     return (
         <div >
           
-            <AppBar className={classes[navRef.current]}>
+            <AppBar id='navM' className={classes[navRef.current]}>
             
                   
              <div id="f">   <div id="height">

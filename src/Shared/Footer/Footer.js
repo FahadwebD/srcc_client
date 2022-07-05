@@ -1,17 +1,13 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import backg from '../../assets/images/footer.png';
-import footerl from '../../assets/images/footerlogo.png'
-import EditLocationIcon from '@mui/icons-material/EditLocation';
+
+import footerl from '../../assets/images/WEB HEAD.png'
+
 import './Footer.css'
 import { Link } from 'react-router-dom';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import MailIcon from '@mui/icons-material/Mail';
-import FacebookIcon from '@mui/icons-material/Facebook';
+
 
 
 
@@ -42,7 +38,8 @@ const [footInfo , setFootInfo] = React.useState('')
        height: 'auto',
        lineHeight: '1.5',
        
-       backgroundImage: `linear-gradient(0deg, rgba(250, 0, 0, 0.79),  rgba(0,111,69,255)), url(${backg})`}}>
+       backgroundColor:'#c60000' }}
+       >
 
 <footer class="footer-distributed">
 
@@ -53,12 +50,12 @@ const [footInfo , setFootInfo] = React.useState('')
   
     <Link to='/about' >About Us</Link>
     
-    <a href="#">Gallary</a>
+    <Link to="/gallary/all">Gallary</Link>
     
-    <a href="#">Contact</a>
+    <Link to="/contact">Contact</Link>
   </p>
 
-  <p class="footer-company-name">Company Name © 2015</p>
+
 </div>
 
 <div class="footer-center">
@@ -84,15 +81,18 @@ const [footInfo , setFootInfo] = React.useState('')
 
   <p class="footer-company-about">
     <span>Useful Links</span>
-    Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+    <a style={{color:'white'}} href="https://bdrcs.org/">Bangladesh Red Crescent Society</a>
+    <br/>
+    <a style={{color:'white'}} href="http://bnmc.gov.bd/">Bangladesh Nursing and Midwifery Council</a>
+    <br/>
+    <a style={{color:'white'}} href="http://dgnm.gov.bd/">Directorate General of Nursing and Midwifery</a>
+    <br/>
+    <a style={{color:'white'}} href="https://mefwd.gov.bd/">Medical Education and Family Welfare Division</a>
   </p>
 
  
 
-    <a href="#"><i class="fa fa-facebook"></i>BDRC</a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="#"><i class="fa fa-github"></i></a>
+
 
 
 

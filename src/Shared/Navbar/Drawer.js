@@ -26,16 +26,17 @@ const DrawerComp = () => {
   <ul style={{textAlign:'left'}} >
     <li><Link to ="/">Home</Link></li>
     <li><Link to="/about">About Us</Link></li>
-    <li><Link to ="/staff/all">Staffs +</Link>
+    <li><Link to ="/staff/all">Staffs </Link>
       <ul>
         <li><Link to ="/staff/a">Adminastator</Link></li>
         <li><Link to ="/staff/t">Teachers</Link></li>
+        <li><Link to ="/staff/c">Committee</Link></li>
         <li><Link to ="/staff/o">Other</Link></li>
       </ul>
     </li>
  
     
-    <li><Link to ="/gallary/all">Gallery +</Link>
+    <li><Link to ="/gallary/all">Gallery </Link>
       <ul>
         <li><Link to ="/gallary/office">Office</Link></li>
         <li><Link to ="/gallary/outside">Outside</Link></li>
@@ -43,6 +44,8 @@ const DrawerComp = () => {
       </ul>
     
     </li>
+    <li><Link to="/notices">Notices</Link></li>
+
     <li><Link to="/contact">Contact Us</Link></li>
   </ul>
 </nav>

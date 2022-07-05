@@ -30,9 +30,7 @@ const Courses = () => {
             }
         </div>
              </Container>
-             <div style={{textAlign:"right" , padding:'20px'}}>
-             <Link style={{textDecoration:'none'}} to='/important'> <Button style={{backgroundColor:'red' , color:'white'}}> Necessary Information</Button></Link>
-             </div>
+             
         </div>
         </>
     );

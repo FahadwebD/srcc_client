@@ -18,13 +18,14 @@ const CarouselData = ({carousel}) => {
       };
      
       return (
-        <div style={{marginTop:'50px'}}>
+        <div className='marginBannr' >
           <div>
             {carousel.length?  <Banner
                 data={carousel}
                 time={3000}
                 width="100%"
-                height="600px"
+                height="400px"
+
                 captionStyle={captionStyle}
                 radius="10px"
                 slideNumber={false}
