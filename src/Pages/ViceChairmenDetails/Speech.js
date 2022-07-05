@@ -29,7 +29,7 @@ const Speech = ({speeches}) => {
             </div>
             <div style={{textAlign:'start' , marginLeft:'20px'}}>
                 <h2>{speeches?.name}</h2>
-                <h3>{speeches?.designation}</h3>
+                <h2>{speeches?.designation}</h2>
                 <p>Sylhet Red Crescent Nursing College</p>
             </div>
         </div>

@@ -141,6 +141,7 @@ export default function StaffTable({staffs  ,handleDelete,handleEdit}) {
             <th>Profile</th>
             <th>Name</th>
             <th>Designation</th>
+            <th>Committe</th>
             <th>Mobile</th>
             <th>Action</th>
 
@@ -159,6 +160,9 @@ export default function StaffTable({staffs  ,handleDelete,handleEdit}) {
               <td>{row.name}</td>
               <td style={{ width: 120 }} align="right">
                 {row.designation}
+              </td>
+              <td style={{ width: 120 }} align="right">
+                {row.committee}
               </td>
               <td style={{ width: 120 }} align="right">
                 {row.mobile}

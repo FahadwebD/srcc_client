@@ -44,6 +44,7 @@ const StaffManage = () => {
       mobile:"",
       rank:"",
       speech:"",
+      committee:"",
       records: [],
     });
 
@@ -58,7 +59,7 @@ const StaffManage = () => {
       const callUse= () =>{
 
 
-        fetch('https://peaceful-spire-22388.herokuapp.com/staff')
+        fetch('http://localhost:5000/staff')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
     
@@ -76,7 +77,7 @@ const StaffManage = () => {
   
 
     
-        fetch(`https://peaceful-spire-22388.herokuapp.com/staff/${_id}`)
+        fetch(`http://localhost:5000/staff/${_id}`)
         .then(res=>res.json())
         .then(record => {
           setForm(record)
@@ -101,12 +102,12 @@ const StaffManage = () => {
             categoryStaff:form.categoryStaff,
             mobile:form.mobile,
             rank:form.rank,
-            speech:form.speech
-            
+            speech:form.speech,
+            committee:form.committee
         }
       
    
-       fetch(`https://peaceful-spire-22388.herokuapp.com/staff/edit/${id}`, {
+       fetch(`http://localhost:5000/staff/edit/${id}`, {
            method: 'PATCH',
           
            headers: {
@@ -119,6 +120,8 @@ const StaffManage = () => {
            .then(data => {
                if (data.modifiedCount) {
                 callUse()
+                alert('Update Staff')
+                handleClose()
                    console.log('ok')
                }
            })
@@ -132,7 +135,7 @@ const StaffManage = () => {
 
     const handleDelete = (_id) =>{
      
-      const url=`https://peaceful-spire-22388.herokuapp.com/staff/${_id}`
+      const url=`http://localhost:5000/staff/${_id}`
       fetch(url, {
         method:'DELETE',
       
@@ -228,7 +231,7 @@ const StaffManage = () => {
           variant="standard"
           sx={{ width: '40%',  margin:'10px !important' , padding:'10px !important'}}
           id="outlined-size-small"
-          required
+          
           select
           label=" Categories"
         
@@ -250,7 +253,7 @@ const StaffManage = () => {
           variant="standard"
           sx={{ width: '40%',  margin:'10px !important' , padding:'10px !important'}}
           id="outlined-size-small"
-          required
+          
           select
           label="Ranking"
         
@@ -268,6 +271,20 @@ const StaffManage = () => {
               Highest
             </MenuItem>
         </TextField>
+        
+        <TextField
+                            variant="standard"
+                            required
+                            label="committee"
+                            id="outlined-size-small"
+                            name="Name"
+                            style={{ width: '40%' , margin:'10px'}}
+                            
+                            
+                            value={form.committee}
+                            onChange={(e) => updateForm({ committee: e.target.value })}
+                            
+                        />
                       
                          <TextField
                             variant="standard"

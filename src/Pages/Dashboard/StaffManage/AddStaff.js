@@ -30,7 +30,7 @@ const AddStaff = ({callUse}) => {
     const [categoryStaff , setCategoryStaff] = useState()
     const [rank , setRank] = useState()
     const [speech , setSpeech] = useState()
-
+    const [committee , setCommittee] = useState()
 
 
     const onImageChange = (e) => {
@@ -65,9 +65,10 @@ const AddStaff = ({callUse}) => {
         formData.append('categoryStaff', categoryStaff);
         formData.append('rank', rank);
         formData.append('speech', speech);
+        formData.append('committee' , committee)
         formData.append('image', image);
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/staff', {
+        fetch('http://localhost:5000/staff', {
             method: 'POST',
            
             body: formData
@@ -129,7 +130,12 @@ const AddStaff = ({callUse}) => {
                     
                     onChange={e => setDesignation(e.target.value)}
                     variant="standard" />
-                
+                <TextField
+                    sx={{ width: '25%', m:1 }}
+                    label="Mobile"
+                   
+                    onChange={e => setCommittee(e.target.value)}
+                    variant="standard" />
                 <TextField
                     sx={{ width: '25%', m:1 }}
                     label="Mobile"

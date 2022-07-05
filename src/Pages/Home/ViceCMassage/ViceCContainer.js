@@ -39,9 +39,9 @@ const ViceCContainer = () => {
 					</time>
 				</div>
 				<div className="postcard__bar"></div>
-				<div className="postcard__preview-txt">{chairmen?.speech.slice(0, 400)+'...'}</div>
+				<div className="postcard__preview-txt">{chairmen?.speech.slice(0, 400)+'...'} <button style={{backgroundColor:'green' , border:'none' , color:'white' , padding:'2px'}}><Link style={{textDecoration:'none' , color:'white'}} to={`/speech/${chairmen?._id}`}>Read More</Link></button></div>
 				<ul className="postcard__tagbox">
-                <Link style={{textDecoration:'none'}} to={`/speech/${chairmen?._id}`}><li className="tag__item">Read More</li></Link>
+               
 					
 				</ul>
 			</div>

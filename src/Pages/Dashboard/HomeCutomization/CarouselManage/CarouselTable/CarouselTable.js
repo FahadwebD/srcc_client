@@ -9,12 +9,12 @@ import { TextField } from '@mui/material';
 import './CarouselStyle.css'
 
 
-const CarouselTable = ({item}) => {
+const CarouselTable = ({item , call , setCarousel , carousel}) => {
     
 
 
 
-    const [carousel , setCarousel] = useCarousel();
+    
     const [open, setOpen] = React.useState(false);
     const [caption, setCaption] = React.useState();
 
@@ -87,7 +87,9 @@ const CarouselTable = ({item}) => {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                  
+                call()
+                alert('Updated Carousel')
+                handleClose()
                    console.log('ok')
                }
            })

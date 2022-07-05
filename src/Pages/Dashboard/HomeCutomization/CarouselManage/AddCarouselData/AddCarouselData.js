@@ -19,7 +19,7 @@ const style = {
   };
 
 
-const AddCarouselData = () => {
+const AddCarouselData = ({call}) => {
     const [caption, setCaption] = useState('');
     const [image, setImage] = useState(null);
     const [img, setImg] = useState();
@@ -61,6 +61,7 @@ const AddCarouselData = () => {
                 if (data.insertedId) {
                     setSuccess('Data added successfully')
                     handleClose()
+                    call()
                   alert('Data added successfully')
                 }
             })

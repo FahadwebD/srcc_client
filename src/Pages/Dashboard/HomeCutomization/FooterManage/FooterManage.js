@@ -46,6 +46,11 @@ const [info , setInfo] = React.useState()
 const handleOpen = () => setOpen(true);
 const handleClose = () => setOpen(false);
 
+const call =()=>{
+  fetch('https://peaceful-spire-22388.herokuapp.com/footerInfo')
+    .then(res=>res.json())
+    .then(data=>setFootInfo(data))
+}
 
 
 
@@ -87,7 +92,9 @@ const found = footInfo.find(obj => {
      .then(res => res.json())
      .then(data => {
          if (data.modifiedCount) {
-            
+            alert('update footer')
+            handleClose()
+            call()
              console.log('ok')
          }
      })

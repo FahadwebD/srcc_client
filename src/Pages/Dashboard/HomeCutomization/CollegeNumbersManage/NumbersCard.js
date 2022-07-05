@@ -59,7 +59,7 @@ const NumbersCard = ({num}) => {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                  
+                  alert('updated')
                    console.log('ok')
                }
            })
