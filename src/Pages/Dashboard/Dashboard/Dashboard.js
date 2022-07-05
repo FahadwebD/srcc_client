@@ -87,7 +87,7 @@ function Dashboard(props) {
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <EventNoteIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='eventManage'><Button color="inherit">Event Management </Button></Link></div>
 
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <AspectRatioIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='facilitiesManage'><Button color="inherit">Facilities Management </Button></Link></div>
-            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <CastForEducationIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='facilitiesManage'><Button color="inherit">Course Management </Button></Link></div>
+            <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <CastForEducationIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='courseManage'><Button color="inherit">Course Management </Button></Link></div>
 
             <div style={{display:'flex' , alignItems:'center' ,marginLeft:'10px' }}> <DnsIcon style={{color:'white' , fontWeight:'bolder'}}/><Link style={{textDecoration:'none' , color:'white' , fontWeight:'bolder'}} to='nacessaryInfo'><Button color="inherit">Information Manage </Button></Link></div>
 
@@ -211,7 +211,7 @@ function Dashboard(props) {
 
                
                <Route path="/users" element={<Users/>} />
-               <Route path="/addc" element={<CourseManage />} />
+               <Route path="/courseManage" element={<CourseManage />} />
                <Route path="/gallary" element={<GallaryCollection/>} />
                </Routes>
 
