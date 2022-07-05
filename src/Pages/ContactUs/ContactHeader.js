@@ -9,10 +9,9 @@ const ContactHeader = () => {
       
       <div className="overlay">
             <h1>Contact Us</h1>
-                <h3>Memorable Moments</h3>
+            
 
-	<br/>
-	<button>READ MORE</button>
+
 		</div>
        
         </div>

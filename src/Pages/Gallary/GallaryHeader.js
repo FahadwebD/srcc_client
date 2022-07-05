@@ -7,10 +7,9 @@ const GallaryHeader = () => {
       
       <div className="overlay">
 <h1>Our Gallary</h1>
-<h3>Memorable Moments</h3>
 
-	<br/>
-	<button>READ MORE</button>
+
+	
 		</div>
        
         </div>

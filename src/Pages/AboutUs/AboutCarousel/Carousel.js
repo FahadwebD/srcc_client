@@ -1,16 +1,17 @@
 import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+
 import "slick-carousel/slick/slick-theme.css";
+import useCarousel from '../../../hooks/useCarousel';
 import CarouselCard from './CarouselCard';
+import './silk.scss'
 import useFacilities from '../../../hooks/useFacilities';
-
-
 const Carousel = () => {
 
+const [carousel] = useCarousel()
 
-
-const [facilities ] = useFacilities()
+const [facilities , setFacilities] = useFacilities()
 
 
 const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -59,7 +60,7 @@ var settings = {
     ]
   };
     return (
-        <div style={{padding:'10px'}}>
+        <div style={{padding:'50px'}}>
           <h1>Our Facilities</h1>
         <hr style={{width:'10%' , backgroundColor:'red' , border: '1px solid red'}} />
              <Slider {...settings}>
