@@ -102,7 +102,7 @@ const AddCollection = ({call}) => {
                 <TextField
                     sx={{ width: '75%' }}
                     label="Description"
-                    required
+       
                     onChange={e => setTitle(e.target.value)}
                     variant="standard" />
                 <br />

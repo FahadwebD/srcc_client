@@ -103,7 +103,7 @@ const AddFacilities = ({callUse}) => {
                 <TextField
                     sx={{ width: '75%' }}
                     label="HeadLine"
-                    required
+                  
                     onChange={e => setHeadline(e.target.value)}
                     variant="standard" />
                 <br />
@@ -112,7 +112,7 @@ const AddFacilities = ({callUse}) => {
                 <TextField
                     sx={{ width: '75%' }}
                     label="Notice"
-                    required
+                
                     multiline
                     maxRows={1000}
                     onChange={e => setFacilities(e.target.value)}

@@ -133,14 +133,14 @@ const AddStudent = ({call}) => {
                 <TextField
                     sx={{ width: '75%' }}
                     label="Name"
-                    required
+                    
                     onChange={e => setName(e.target.value)}
                     variant="standard" />
                 
                 <TextField
                     sx={{ width: '75%' }}
                     label="Admission Roll"
-                    required
+                    
                     onChange={e => setRoll(e.target.value)}
                     variant="standard" />
                
@@ -175,7 +175,7 @@ const AddStudent = ({call}) => {
                 <TextField
                     sx={{ width: '75%' }}
                     label="Registarion No"
-                    required
+                    
                     onChange={e => setRegNo(e.target.value)}
                     variant="standard" />
                      <Input
@@ -187,7 +187,7 @@ const AddStudent = ({call}) => {
                 <TextField
                     sx={{ width: '75%' }}
                     label="Mobile"
-                    required
+                   
                     onChange={e => setMobile(e.target.value)}
                     variant="standard" />
                  </div>

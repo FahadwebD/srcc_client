@@ -119,21 +119,21 @@ const AddStaff = ({callUse}) => {
                   <TextField
                     sx={{ width: '40%'   , m:2}}
                     label="Name"
-                    required
+                   
                     onChange={e => setName(e.target.value)}
                     variant="standard" />
               
                 <TextField
                     sx={{ width: '40%' , m:2}}
                     label="Designation"
-                    required
+                    
                     onChange={e => setDesignation(e.target.value)}
                     variant="standard" />
                 
                 <TextField
                     sx={{ width: '25%', m:1 }}
                     label="Mobile"
-                    required
+                   
                     onChange={e => setMobile(e.target.value)}
                     variant="standard" />
                
@@ -141,7 +141,7 @@ const AddStaff = ({callUse}) => {
            variant="standard" 
           sx={{ width: '25%',  m:1 }}
           id="outlined-size-small"
-          required
+          
           select
           label="Categories"
           value={categoryStaff}
@@ -164,7 +164,7 @@ const AddStaff = ({callUse}) => {
            variant="standard" 
           sx={{ width: '20%',  m:1}}
           id="outlined-size-small"
-          required
+         
           select
           label="Ranking"
           value={rank}
@@ -187,7 +187,7 @@ const AddStaff = ({callUse}) => {
                     style={{height:"200px" , overflowY:"scroll"}}
                     sx={{ width: '100%', m:1 }}
                     label="Speech"
-                    required
+                    
                     multiline
                     maxRows={1000}
                     onChange={e => setSpeech(e.target.value)}
