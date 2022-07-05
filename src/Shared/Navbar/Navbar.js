@@ -118,11 +118,14 @@ export default function Navbar() {
          
         </li>
         <li className="navbar-dropdown">
-          <Link to='/staff/all'>Staff  +</Link>
+          <Link to='/staff/all'>Staff  </Link>
           <div className="dropdown">
             <Link style={{display:'flex'}} to='/staff/a'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Adminastrator </Link>
             <Link style={{display:'flex'}} to='/staff/t'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Teacher</Link>
+            <Link style={{display:'flex'}} to='/staff/c'><div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Committee</Link>
+            
             <Link style={{display:'flex'}} to='/staff/o'><div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Other</Link>
+          
           </div>
         </li>
         <li className="navbar-dropdown">
@@ -130,7 +133,7 @@ export default function Navbar() {
 
         </li>
         <li className="navbar-dropdown">
-          <Link to='/gallary'>Gallery  +</Link>
+          <Link to='/gallary/all'>Gallery  </Link>
           <div className="dropdown">
             <Link style={{display:'flex'}} to='/gallary/all'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>All</Link>
             <Link style={{display:'flex'}} to='/gallary/office'> <div><KeyboardDoubleArrowRightIcon style={{marginTop:'2px', fontSize:'15px'}}  /></div>Office</Link>

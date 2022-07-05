@@ -160,6 +160,9 @@ const AddStaff = ({callUse}) => {
             <MenuItem key='adminatrator' value='a'>
               Adminestrator
             </MenuItem>
+            <MenuItem key='committee' value='c'>
+              Committee
+            </MenuItem>
             <MenuItem key='other' value='o'>
               Other
             </MenuItem>

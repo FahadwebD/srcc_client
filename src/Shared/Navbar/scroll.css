@@ -48,17 +48,22 @@
     transform: translateY(50px);
     left: 0;
     width: 250px;
-    background-color: #fff;
+    background-color: rgb(36, 30, 30);
     box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     z-index: 111;
     transition: 0.4s all;
+    color: white;
   }
   .navbar-links li.navbar-dropdown .dropdown a {
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: 400;
+    color: white;
+  }
+  .navbar-links li.navbar-dropdown .dropdown a:hover {
+    background-color: blanchedalmond;
   }
   .navbar-dropdown .dropdown a:hover {
     padding-left: 30px;

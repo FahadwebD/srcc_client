@@ -54,12 +54,13 @@ const CourseCard = ({courses}) => {
           className={"MuiTypography--subheading"}
           variant={"caption"}
         >
-          {duration}
+          Duration: {duration}
         </Typography>
 
-        <Link to={`/important/${_id}`}><Button >Learn More</Button></Link>
+       
        </div>
-        <Divider className='divider' light />
+       <Link style={{textDecoration:'none'}} to={`/important/${_id}`}><Button variant="contained" size="small" >Learn More</Button></Link>
+       
         
       </CardContent>
     </Card>

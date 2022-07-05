@@ -4,6 +4,7 @@ import './ViceChairmen.scss'
 import useStaff from '../../../hooks/useStaff';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Button } from '@mui/material';
 
 
 
@@ -32,14 +33,14 @@ const ViceCContainer = () => {
 				
 			</div>
 			<div className="postcard__text t-dark">
-				<h2 className="postcard__title red">{chairmen?.designation}</h2>
+				<h2 className="postcard__title red">{chairmen?.name}</h2>
 				<div className="postcard__subtitle small">
 					<time datetime="2020-05-25 12:00:00">
-                    {chairmen?.name}
+          {chairmen?.designation}
 					</time>
 				</div>
 				<div className="postcard__bar"></div>
-				<div className="postcard__preview-txt">{chairmen?.speech.slice(0, 400)+'...'} <button style={{backgroundColor:'green' , border:'none' , color:'white' , padding:'2px'}}><Link style={{textDecoration:'none' , color:'white'}} to={`/speech/${chairmen?._id}`}>Read More</Link></button></div>
+				<div className="postcard__preview-txt">{chairmen?.speech.slice(0, 400)+'...'} <Button style={{backgroundColor:'green' , border:'none' , color:'white' , padding:'2px'}}><Link style={{textDecoration:'none' , color:'white'}} to={`/speech/${chairmen?._id}`}>Read More</Link></Button></div>
 				<ul className="postcard__tagbox">
                
 					

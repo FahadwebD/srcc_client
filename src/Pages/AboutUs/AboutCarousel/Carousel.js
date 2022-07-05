@@ -30,8 +30,8 @@ var settings = {
     initialSlide: 0,
     slidesToShow: 3,
     slidesToScroll: 3,
-    nextArrow: <SlickArrowLeft />,
-    prevArrow: <SlickArrowRight />,
+    nextArrow: <SlickArrowRight />,
+    prevArrow:<SlickArrowLeft /> ,
     responsive: [
       {
         breakpoint: 1024,
