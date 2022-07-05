@@ -13,12 +13,12 @@ const About = () => {
                 
 
 	<br/>
-	<button>Scroll Down</button>
+
 		</div>
        
         </div>
             </div>
-            <div style={{marginTop:'100px' , padding:"50px"}}>
+            <div >
                 <Welcome></Welcome>
             </div>
         </div>

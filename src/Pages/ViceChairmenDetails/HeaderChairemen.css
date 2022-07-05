@@ -1,0 +1,18 @@
+.divOfProfile{
+    display: flex;
+}
+@media only screen  and (max-width:688px){
+    .divOfProfile{
+        display: flex;
+        flex-direction: column;
+    }
+	
+}
+@media only screen  and (min-width:689px) and (max-width:990px){
+
+    .divOfProfile{
+        display: flex;
+        flex-direction: column;
+    }
+	
+}

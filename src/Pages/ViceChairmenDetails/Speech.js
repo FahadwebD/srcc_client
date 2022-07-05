@@ -23,7 +23,7 @@ const Speech = ({speeches}) => {
       }}
     >
      <div>
-        <div  style={{display:'flex' , }}>
+        <div className='divOfProfile'  >
             <div>
             <img src={`data:image/png;base64,${speeches?.image}`} alt="" srcset="" style={{width:'200px' , height:'200px' , border:'5px solid white'}} />
             </div>
