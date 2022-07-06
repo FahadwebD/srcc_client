@@ -44,7 +44,7 @@ const [footInfo , setFootInfo] = React.useState('')
 <footer class="footer-distributed">
 
 <div class="footer-left">
-  <img src={footerl} style={{    width: '350px',height: '100px',marginLeft: '-20px'}} alt="" />
+  <img src={footerl} style={{    width: '350px',height: '100px',marginLeft: '-30px'}} alt="" />
   <p class="footer-links">
     <Link to='/'  class="link-1">Home</Link>
   

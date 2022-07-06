@@ -13,7 +13,7 @@ const AllStaff = ({name , image ,designation}) => {
   <figcaption>
     <h3>{name}</h3>
     <h4>{designation}</h4>
-    <p>Which is worse, that everyone has his price, or that the price is always so low.</p>
+   
     <div className="icons">
       
       <Link> <i className="ion-social-vimeo"><DialerSipIcon></DialerSipIcon></i></Link>
