@@ -9,8 +9,7 @@ const InformationsHeader = () => {
 <h1>Necessary Information</h1>
 
 
-	<br/>
-	<button>Scroll Down</button>
+	
 		</div>
        
         </div>
