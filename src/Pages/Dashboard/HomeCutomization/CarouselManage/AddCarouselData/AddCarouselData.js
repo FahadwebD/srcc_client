@@ -51,9 +51,7 @@ const AddCarouselData = ({call}) => {
         console.log(formData)
         fetch('https://peaceful-spire-22388.herokuapp.com/banner', {
             method: 'POST',
-            headers: {
-              authorization: `Bearer ${localStorage.getItem('accessToken')}`
-          },
+          
             body: formData
         })
             .then(res => res.json())

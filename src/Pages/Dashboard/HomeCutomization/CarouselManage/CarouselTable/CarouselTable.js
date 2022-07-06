@@ -46,9 +46,7 @@ const CarouselTable = ({item , call , setCarousel , carousel}) => {
         fetch(url, {
           
           method:'DELETE',
-          headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        },
+       
         })
         .then(res => res.json())
         .then(data=>{
@@ -79,7 +77,7 @@ const CarouselTable = ({item , call , setCarousel , carousel}) => {
        fetch('https://peaceful-spire-22388.herokuapp.com/banner/edit', {
            method: 'PUT',
            headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+           
                'content-type': 'application/json'
            },
            body: JSON.stringify(updateCarousel)
