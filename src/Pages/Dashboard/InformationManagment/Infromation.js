@@ -21,8 +21,8 @@ console.log(information)
 <th rowspan="3" >Course Name</th>
 <th rowspan="3" >Session</th>
 <th colspan="4" >Students Category</th>
-<th rowspan="3" >Numbers </th>
-<th rowspan="3" >Enrolled</th>
+<th rowspan="3" >Numbers of Student </th>
+<th rowspan="3" >Aproved Sit</th>
 <th rowspan="3" >Action</th>
 
 </tr>

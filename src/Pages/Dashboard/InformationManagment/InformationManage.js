@@ -346,7 +346,7 @@ function updateForm(value) {
                           
                       />
                       <InputLabel shrink htmlFor="bootstrap-input">
-                          Numbers
+                          Numbers of Student
         </InputLabel>
                           <TextField
                           
@@ -363,7 +363,7 @@ function updateForm(value) {
                           
                       />
                       <InputLabel shrink htmlFor="bootstrap-input">
-                          Enrolled
+                          Approved Sit
         </InputLabel>
                         <TextField
                           

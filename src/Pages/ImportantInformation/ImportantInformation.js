@@ -63,20 +63,20 @@ console.log(courseInfo)
 <tr>
 <th rowspan="3" >Session</th>
 <th colspan="4" >Students Category</th>
-<th rowspan="3" >Numbers </th>
-<th rowspan="3" >Enrolled</th>
+<th rowspan="3" >Numbers of Student</th>
+<th rowspan="3" >Approved Sit</th>
 </tr>
 
 <tr>
-<th colspan="2" ><p>male</p></th>
+<th colspan="2" ><p>Male</p></th>
 <th colspan="2" ><p>Female</p></th>
 </tr>
 
 <tr>
-<th>general</th>
-<th>poor</th>
-<th>general</th>
-<th>poor</th>
+<th>General</th>
+<th>Poor</th>
+<th>General</th>
+<th>Poor</th>
 </tr>
 </thead>
 <tbody>
