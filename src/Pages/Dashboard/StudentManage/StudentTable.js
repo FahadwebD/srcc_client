@@ -18,9 +18,7 @@ export default function StudentTable({student , students, setDisplayProducts ,ha
         const url=`https://peaceful-spire-22388.herokuapp.com/student/${_id}`
         fetch(url, {
           method:'DELETE',
-          headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        },
+        
         })
         .then(res => res.json())
         .then(data=>{
