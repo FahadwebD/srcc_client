@@ -288,7 +288,7 @@ const StaffManage = () => {
                       
                          <TextField
                             variant="standard"
-                            required
+                         
                             label="Mobile"
                             id="outlined-size-small"
                             name="Name"
