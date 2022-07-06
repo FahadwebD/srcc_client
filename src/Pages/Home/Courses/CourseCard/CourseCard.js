@@ -13,7 +13,7 @@ import '../Courses/Courses.css'
 
 
 const CourseCard = ({courses}) => {
-    const{duration,image ,courseName ,_id} = courses
+    const{duration,image ,courseName ,_id ,requirements} = courses
     // const url = `/appointed/${id}`
 
     const faces = [
@@ -56,10 +56,17 @@ const CourseCard = ({courses}) => {
         >
           Duration: {duration}
         </Typography>
+        <br/>
+        <Typography
+          className={"MuiTypography--subheading"}
+          variant={"caption"}
+        >
+          Requirements: {requirements}
+        </Typography>
 
        
        </div>
-       <Link style={{textDecoration:'none'}} to={`/important/${_id}`}><Button variant="contained" size="small" >Learn More</Button></Link>
+       <Link style={{textDecoration:'none'}} to={`/important/${_id}`}><Button variant="contained" size="small" style={{backgroundColor:'red'}} >Learn More</Button></Link>
        
         
       </CardContent>

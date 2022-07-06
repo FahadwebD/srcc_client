@@ -31,7 +31,7 @@ const ImportantInformation = () => {
     useEffect(()=>{
         fetch(`https://peaceful-spire-22388.herokuapp.com/info/${course}`)
         .then(res=>res.json())
-        .then(data=>setInformation(data))
+        .then(data=>setInformation(data.reverse()))
 
     },[course])
     console.log(`https://peaceful-spire-22388.herokuapp.com/info/${course}`)
@@ -51,7 +51,9 @@ console.log(courseInfo)
             <h2>Course Name :{courseInfo?.courseName}</h2>
             <h4>Duration :{courseInfo?.duration}</h4>
 
-            <h4>Total Sit :{courseInfo?.sit}</h4>
+            <h4>Total Seat :{courseInfo?.sit}</h4>
+            <h4>Total Requirements :{courseInfo?.requirements}</h4>
+
 
          
 
@@ -63,8 +65,8 @@ console.log(courseInfo)
 <tr>
 <th rowspan="3" >Session</th>
 <th colspan="4" >Students Category</th>
-<th rowspan="3" >Numbers of Student</th>
-<th rowspan="3" >Approved Sit</th>
+<th rowspan="3" >Number of Student</th>
+<th rowspan="3" >Approved Seat</th>
 </tr>
 
 <tr>
@@ -73,10 +75,10 @@ console.log(courseInfo)
 </tr>
 
 <tr>
-<th>General</th>
-<th>Poor</th>
-<th>General</th>
-<th>Poor</th>
+<th>General Quota</th>
+<th>Poor & Maritorious Quota</th>
+<th>General Quota</th>
+<th>Poor & Maritorious Quota</th>
 </tr>
 </thead>
 <tbody>

@@ -116,7 +116,7 @@ export default function AddInformation({callUse}) {
 <th rowspan="3" >Session</th>
 <th colspan="4" >Students Category</th>
 <th rowspan="3" >Numbers of Student </th>
-<th rowspan="3" >Approved Sit</th>
+<th rowspan="3" >Approved Seat</th>
 </tr>
 
 <tr>

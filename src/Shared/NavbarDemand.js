@@ -8,6 +8,8 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Container from '@mui/material/Container';
 import logo from '../assets/images/WEB HEAD.png'
 import Slide from '@mui/material/Slide';
+import { Link } from 'react-router-dom';
+
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -41,11 +43,11 @@ export default function NavbarDemand(props) {
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar style={{backgroundColor:'#c60000' , borderBottom:"5px solid green"}} sx={{display: { xs: 'none', sm: 'block' }}}>
-          <Toolbar>
+         <Link to="/"> <Toolbar>
             
-            <img id='navImg' src={logo} alt='srcc' style={{ height:'50px'}} />
+            <img id='navImg' src={logo} alt='srcc' style={{ height:'50px' , width:'500px'}} />
            
-          </Toolbar>
+          </Toolbar></Link>
         </AppBar>
       </HideOnScroll>
       <Toolbar />

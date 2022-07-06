@@ -24,7 +24,7 @@ const AddCourses = ({callUse}) => {
     
     const [duration , setDuration] = useState('')
     const [sit , setSit] = useState('')
-
+    const [requirements , setRequirements]= useState('')
    
      const [image, setImage] = useState(null);
      const [img, setImg] = useState();
@@ -57,6 +57,8 @@ const AddCourses = ({callUse}) => {
         formData.append('courseName', courseName);
         formData.append('duration', duration);
         formData.append('sit', sit);
+        formData.append('requirements', requirements);
+
         formData.append('image', image);
         console.log(formData)
         fetch('https://peaceful-spire-22388.herokuapp.com/courses', {
@@ -125,11 +127,22 @@ const AddCourses = ({callUse}) => {
                 <br />
                 <TextField
                     sx={{ width: '75%' }}
-                    label="Sit"
+                    label="Seat"
                     required
                     multiline
                     maxRows={1000}
                     onChange={e => setSit(e.target.value)}
+                    variant="standard" />
+                <br />
+               
+                <br />
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Requirements"
+                    required
+                    multiline
+                    maxRows={1000}
+                    onChange={e => setRequirements(e.target.value)}
                     variant="standard" />
                 <br />
                

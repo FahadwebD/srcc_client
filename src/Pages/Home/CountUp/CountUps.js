@@ -17,6 +17,8 @@ import SchoolIcon from '@mui/icons-material/School';
 const CountUps= () => {
   const [focus, setFocus] = useState(false);
  const [numbers , setNumbers] = useNumbers([]);
+
+ console.log(numbers)
     return (
        <>
        <div style={{margin:'70px'}}>
@@ -49,7 +51,7 @@ const CountUps= () => {
        </div>
        <div>
         <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={parseFloat(numbers[2]?.numbers)} duration={2} redraw={true}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={parseFloat(numbers[0]?.numbers)} duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -66,7 +68,7 @@ const CountUps= () => {
             )}
           </CountUp>
           </h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[2]?.title}</p>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[0]?.title}</p>
         </div>
        </div>
    </div>
@@ -84,7 +86,7 @@ const CountUps= () => {
           
           
           
-        <CountUp start={focus ? 0 : null} end={parseFloat(numbers[0]?.numbers)}duration={2} redraw={true}>
+        <CountUp start={focus ? 0 : null} end={parseFloat(numbers[2]?.numbers)}duration={2} redraw={true}>
             {({ countUpRef }) => (
               <div>
                 <span ref={countUpRef} />
@@ -105,7 +107,7 @@ const CountUps= () => {
           
           
           </h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[0]?.title}</p>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[2]?.title}</p>
         </div>
        </div>
    </div>
@@ -118,37 +120,6 @@ const CountUps= () => {
     width: '100px',
     height: '100px' , display:'flex' , justifyContent:'center' , alignItems:'center'}}>
          <MenuBookIcon style={{color:"red" , fontSize:'50px'}}></MenuBookIcon>
-       </div>
-       <div>
-        <div style={{textAlign:'start'}}>
-        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={parseFloat(numbers[3]?.numbers)} duration={2} redraw={true}>
-            {({ countUpRef }) => (
-              <div>
-                <span ref={countUpRef} />
-                <ReactVisibilitySensor
-                  onChange={isVisible => {
-                    if (isVisible) {
-                      setFocus(true);
-                    } 
-                  }}
-                >
-                  <a>+</a>
-                </ReactVisibilitySensor>
-              </div>
-            )}
-          </CountUp>
-          </h1>
-         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[3]?.title}</p>
-        </div>
-       </div>
-   </div>
-  </Grid>
-  <Grid item xs={6} md={3}>
-  <div style={{display:'flex' , flexDirection:'column', justifyContent:'center' , alignItems:'center'}}>
-       <div style={{backgroundColor: 'rgba(222, 216, 216, 0.45)' , border:"solid 1px red", borderRadius: '50%',
-    width: '100px',
-    height: '100px' , display:'flex' , justifyContent:'center' , alignItems:'center'}}>
-         <PeopleAltIcon  style={{color:"red" , fontSize:'50px'}}></PeopleAltIcon>
        </div>
        <div>
         <div style={{textAlign:'start'}}>
@@ -170,6 +141,37 @@ const CountUps= () => {
           </CountUp>
           </h1>
          <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[1]?.title}</p>
+        </div>
+       </div>
+   </div>
+  </Grid>
+  <Grid item xs={6} md={3}>
+  <div style={{display:'flex' , flexDirection:'column', justifyContent:'center' , alignItems:'center'}}>
+       <div style={{backgroundColor: 'rgba(222, 216, 216, 0.45)' , border:"solid 1px red", borderRadius: '50%',
+    width: '100px',
+    height: '100px' , display:'flex' , justifyContent:'center' , alignItems:'center'}}>
+         <PeopleAltIcon  style={{color:"red" , fontSize:'50px'}}></PeopleAltIcon>
+       </div>
+       <div>
+        <div style={{textAlign:'start'}}>
+        <h1 style={{color:'white' , margin:'0' , padding:'0'}}><CountUp start={focus ? 0 : null} end={parseFloat(numbers[3]?.numbers)} duration={2} redraw={true}>
+            {({ countUpRef }) => (
+              <div>
+                <span ref={countUpRef} />
+                <ReactVisibilitySensor
+                  onChange={isVisible => {
+                    if (isVisible) {
+                      setFocus(true);
+                    } 
+                  }}
+                >
+                  <a>+</a>
+                </ReactVisibilitySensor>
+              </div>
+            )}
+          </CountUp>
+          </h1>
+         <p style={{color:'white' , margin:'0' , padding:'0'}}>{numbers[3]?.title}</p>
         </div>
        </div>
    </div>

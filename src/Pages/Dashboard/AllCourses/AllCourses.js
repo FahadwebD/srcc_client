@@ -17,8 +17,8 @@ export default function AllCourses({courses ,handleEdit ,handleDelete}) {
     <th>Image</th>
     <th>CourseName</th>
     <th>Duration</th>
-    <th>Sit</th>
-    
+    <th>Seat</th>
+    <th>Requirements</th>
     <th>Action</th>
     
     
@@ -31,6 +31,7 @@ export default function AllCourses({courses ,handleEdit ,handleDelete}) {
             <td>{item.courseName}</td>
             <td>{item.duration}</td>
             <td>{item.sit}</td>
+            <td>{item.requirements}</td>
             <td>
 
             <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleDelete(item._id)}>Delete</Button>

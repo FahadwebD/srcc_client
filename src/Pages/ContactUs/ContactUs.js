@@ -21,10 +21,11 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
-    const { name, email, subject, message  } = e.target.elements;
+    const { name, email,  mobile, subject, message  } = e.target.elements;
     let details = {
       name: name.value,
       email: email.value,
+      mobile: mobile.value,
       subject: subject.value,
       message: message.value,
     };
@@ -62,6 +63,7 @@ const ContactUs = () => {
           
           <div style={{textAlign:'left' , marginBottom:'40px'}}>
             <h3 style={{marginBottom:'5px'}}>Physical and Mailing Adress</h3>
+            <p style={{margin:'0'}}>Sylhet Red Crescent Nursing College</p>
             <p style={{margin:'0'}}>{footInfo[0]?.info}</p>
             
 
@@ -94,6 +96,12 @@ const ContactUs = () => {
             </div>
             <div className="app-form-group">
               <input type="email" id="email" className="app-form-control" />
+            </div>
+            <div style={{color:'gray' , textAlign:'left'}}>
+            <label >Mobile</label>
+            </div>
+            <div className="app-form-group">
+              <input type="text" id="mobile" className="app-form-control" />
             </div>
             <div style={{color:'gray' , textAlign:'left'}}>
             <label >Subject</label>

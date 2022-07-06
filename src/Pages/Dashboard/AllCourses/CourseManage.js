@@ -38,6 +38,7 @@ const CourseManage = () => {
       courseName: "",
       duration: "",
       sit: "",
+      requirements:"",
       records: [],
     });
 
@@ -100,6 +101,7 @@ function updateForm(value) {
         courseName: form.courseName,
         duration: form.duration,
         sit: form.sit,
+        requirements:form.requirements
 
       
 
@@ -118,7 +120,7 @@ function updateForm(value) {
            .then(res => res.json())
            .then(data => {
                if (data.modifiedCount) {
-                   alert('Notice Edited')
+                   alert('Course Edited')
                    handleClose()
                    callUse()
                    console.log('ok')
@@ -259,7 +261,7 @@ function updateForm(value) {
                             
                         />
                                    <InputLabel shrink htmlFor="bootstrap-input">
-                           Sit
+                           Seat
         </InputLabel>
                          <TextField
                           
@@ -272,6 +274,23 @@ function updateForm(value) {
                              maxRows={1000}
                             value={form.sit}
                             onChange={(e) => updateForm({ sit: e.target.value })}
+                          
+                            
+                        />
+                             <InputLabel shrink htmlFor="bootstrap-input">
+                           Requirements
+        </InputLabel>
+                         <TextField
+                          
+                            variant="standard"
+                            id="outlined-size-small"
+                            name="Sit"
+                            style={{ width: '100%' }}
+                            
+                            multiline
+                             maxRows={1000}
+                            value={form.requirements}
+                            onChange={(e) => updateForm({ requirements: e.target.value })}
                           
                             
                         />
