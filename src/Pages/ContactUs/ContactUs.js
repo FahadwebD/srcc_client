@@ -8,6 +8,15 @@ const ContactUs = () => {
 
   const [status, setStatus] = useState("Submit");
 
+  const [footInfo , setFootInfo] = React.useState('')
+
+
+  React.useEffect(() =>{
+
+    fetch('https://peaceful-spire-22388.herokuapp.com/footerInfo')
+    .then(res=>res.json())
+    .then(data=>setFootInfo(data))
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,17 +62,15 @@ const ContactUs = () => {
           
           <div style={{textAlign:'left' , marginBottom:'40px'}}>
             <h3 style={{marginBottom:'5px'}}>Physical and Mailing Adress</h3>
-            <p style={{margin:'0'}}>Bangladesh Red Crescent Society</p>
-            <p style={{margin:'0'}}>National Headquarters</p>
-            <p style={{margin:'0'}}>684-686, Red Crescent Sarak</p>
-            <p style={{margin:'0'}}>Bara Maghbazar, Dhaka 1217</p>
+            <p style={{margin:'0'}}>{footInfo[0]?.info}</p>
+            
 
           </div>
           <div style={{textAlign:'left' , marginBottom:'40px'}}>
             <h3 style={{marginBottom:'5px'}}>Contact Information</h3>
-            <p style={{margin:'0'}}>Tel: (880) +88 02 48310188 / +88 02 48310189;</p>
-            <p style={{margin:'0'}}>Fax: +88 02 9352303</p>
-            <p style={{margin:'0'}}>Email: info@bdrcs.org</p>
+            <p style={{margin:'0'}}>Tel: {footInfo[1]?.info}</p>
+            
+            <p style={{margin:'0'}}>Email: {footInfo[2]?.info}</p>
             
 
           </div>

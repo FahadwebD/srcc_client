@@ -24,8 +24,8 @@ const GeneralStaff = ({c}) => {
 <h1>Our Staff</h1>
 <h3>{head}</h3>
 
-	<br/>
-	<button>READ MORE</button>
+	
+	
 		</div>
        
         </div>
