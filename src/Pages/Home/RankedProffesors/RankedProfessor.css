@@ -1,0 +1,56 @@
+.rankCard{
+    width: 280px;
+   background-color: white;
+   border: 0px solid #eee;
+   text-align: center;
+   display: inline-block;
+   margin-top: 100px;
+   box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.53);
+   margin: 20px
+   
+}
+img{
+    
+    width: 100%;
+    height: 300px;
+   
+   
+}
+.rankCard h1{
+   text-align: center;
+   margin-top: 10px;
+   margin-bottom: 15px;
+   
+}
+.rankCard span{
+   margin: 20px 0px;
+   display: inline-block;
+   color: #999;
+   margin-top: 10px
+}
+.rankCard p{
+   margin-bottom: 20px;
+   font-size: 15px
+}
+.rankCard a{
+   font-size: 20px
+}
+
+.rankCard a i:hover{
+   color: #aaaaaa;
+   
+}
+.rankCard button{
+   display: inline-block;
+   width: 87%;
+   padding: 10px;
+   background-color: #c60000 ;
+   color: white;
+   font-size: 19px;
+   margin-bottom: 17px;
+   margin-top: 20px;
+   cursor: pointer;
+   border: none;
+   border-radius: 10px;
+ 
+}

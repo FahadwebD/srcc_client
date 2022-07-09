@@ -2,49 +2,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    padding: 50px;
 }
 
-.cards {
-    cursor: pointer;
-    padding: 10px;
-}
-.card{
-     max-width: 300;
-     margin: "auto";
-     transition: "0.3s";
-     box-shadow: "0 8px 40px -12px rgba(0,0,0,0.3)";
-    
-   }
-.card:hover{
-   
-        box-shadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
-    
-}
 
-.cards.hover,
-.cards:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, .2)
-}
-
-.img {
-    margin-bottom: 35px;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222)
-}
-
-.card-title {
-    font-weight: 600
-}
-
-button.focus,
-button:focus {
-    outline: 0;
-    box-shadow: none !important
-}
-
-.ft {
-    margin-top: 25px
-}
 
 .chk {
     margin-bottom: 5px
