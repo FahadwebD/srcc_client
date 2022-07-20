@@ -18,7 +18,7 @@ const Courses = () => {
             <h1>Courses We Offer</h1>
             <hr style={{width:'10%' , backgroundColor:'red' , border: '1px solid red'}} />
         </div>
-        <div style={{padding:'40px'}}>
+        <div style={{padding:'10px'}}>
              <Container>
              <div className='mapGrid'>
             
