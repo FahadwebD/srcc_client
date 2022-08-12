@@ -34,7 +34,7 @@ const Welcome = () => {
       
           <div style={{textAlign:'start'}}>
               <h2>Welcome to Sylhet Red Crecent Nursing College</h2>
-               <p>{welcome[0]?.massage}.</p>
+               <p style={{ whiteSpace: 'pre-line' }}>{welcome[0]?.massage}.</p>
                
            </div>
          

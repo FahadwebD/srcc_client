@@ -1,31 +1,26 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
+
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
+
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 import { useTheme } from 'styled-components';
 import { Button } from '@material-ui/core';
+import ShareSocial from './ShareSocial';
+import { Link } from 'react-router-dom';
 
 
 
 
-
-const Event = ({ev}) => {
+const Event = ({ev ,handleOpen}) => {
   const theme = useTheme();
 
   // My card preferences
-
+  
   const CARD_PROPERTY = {
     borderRadius: 3,
     boxShadow: 10,
@@ -33,6 +28,7 @@ const Event = ({ev}) => {
   };
     return (
         
+   <>
       <div style={{textAlign:'left'}}>
        <Card sx={CARD_PROPERTY}>
               <CardMedia
@@ -57,10 +53,14 @@ const Event = ({ev}) => {
               
               <CardActions sx={{ pt: 0, px: 3, pb: 3 }}>
                 
-                <Button size="small">Share</Button>
+                <Button size="small" onClick={handleOpen}>Share</Button>
+                <Link to={`/evdetail/${ev._id}`}>Read More</Link>
               </CardActions>
             </Card>
       </div>
+   
+      
+      </>
        
     );
 };

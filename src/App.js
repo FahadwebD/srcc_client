@@ -18,6 +18,7 @@ import ContactMain from './Pages/ContactUs/ContactMain';
 import NoticeDetail from './Pages/NoticeDetail/NoticeDetail';
 import NoticesMain from './Pages/AllNotices/NoticesMain';
 import ImportantInformation from './Pages/ImportantInformation/ImportantInformation';
+import EventDetails from './Pages/Home/NoticeAndEvent/Events/EventDetails';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="contact" element={<ContactMain/> }/>
         <Route path="/important/:course" element={<ImportantInformation/> }/>
 
+        <Route path="/evdetail/:id" element={<EventDetails/> }/>
        
         <Route path="/detail/:id" element={<NoticeDetail/> }/>
 
