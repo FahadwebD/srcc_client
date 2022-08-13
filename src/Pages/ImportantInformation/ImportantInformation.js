@@ -50,9 +50,7 @@ console.log(courseInfo)
         <div  style={{textAlign:'left' , padding:'50px'}}>
             <h2>Course Name :{courseInfo?.courseName}</h2>
             <h4>Duration :{courseInfo?.duration}</h4>
-
-            <h4>Total Seat :{courseInfo?.sit}</h4>
-            <h4>Total Requirements :{courseInfo?.requirements}</h4>
+            <h4> Requirements :{courseInfo?.requirements}</h4>
 
 
          
