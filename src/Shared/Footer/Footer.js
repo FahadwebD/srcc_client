@@ -49,8 +49,11 @@ const [footInfo , setFootInfo] = React.useState('')
     <Link to='/'  class="link-1">Home</Link>
   
     <Link to='/about' >About Us</Link>
+    <Link to='/staff' >Staff</Link>
+
     
     <Link to="/gallary/all">Gallary</Link>
+    <Link to='/notices' >Notices</Link>
     
     <Link to="/contact">Contact</Link>
   </p>
@@ -81,13 +84,13 @@ const [footInfo , setFootInfo] = React.useState('')
 
   <p class="footer-company-about">
     <span>Useful Links</span>
-    <a style={{color:'white' , textDecoration:'none' , fontSize:'20px'}} href="https://bdrcs.org/">Bangladesh Red Crescent Society</a>
+    <a style={{color:'white' , textDecoration:'none' , fontSize:'13px'}} href="https://bdrcs.org/">Bangladesh Red Crescent Society</a>
     <br/>
-    <a style={{color:'white' , textDecoration:'none' , fontSize:'20px'}} href="http://bnmc.gov.bd/">Bangladesh Nursing and Midwifery Council</a>
+    <a style={{color:'white' , textDecoration:'none' , fontSize:'13px'}} href="http://bnmc.gov.bd/">Bangladesh Nursing and Midwifery Council</a>
     <br/>
-    <a style={{color:'white' , textDecoration:'none' , fontSize:'20px'}} href="http://dgnm.gov.bd/">Directorate General of Nursing and Midwifery</a>
+    <a style={{color:'white' , textDecoration:'none' , fontSize:'13px'}} href="http://dgnm.gov.bd/">Directorate General of Nursing and Midwifery</a>
     <br/>
-    <a style={{color:'white' , textDecoration:'none' , fontSize:'20px'}} href="https://mefwd.gov.bd/">Health Education and Family Welfare Division</a>
+    <a style={{color:'white' , textDecoration:'none' , fontSize:'13px'}} href="https://mefwd.gov.bd/">Health Education and Family Welfare Division</a>
   </p>
 
  

@@ -17,7 +17,7 @@ const EventDetails = () => {
             <Navbar></Navbar>
 
             <div>
-            <Container style={{marginTop:'20px'}}>
+            <Container style={{marginTop:'160px'}}>
         <Card sx={{ maxWidth: '100%' , boxShadow:'none'}}>
       <CardActionArea>
         <CardMedia
@@ -31,7 +31,7 @@ const EventDetails = () => {
           <Typography gutterBottom variant="h5" component="div">
             {eventsDetail?.headline}
           </Typography>
-          <small>Posted On {eventsDetail.date} By Doctor <span>Sylhet Red Crescent Nursing College</span></small>
+          <small>Posted On {eventsDetail.date} By  <span>Sylhet Red Crescent Nursing College</span></small>
           <p  style={{ whiteSpace: 'pre-line'}}>
            {eventsDetail?.description}
           </p>
