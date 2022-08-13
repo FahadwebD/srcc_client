@@ -48,11 +48,12 @@ export default function StudentTable({student , students, setDisplayProducts ,ha
                   p: 2
                 }}
               >
-              <div style={{padding:'20px'}}> <img style={{width:'100%' , height:'230px' , borderRadius:'50%'}} src={`data:image/png;base64,${student.image}`}alt="" srcset="" />
+             <div style={{display:'flex' , justifyContent:'center' , alignItems:'center'}}>
+             <div style={{padding:'0px'}}> <img style={{width:'90%' , height:'70%' , borderRadius:'50%'}} src={`data:image/png;base64,${student.image}`}alt="" srcset="" />
               </div>
                 
                 
-              <div style={{textAlign:'left' , padding:'10px'}}>
+              <div style={{textAlign:'left' , padding:'0px' , width:'500px'}}>
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 Name :{student.name}
                 </Typography>
@@ -62,14 +63,16 @@ export default function StudentTable({student , students, setDisplayProducts ,ha
                 <Typography variant="body1" color="text.secondary">
                   Category :{student.category}
                 </Typography>
-              </div>
-              </Box>
-              <CardContent sx={{ textAlign: "center" }}>
+                <CardContent style={{display:'flex' ,justifyContent:'center' , alignItems:'center'}} sx={{ textAlign: "center" }}>
                 <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small"  onClick={()=>handleStudentEdit(student._id)} variant="text">Edit</Button>
                 <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small"  onClick={()=>handleStudentDelete(student._id)} variant="text">
                   Delete
                 </Button>
               </CardContent>
+              </div>
+             </div>
+              </Box>
+              
             </Card>
         </div>
     );
