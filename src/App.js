@@ -19,12 +19,13 @@ import NoticeDetail from './Pages/NoticeDetail/NoticeDetail';
 import NoticesMain from './Pages/AllNotices/NoticesMain';
 import ImportantInformation from './Pages/ImportantInformation/ImportantInformation';
 import EventDetails from './Pages/Home/NoticeAndEvent/Events/EventDetails';
+import ScrollToTop from './ScrollToTop';
 
 
 function App() {
   return (
     <div className="App">
-     
+     <ScrollToTop>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/speech/:id" element={<ViceChairmenDetails />} />
@@ -53,7 +54,7 @@ function App() {
 
 
       </Routes>
-  
+      </ScrollToTop>
     </div>
   );
 }

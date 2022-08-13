@@ -1,7 +1,25 @@
-import { Box, Modal } from '@mui/material';
+import { Box, Modal, Typography } from '@mui/material';
 import React from 'react';
 
-
+import {
+    FacebookShareButton,
+    GooglePlusShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    TelegramShareButton,
+    WhatsappShareButton,
+    PinterestShareButton,
+    VKShareButton,
+    OKShareButton,
+    RedditShareButton,
+    TumblrShareButton,
+    LivejournalShareButton,
+    MailruShareButton,
+    ViberShareButton,
+    WorkplaceShareButton,
+    LineShareButton,
+    EmailShareButton,
+  } from 'react-share';
 
   import {
     FacebookIcon,
@@ -14,22 +32,14 @@ import React from 'react';
 
     EmailIcon,
   } from 'react-share';
-import { Simplesharer } from 'simple-sharer';
 
 
 
-const ShareSocial = ({open , handleClose ,headline , image , id}) => {
+const ShareSocial = ({open , handleClose ,name , image , id}) => {
 
 
-    const text = headline; 
-    const uri = image?.replace(/^"+|"+$/g, '')
-    console.log(uri)
- console.log(text)
-     const sh = new Simplesharer()
-    sh.url = `http://localhost:3000/evdetail/${id}` //your url
-    sh.title = {text} //title for Reddit, this is optional
-    sh.text = 'Passionate Mobile and Web Apps Development Team' // description for twitter, not more than a hundred characters, optional.
-    sh.hashtags = ['buildbrothers', 'bb', 'software dev team'] // a list of hashtags for twitter,also optional
+    const text = name; 
+    
     return (
         <div>
             <Modal
@@ -40,10 +50,26 @@ const ShareSocial = ({open , handleClose ,headline , image , id}) => {
       >
         <Box className='s'>
         <div className='gridIcon'>
-        <button onClick={()=> sh.share('facebook') }>Share on Facebook</button>
-        <button onClick={()=> sh.share('twitter') }>Share on Twitter</button>
-        <button onClick={()=> sh.share('whatsapp') }>Share on Whatsapp</button>
+        <WhatsappShareButton
+       url={`https://srcn-college.web.app/evdetail/${id}`}
+       hashtag='#React'
+       quote = {text}
         
+        >
+        <WhatsappIcon size={40} round={true} />
+        </WhatsappShareButton>
+        <FacebookShareButton
+        url={`https://srcn-college.web.app/evdetail/${id}`}
+        hashtag='#React'
+        quote = {text}
+        
+        ><FacebookIcon size={40} round={true} /></FacebookShareButton>
+        <TwitterIcon size={40} round={true} />
+        <TelegramIcon size={40} round={true} />
+        <LinkedinIcon size={40} round={true} />
+       
+        <ViberIcon size={40} round={true} />
+        <EmailIcon size={40} round={true} />
         </div>
         </Box>
       </Modal>

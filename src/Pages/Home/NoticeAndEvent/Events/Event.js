@@ -55,6 +55,7 @@ const Event = ({ev ,handleOpen}) => {
                 
                 <Button size="small" onClick={handleOpen}>Share</Button>
                 <Link to={`/evdetail/${ev._id}`}>Read More</Link>
+                
               </CardActions>
             </Card>
       </div>
