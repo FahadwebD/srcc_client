@@ -15,23 +15,26 @@ const EventDetails = () => {
 
 
 
-   
+    
+
+    
     return (
         <div>
+           <head>
+           <meta property="fb:app_id"          content="1234567890" /> 
+            <meta property="og:url" content={`https://srcn-college.web.app/evdetail/${id}`} />
+            <meta property="og:type" content="article"/>
+      
+        <meta property="og:title"           content="Introducing our New Site" /> 
+    <meta property="og:image"           content="https://scontent-sea1-1.xx.fbcdn.net/hphotos-xap1/t39.2178-6/851565_496755187057665_544240989_n.jpg" /> 
+    <meta property="og:description"    content="http://samples.ogp.me/390580850990722" />
+      
+      
+      </head>
             <Navbar></Navbar>
 
             <div>
-            <Head>
-            
-            <meta property="og:url" content={`https://srcn-college.web.app/evdetail/${id}`} />
-            <meta property="og:type" content="article"/>
-        <meta property="og:title" content= 'hi' />
-        <meta property="og:description" content='bye' />
-        
-    
-        <meta property="og:image" content={`data:image/png;base64,${eventsDetail?.image}`} />
-      
-      </Head>
+           
             <Container style={{marginTop:'160px'}}>
         <Card sx={{ maxWidth: '100%' , boxShadow:'none'}}>
       <CardActionArea>
