@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Backdrop, Box, Button, Fade, Input,  MenuItem, Modal, Select, TextField } from '@mui/material';
-import { DatePicker } from '@material-ui/pickers';
-import moment from 'moment';
 import AddStudent from './AddStudent';
-import StudentTable from './StudentTable';
 import useCourses from '../../../hooks/useCourses';
-import useStudent from '../../../hooks/useStudent';
 import './Students.scss'
 const StudentManage = () => {
 
@@ -65,8 +61,8 @@ const StudentManage = () => {
     const [size, setSize] = useState(10);
     const [students, setStudents] = useState([]);
     const [displayProducts, setDisplayProducts] = useState([]);
-  
-  
+    const [searchCourse , setSearchCourse] = useState('')
+    const [courseId , setCourseId] = useState('')
   
     useEffect( () =>{
         fetch(`https://peaceful-spire-22388.herokuapp.com/student/home?page=${page}&size=${size}`)
@@ -89,7 +85,18 @@ const StudentManage = () => {
 
 
 
+    const handleCourseChange = (event) => {
+      setSearchCourse(event.target.value);
+      const found =courses.find(obj => {
+        return obj.courseName ===event.target.value;
+  
+  
+      });
+      setCourseId(found._id)
+      const matchedProducts = students.filter(product => product.courseId.includes(found._id));
 
+      setDisplayProducts(matchedProducts);
+    };  
 
 
 
@@ -247,6 +254,22 @@ const call =()=>{
                     placeholder="Search Student By Roll" />
                     
             </div>
+            <TextField
+
+sx={{ width: '40%',  marginTop:'10px !important' , padding:'10px !important'}}
+id="outlined-size-small"
+required
+select
+label="Search By Course Course"
+value={courses?.coursename}
+onChange={handleCourseChange}
+>
+{courses?.map((option) => (
+  <MenuItem key={option?.courseName} value={option?.courseName}>
+    Course .{option?.courseName}
+  </MenuItem>
+))}
+</TextField>
             <div>
                 <AddStudent call={call}></AddStudent>
                     </div>
@@ -255,7 +278,8 @@ const call =()=>{
           
        <div>
        <div class="table-users">
-   <div class="header">Students</div>
+        
+   <div class="header">{searchCourse?`Students Of ${searchCourse}`:'Students'}</div> 
    
    <table cellspacing="0">
       <tr>
