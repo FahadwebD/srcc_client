@@ -15,24 +15,17 @@ const EventDetails = () => {
 
 
 
-    const openGraphData = {
-      title: `${eventsDetail?.headline}`,
-      description:
-        `${eventsDetail?.description}`,
-        url:`https://srcn-college.web.app/evdetail/${id}`,
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/7/72/Open_Graph_protocol_logo.png',
-    };
+   
     return (
         <div>
             <Navbar></Navbar>
 
             <div>
             <Head>
-        <meta property="og:title" content={openGraphData.title} />
-        <meta property="og:description" content={openGraphData.description} />
-        <meta property="og:url" content={openGraphData.url} />
-        <meta property="og:image" content={openGraphData.image} />
+        <meta property="og:title" content= {eventsDetail?.headline} />
+        <meta property="og:description" content={eventsDetail?.description} />
+        <meta property="og:url" content={`https://srcn-college.web.app/evdetail/${id}`} />
+        <meta property="og:image" content={`data:image/png;base64,${eventsDetail?.image}`} />
         <meta name="twitter:card" content="summary" />
       </Head>
             <Container style={{marginTop:'160px'}}>
