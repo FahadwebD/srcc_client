@@ -19,6 +19,7 @@ const EventDetails = () => {
       title: `${eventsDetail?.headline}`,
       description:
         `${eventsDetail?.description}`,
+        url:`https://srcn-college.web.app/evdetail/${id}`,
       image:
         'https://upload.wikimedia.org/wikipedia/commons/7/72/Open_Graph_protocol_logo.png',
     };
