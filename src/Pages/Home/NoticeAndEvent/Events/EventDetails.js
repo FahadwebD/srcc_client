@@ -22,11 +22,15 @@ const EventDetails = () => {
 
             <div>
             <Head>
+            
+            <meta property="og:url" content={`https://srcn-college.web.app/evdetail/${id}`} />
+            <meta property="og:type" content="website"/>
         <meta property="og:title" content= {eventsDetail?.headline} />
         <meta property="og:description" content={eventsDetail?.description} />
-        <meta property="og:url" content={`https://srcn-college.web.app/evdetail/${id}`} />
+        
+    
         <meta property="og:image" content={`data:image/png;base64,${eventsDetail?.image}`} />
-        <meta name="twitter:card" content="summary" />
+      
       </Head>
             <Container style={{marginTop:'160px'}}>
         <Card sx={{ maxWidth: '100%' , boxShadow:'none'}}>
