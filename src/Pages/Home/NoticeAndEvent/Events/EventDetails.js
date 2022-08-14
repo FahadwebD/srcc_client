@@ -25,8 +25,8 @@ const EventDetails = () => {
             
             <meta property="og:url" content={`https://srcn-college.web.app/evdetail/${id}`} />
             <meta property="og:type" content="article"/>
-        <meta property="og:title" content= {eventsDetail?.headline} />
-        <meta property="og:description" content={eventsDetail?.description} />
+        <meta property="og:title" content= 'hi' />
+        <meta property="og:description" content='bye' />
         
     
         <meta property="og:image" content={`data:image/png;base64,${eventsDetail?.image}`} />
