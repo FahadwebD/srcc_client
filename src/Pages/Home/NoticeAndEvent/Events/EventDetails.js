@@ -1,6 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Container, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
+import { Head } from 'react-static';
 import Footer from '../../../../Shared/Footer/Footer';
 import Navbar from '../../../../Shared/Navbar/Navbar';
 const EventDetails = () => {
@@ -10,13 +11,29 @@ const EventDetails = () => {
    
     fetch(`https://peaceful-spire-22388.herokuapp.com/event/${id}`)
     .then(res=>res.json())
-    .then(record => setEventsDetail(record))
-  
+    .then(record => setEventsDetail(record));
+
+
+
+    const openGraphData = {
+      title: `${eventsDetail?.headline}`,
+      description:
+        `${eventsDetail?.description}`,
+      image:
+        'https://upload.wikimedia.org/wikipedia/commons/7/72/Open_Graph_protocol_logo.png',
+    };
     return (
         <div>
             <Navbar></Navbar>
 
             <div>
+            <Head>
+        <meta property="og:title" content={openGraphData.title} />
+        <meta property="og:description" content={openGraphData.description} />
+        <meta property="og:url" content={openGraphData.url} />
+        <meta property="og:image" content={openGraphData.image} />
+        <meta name="twitter:card" content="summary" />
+      </Head>
             <Container style={{marginTop:'160px'}}>
         <Card sx={{ maxWidth: '100%' , boxShadow:'none'}}>
       <CardActionArea>
