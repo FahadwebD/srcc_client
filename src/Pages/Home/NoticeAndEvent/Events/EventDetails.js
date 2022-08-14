@@ -9,7 +9,7 @@ import Navbar from '../../../../Shared/Navbar/Navbar';
 const EventDetails = () => {
 
     const [eventsDetail , setEventsDetail] = useState({})
-    const [titleImpo , setTitleImpo] = useState('')
+    
     let { id } = useParams();
    
  useEffect(()=>{
@@ -20,28 +20,12 @@ const EventDetails = () => {
  },[id])
 
    
-    const setTitle = title => {
-      const el = document.querySelector('title');
-      el.innerText = `${title}`;
-    };
-
-    const setDescription = desc => {
-      const el = document.querySelector("meta[name='description']");
-      el.setAttribute('content',desc)
-    }
-
-
-    if(eventsDetail.headline && eventsDetail.description){
-      setTitle(eventsDetail?.headline)
-      setDescription(eventsDetail?.description)
-    }
-    
-    console.log(eventsDetail.headline)
+ 
     return (
       
         <div>
                
-              
+           
   
             <Navbar></Navbar>
 

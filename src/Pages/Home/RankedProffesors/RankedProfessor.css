@@ -6,8 +6,8 @@
    display: inline-block;
    margin-top: 100px;
    box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.53);
-   margin: 20px
-   
+   margin: 20px;
+   height:600px
 }
 img{
     
@@ -16,7 +16,7 @@ img{
    
    
 }
-.rankCard h1{
+.rankCard h2{
    text-align: center;
    margin-top: 10px;
    margin-bottom: 15px;
@@ -47,7 +47,7 @@ img{
    background-color: #c60000 ;
    color: white;
    font-size: 19px;
-   margin-bottom: 17px;
+   margin-bottom: 0px;
    margin-top: 20px;
    cursor: pointer;
    border: none;

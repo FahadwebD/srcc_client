@@ -22,31 +22,33 @@ const style = {
     pt: 2,
     px: 4,
     pb: 3,
-    
+    maxHeight:'700px',
+    overflowY:'scroll'
   };
 
 
 const AddStudent = ({call}) => {
     const [name, setName] = useState('');
+    const [fatherName, setFatherName] = useState('');
+
+    const [motherName, setMotherName] = useState('');
+
     const [roll, setRoll] = useState('');
-    const [session, setSession] = useState('');
+    const [courseId, setCourseId] = useState('');
     const [course, setCourse] = useState('');
     const [regNo, setRegNo] = useState('');
     const [category, setCategory] = useState('');
     const [mobile, setMobile] = useState('');
     const [image, setImage] = useState(null);
-    const [img, setImg] = useState();
+
     const [sessionStarted, setSessionStarted] = React.useState(new Date());
     const [sessionEnded, setSessionEnded] = React.useState(new Date());
     const [success, setSuccess] = useState(false);
     const [open, setOpen] = React.useState(false);
     
     const [courses , setCourses] = useCourses()
-    const onImageChange = (e) => {
-      setImage(e.target.files[0])
-      const [file] = e.target.files;
-      setImg(URL.createObjectURL(file));
-    };
+    console.log(courses)
+
     
     const handleOpen = () => {
       setOpen(true);
@@ -54,11 +56,16 @@ const AddStudent = ({call}) => {
     const handleClose = () => {
       setOpen(false);
     };
-    const handleCourseChange = (event) => {
+ 
+      const handleCourseChange = (event) => {
         setCourse(event.target.value);
-      };
-
-      
+        const found =courses.find(obj => {
+          return obj.courseName ===event.target.value;
+    
+    
+        });
+        setCourseId(found._id)
+      };  
 
       const handleCategoryChange = (event) => {
         setCategory(event.target.value);
@@ -68,16 +75,18 @@ const AddStudent = ({call}) => {
     const handleSubmit = e => {
      
         e.preventDefault();
-        if (!image) {
-            return;
-        }
+    
         const formData = new FormData();
         formData.append('name', name);
+        formData.append('fatherName', fatherName);
+        formData.append('motherName', motherName);
         formData.append('roll', roll);
         formData.append('sessionStart', sessionStart);
         formData.append('sessionEnd', sessionEnd);
         formData.append('regNo', regNo);
         formData.append('course', course);
+        formData.append('courseId', courseId);
+
         formData.append('category', category);
         formData.append('mobile', mobile);
         formData.append('image', image);
@@ -93,10 +102,10 @@ const AddStudent = ({call}) => {
             .then(data => {
                 if (data.insertedId) {
                     setSuccess('Data added successfully')
-                    setImg(null);
-                    handleClose()
                     call()
-                  alert('Staff added successfully')
+                    handleClose()
+                    
+                  alert('Student added successfully')
                 }
             })
             .catch(error => {
@@ -122,13 +131,9 @@ const AddStudent = ({call}) => {
         <Fade in={open}>
           <Box sx={style} style={{textAlign:'center'}}>
            
-           <h3>Add An Item</h3>
+           <h3>Add A Student</h3>
            <form onSubmit={handleSubmit}>
          <div style={{display:'flex' , alignItems:'center'}}>
-         <div>
-           <img src={img} alt="" style={{height:'200px' , width:'200px'}}/>
-          
-           </div>
                 <div>
                 <TextField
                     sx={{ width: '75%' }}
@@ -136,7 +141,18 @@ const AddStudent = ({call}) => {
                     
                     onChange={e => setName(e.target.value)}
                     variant="standard" />
-                
+                <TextField
+                    sx={{ width: '75%' }}
+                    label="Father Name"
+                    
+                    onChange={e => setFatherName(e.target.value)}
+                    variant="standard" />
+                    <TextField
+                    sx={{ width: '75%' }}
+                    label="Mother Name"
+                    
+                    onChange={e => setMotherName(e.target.value)}
+                    variant="standard" />
                 <TextField
                     sx={{ width: '75%' }}
                     label="Admission Roll"
@@ -178,12 +194,7 @@ const AddStudent = ({call}) => {
                     
                     onChange={e => setRegNo(e.target.value)}
                     variant="standard" />
-                     <Input
-                sx={{ width: '75%'  , marginTop:'10px'}}
-                    accept="image/*"
-                    type="file"
-                    onChange={onImageChange}
-                />
+               
                 <TextField
                     sx={{ width: '75%' }}
                     label="Mobile"
@@ -222,7 +233,7 @@ const AddStudent = ({call}) => {
         >
           {courses?.map((option) => (
             <MenuItem key={option?.courseName} value={option?.courseName}>
-              Course .{option?.coursename}
+              Course .{option?.courseName}
             </MenuItem>
           ))}
         </TextField>

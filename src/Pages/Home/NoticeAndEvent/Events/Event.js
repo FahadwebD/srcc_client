@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import { useTheme } from 'styled-components';
 import { Button } from '@material-ui/core';
-import ShareSocial from './ShareSocial';
+
 import { Link } from 'react-router-dom';
 
 
@@ -36,7 +36,8 @@ const Event = ({ev ,handleOpen}) => {
                 height="194"
                 image={`data:image/png;base64,${ev.image}`}
               />
-              <CardContent sx={{ p: 3 }} style={{maxHeight:'180px' , overflowY:'scroll'}}>
+              <CardContent sx={{ p: 3 }} style={{height:'150px' }}>
+              <span style={{fontSize:'10px' , color:'red'}} >{ev.date}</span>
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -46,17 +47,12 @@ const Event = ({ev ,handleOpen}) => {
                   {ev.headline}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">
-                  {ev.description}
+                  {ev.description.slice(0, 20)+'...'}<Link style={{textDecoration:'none'}} to={`/evdetail/${ev._id}`}> <Button size="small">Read More</Button></Link>
                 </Typography>
-                <span style={{fontSize:'10px' , color:'red'}} >{ev.date}</span>
+                
               </CardContent>
               
-              <CardActions sx={{ pt: 0, px: 3, pb: 3 }}>
-                
-                <Button size="small" onClick={handleOpen}>Share</Button>
-                <Link style={{textDecoration:'none'}} to={`/evdetail/${ev._id}`}> <Button size="small">Read More</Button></Link>
-                
-              </CardActions>
+        
             </Card>
       </div>
    

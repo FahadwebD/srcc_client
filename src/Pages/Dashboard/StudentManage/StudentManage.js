@@ -6,7 +6,7 @@ import AddStudent from './AddStudent';
 import StudentTable from './StudentTable';
 import useCourses from '../../../hooks/useCourses';
 import useStudent from '../../../hooks/useStudent';
-
+import './Students.scss'
 const StudentManage = () => {
 
     const style = {
@@ -153,9 +153,11 @@ const found = students.find(obj => {
  }
 
 const call =()=>{
-  fetch('https://peaceful-spire-22388.herokuapp.com/student')
-  .then(res=>res.json())
-  .then(data=>setStudents(data))
+  fetch(`https://peaceful-spire-22388.herokuapp.com/student/home?page=${page}&size=${size}`)
+        .then(res => res.json())
+        .then(data => {
+        setStudents(data)
+        setDisplayProducts(data)});
 }
  function updateForm(value) {
   return setForm((prev) => {
@@ -209,39 +211,89 @@ const call =()=>{
     const handleSearch = event => {
       const searchText = event.target.value;
 
-      const matchedProducts = students.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
+      const matchedProducts = students.filter(product => product.roll.toLowerCase().includes(searchText.toLowerCase()));
 
       setDisplayProducts(matchedProducts);
   }
 
-
+  const handleStudentDelete = (_id) =>{
+     
+    const url=`https://peaceful-spire-22388.herokuapp.com/student/${_id}`
+    fetch(url, {
+      method:'DELETE',
+    
+    })
+    .then(res => res.json())
+    .then(data=>{
+      if(data.deletedCount>0){
+       
+        alert('delete')
+     
+        const remaining = students?.filter(staff => staff._id !== _id)
+        
+        setDisplayProducts(remaining)
+      }
+    })
+  }
     return (
         <div>
-            <div style={{marginTop:'50px'}}>
+            <div style={{marginTop:'10px'}}>
             <div style={{display:'flex' , alignItems:'center' , justifyContent:"space-between"}}>
+            <div className="search-container">
+                <input
+                style={{width:'400px'}}
+                    type="text"
+                    onChange={handleSearch}
+                    placeholder="Search Student By Roll" />
+                    
+            </div>
             <div>
-                     <h1>ALL STUDENT</h1>
-                </div>
-                <div>
                 <AddStudent call={call}></AddStudent>
                     </div>
                 </div>
             </div>
-             <div className="search-container">
-                <input
-                    type="text"
-                    onChange={handleSearch}
-                    placeholder="Search Student By Name" />
-            </div>
+          
        <div>
-       <div className="products-container">
-      {displayProducts?.map(student => <StudentTable
-       key={student._id}
-       student={student}
-       students={students}
-       setDisplayProducts={setDisplayProducts}
-       handleStudentEdit={handleStaffEdit}
-      ></StudentTable>)}
+       <div class="table-users">
+   <div class="header">Students</div>
+   
+   <table cellspacing="0">
+      <tr>
+         <th>Picture</th>
+         <th>Name</th>
+         <th>Father Name</th>
+         <th>Mother Name</th>
+         <th>Registration No</th>
+         <th>Roll No</th>
+         <th>Session</th>
+         <th>Action</th>
+      </tr>
+      
+
+{displayProducts?.map((item, i) => {
+        return <tr key={i} >
+          <td>{<img
+                style={{ width: '50px', height: '50px' }}
+                src='https://wsmde.edu.in/images/course/Nursing.png' alt="" />}</td>
+            <td>{item.name}</td>
+            <td>{item.fatherName}</td>
+            <td>{item.motherName}</td>
+            <td>{item.regNo}</td>
+            <td>{item.roll}</td>
+            <td>{item.sessionStart}-{item.sessionEnd}</td>
+            
+            <td style={{display:'flex' , alignItems:'center' , justifyContent:'center'}}>
+
+            <Button style={{backgroundColor:'red' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStudentDelete(item._id)}>Delete</Button>
+            <Button style={{backgroundColor:'green' , color:'white' , margin:'2px'}} size="small" onClick={()=>handleStaffEdit(item._id)}>Edit</Button>
+            </td>
+            
+        </tr>;
+        })
+    }
+
+     
+       </table>
 </div>
 <div className='pagination'>
                     {
