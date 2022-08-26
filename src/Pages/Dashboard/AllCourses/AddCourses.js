@@ -26,17 +26,12 @@ const AddCourses = ({callUse}) => {
     const [sit , setSit] = useState('')
     const [requirements , setRequirements]= useState('')
    
-     const [image, setImage] = useState(null);
-     const [img, setImg] = useState();
+    
     const [success, setSuccess] = useState(false);
     const [open, setOpen] = React.useState(false);
   
 
-    const onImageChange = (e) => {
-      setImage(e.target.files[0])
-      const [file] = e.target.files;
-      setImg(URL.createObjectURL(file));
-    };
+
   
 
     const handleOpen = () => {
@@ -50,16 +45,14 @@ const AddCourses = ({callUse}) => {
      
         e.preventDefault();
      
-        if (!image) {
-            return;
-        }
+       
         const formData = new FormData();
         formData.append('courseName', courseName);
         formData.append('duration', duration);
         formData.append('sit', sit);
         formData.append('requirements', requirements);
 
-        formData.append('image', image);
+        
         console.log(formData)
         fetch('https://peaceful-spire-22388.herokuapp.com/courses', {
             method: 'POST',
@@ -72,7 +65,7 @@ const AddCourses = ({callUse}) => {
             .then(data => {
                 if (data.insertedId) {
                     setSuccess('Data added successfully')
-                    setImg(null);
+                    
                     callUse()
                     handleClose()
                 
@@ -104,7 +97,7 @@ const AddCourses = ({callUse}) => {
            
            <h3>Add A Course</h3>
            <form onSubmit={handleSubmit}>
-           <img src={img} alt="" style={{height:'100px' , width:'100px'}}/>
+       
                 <TextField
                     sx={{ width: '75%' }}
                     label="Course Name"
@@ -148,13 +141,7 @@ const AddCourses = ({callUse}) => {
                
                 <br />
                 
-                <Input
-                  id="chooseFile"
-                sx={{ width: '75%'  , marginTop:'10px'}}
-                    accept="image/*"
-                    type="file"
-                    onChange={onImageChange}
-                />
+               
             
         <br></br>
                

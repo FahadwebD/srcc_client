@@ -34,7 +34,7 @@ const CourseManage = () => {
     const [id, setId] =useState()
     const [form, setForm] = useState({
       _id:"",
-      image:"",
+     
       courseName: "",
       duration: "",
       sit: "",
@@ -217,9 +217,7 @@ function updateForm(value) {
           <div >
           <div>
                 <div>
-                <img
-                style={{ width: '120px', height: '120px' }}
-                src={`data:image/png;base64,${form.image}`} alt="" />
+           
                 </div>
                 
                   

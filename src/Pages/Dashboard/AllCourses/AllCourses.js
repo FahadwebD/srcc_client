@@ -14,7 +14,7 @@ export default function AllCourses({courses ,handleEdit ,handleDelete}) {
             
             <table id="customers">
   <tr>
-    <th>Image</th>
+   
     <th>CourseName</th>
     <th>Duration</th>
     <th>Seat</th>
@@ -25,9 +25,7 @@ export default function AllCourses({courses ,handleEdit ,handleDelete}) {
   </tr>
   {courses.map((item, i) => {
         return <tr key={i} >
-          <td>{<img
-                style={{ width: '100px', height: '90px' }}
-                src={`data:image/png;base64,${item.image}`} alt="" />}</td>
+          
             <td>{item.courseName}</td>
             <td>{item.duration}</td>
             <td>{item.sit}</td>
