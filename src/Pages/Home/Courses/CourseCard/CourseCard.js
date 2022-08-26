@@ -13,7 +13,7 @@ import '../Courses/Courses.css'
 
 
 const CourseCard = ({courses}) => {
-    const{duration,image ,courseName ,_id ,requirements} = courses
+    const{duration,courseName ,_id ,requirements} = courses
     // const url = `/appointed/${id}`
 
     const faces = [
@@ -28,14 +28,7 @@ const CourseCard = ({courses}) => {
     
     return (
       <Card sx={CARD_PROPERTY}>
-      <CardMedia
-         component="img"
-         height="auto"
-         style={{padding:"30px" , height:'220px'}}
-         image={`data:image/png;base64,${image}`}
-         alt={image}
-        
-      />
+    
       
       <CardContent  className='content'>
       {faces.map(face => (
