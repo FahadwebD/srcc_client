@@ -60,7 +60,7 @@ const NoticeManage = () => {
 const callUse= () =>{
 
 
-    fetch('https://serversrcnc.vercel.app/notice')
+    fetch('https://serversrcnc-production.up.railway.app/notice')
     .then(res=>res.json())
     .then(data=>setNotices(data.reverse()))
 
@@ -71,7 +71,7 @@ const callUse= () =>{
   
 
     
-  fetch(`https://serversrcnc.vercel.app/notice/${_id}`)
+  fetch(`https://serversrcnc-production.up.railway.app/notice/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -101,7 +101,7 @@ function updateForm(value) {
         headline: form.headline,
         notice: form.notice,
       };
-       fetch(`https://serversrcnc.vercel.app/notice/edit/${id}`, {
+       fetch(`https://serversrcnc-production.up.railway.app/notice/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -131,7 +131,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`https://serversrcnc.vercel.app/notice/${_id}`, {
+         fetch(`https://serversrcnc-production.up.railway.app/notice/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -10,7 +10,7 @@ const useNotice =()=>{
     const [notices , setNotices] = useState([]);
 
     useEffect(()=>{
-        fetch('https://serversrcnc.vercel.app/notice')
+        fetch('https://serversrcnc-production.up.railway.app/notice')
         .then(res=>res.json())
         .then(data=>setNotices(data.reverse()))
 

@@ -25,7 +25,7 @@ const FooterCard = () => {
         }
        console.log(updateFooter)
    
-    //    fetch('https://serversrcnc.vercel.app/numbers/edit', {
+    //    fetch('https://serversrcnc-production.up.railway.app/numbers/edit', {
     //        method: 'PUT',
     //        headers: {
     //         authorization: `Bearer ${localStorage.getItem('accessToken')}`,

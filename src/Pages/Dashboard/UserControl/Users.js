@@ -4,7 +4,7 @@ import UserRow from './UserRow';
 
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://serversrcnc.vercel.app/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://serversrcnc-production.up.railway.app/user', {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

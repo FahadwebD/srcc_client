@@ -12,7 +12,7 @@ const ViceChairmenDetails = () => {
     useEffect(()=>{
 
 
-        fetch(`https://serversrcnc.vercel.app/staff/${id}`)
+        fetch(`https://serversrcnc-production.up.railway.app/staff/${id}`)
         .then(res=> res.json())
         .then(data => setSpeeches(data) )
     },[id])

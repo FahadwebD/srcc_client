@@ -10,7 +10,7 @@ const useCarousel =()=>{
     const [carousel , setCarousel] = useState([]);
 
     useEffect(()=>{
-        fetch('https://serversrcnc.vercel.app/banner')
+        fetch('https://serversrcnc-production.up.railway.app/banner')
         .then(res=>res.json())
         .then(data=>setCarousel(data.reverse()))
 

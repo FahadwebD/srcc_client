@@ -57,7 +57,7 @@ const AddFacilities = ({callUse}) => {
         formData.append('facilities', facilities);
         formData.append('image', image);
         console.log(formData)
-        fetch('https://serversrcnc.vercel.app/facilities', {
+        fetch('https://serversrcnc-production.up.railway.app/facilities', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

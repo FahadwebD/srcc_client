@@ -61,7 +61,7 @@ const FacilitiesManage = () => {
 const callUse= () =>{
 
 
-    fetch('https://serversrcnc.vercel.app/facilities')
+    fetch('https://serversrcnc-production.up.railway.app/facilities')
     .then(res=>res.json())
     .then(data=> setFacilities(data.reverse()))
 
@@ -72,7 +72,7 @@ const callUse= () =>{
   
 
     
-  fetch(`https://serversrcnc.vercel.app/facilities/${_id}`)
+  fetch(`https://serversrcnc-production.up.railway.app/facilities/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -102,7 +102,7 @@ function updateForm(value) {
         headline: form.headline,
         facilities: form.facilities,
       };
-       fetch(`https://serversrcnc.vercel.app/facilities/edit/${id}`, {
+       fetch(`https://serversrcnc-production.up.railway.app/facilities/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -132,7 +132,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`https://serversrcnc.vercel.app/facilities/${_id}`, {
+         fetch(`https://serversrcnc-production.up.railway.app/facilities/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -49,7 +49,7 @@ const AddCarouselData = ({call}) => {
         formData.append('caption', caption);
         formData.append('image', image);
         console.log(formData)
-        fetch('https://serversrcnc.vercel.app/banner', {
+        fetch('https://serversrcnc-production.up.railway.app/banner', {
             method: 'POST',
           
             body: formData

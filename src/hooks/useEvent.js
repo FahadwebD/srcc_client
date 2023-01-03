@@ -10,7 +10,7 @@ const useEvent=()=>{
     const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
-        fetch('https://serversrcnc.vercel.app/event')
+        fetch('https://serversrcnc-production.up.railway.app/event')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
 

@@ -10,7 +10,7 @@ const useFooter = () =>{
 
     useEffect(() =>{
   
-      fetch('hthttps://serversrcnc.vercel.app/footerinfo')
+      fetch('hthttps://serversrcnc-production.up.railway.app/footerinfo')
       .then(res=>res.json())
       .then(data=>setFooterInfo(data))
     }, []);

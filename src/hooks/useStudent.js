@@ -12,7 +12,7 @@ const useStudent =()=>{
     const [student , setStudent] = useState([]);
 
 useEffect(()=>{
-    fetch('https://serversrcnc.vercel.app/student')
+    fetch('https://serversrcnc-production.up.railway.app/student')
     .then(res=>res.json())
     .then(data=>setStudent(data))
 

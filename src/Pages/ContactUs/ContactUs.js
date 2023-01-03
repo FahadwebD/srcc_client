@@ -13,7 +13,7 @@ const ContactUs = () => {
 
   React.useEffect(() =>{
 
-    fetch('https://serversrcnc.vercel.app/footerInfo')
+    fetch('https://serversrcnc-production.up.railway.app/footerInfo')
     .then(res=>res.json())
     .then(data=>setFootInfo(data))
   }, []);
@@ -29,7 +29,7 @@ const ContactUs = () => {
       subject: subject.value,
       message: message.value,
     };
-    let response = await fetch("https://serversrcnc.vercel.app/contact", {
+    let response = await fetch("https://serversrcnc-production.up.railway.app/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

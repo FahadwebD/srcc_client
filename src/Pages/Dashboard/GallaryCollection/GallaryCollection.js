@@ -62,7 +62,7 @@ const GallaryCollection = () => {
         });
       }
       const call=() =>{
-        fetch('https://serversrcnc.vercel.app/gallary')
+        fetch('https://serversrcnc-production.up.railway.app/gallary')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
       }
@@ -87,7 +87,7 @@ const found = staffs.find(obj => {
       }
      console.log(updatePhoto)
    
-       fetch('https://serversrcnc.vercel.app/gallary/edit', {
+       fetch('https://serversrcnc-production.up.railway.app/gallary/edit', {
            method: 'PUT',
           
            headers: {

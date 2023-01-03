@@ -14,7 +14,7 @@ const useWelcome =()=>{
 
     
     useEffect(()=>{
-        fetch('https://serversrcnc.vercel.app/welcome')
+        fetch('https://serversrcnc-production.up.railway.app/welcome')
         .then(res=>res.json())
         .then(data=>setWelcome(data))
 

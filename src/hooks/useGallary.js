@@ -10,7 +10,7 @@ const useGallary =()=>{
     const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
-        fetch('https://serversrcnc.vercel.app/gallary')
+        fetch('https://serversrcnc-production.up.railway.app/gallary')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
 

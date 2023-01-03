@@ -10,7 +10,7 @@ const useCourses =()=>{
     const [courses , setCourses] = useState([]);
 
     useEffect(()=>{
-        fetch('https://serversrcnc.vercel.app/courses')
+        fetch('https://serversrcnc-production.up.railway.app/courses')
         .then(res=>res.json())
         .then(data=>setCourses(data))
 

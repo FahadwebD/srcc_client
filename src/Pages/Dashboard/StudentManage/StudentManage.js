@@ -65,7 +65,7 @@ const StudentManage = () => {
     const [courseId , setCourseId] = useState('')
   
     useEffect( () =>{
-        fetch(`https://serversrcnc.vercel.app/student/home?page=${page}&size=${size}`)
+        fetch(`https://serversrcnc-production.up.railway.app/student/home?page=${page}&size=${size}`)
         .then(res => res.json())
         .then(data => {
         setStudents(data)
@@ -73,7 +73,7 @@ const StudentManage = () => {
     }, [page, size]);
 
     useEffect( () =>{
-        fetch('https://serversrcnc.vercel.app/studentCount')
+        fetch('https://serversrcnc-production.up.railway.app/studentCount')
         .then(res => res.json())
         .then(data =>{
             const count = data.count;
@@ -160,7 +160,7 @@ const found = students.find(obj => {
  }
 
 const call =()=>{
-  fetch(`https://serversrcnc.vercel.app/student/home?page=${page}&size=${size}`)
+  fetch(`https://serversrcnc-production.up.railway.app/student/home?page=${page}&size=${size}`)
         .then(res => res.json())
         .then(data => {
         setStudents(data)
@@ -190,7 +190,7 @@ const call =()=>{
         }
        console.log(updateStaff)
    
-       fetch('https://serversrcnc.vercel.app/student/edit', {
+       fetch('https://serversrcnc-production.up.railway.app/student/edit', {
            method: 'PATCH',
            headers: {
               //  authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -225,7 +225,7 @@ const call =()=>{
 
   const handleStudentDelete = (_id) =>{
      
-    const url=`https://serversrcnc.vercel.app/student/${_id}`
+    const url=`https://serversrcnc-production.up.railway.app/student/${_id}`
     fetch(url, {
       method:'DELETE',
     

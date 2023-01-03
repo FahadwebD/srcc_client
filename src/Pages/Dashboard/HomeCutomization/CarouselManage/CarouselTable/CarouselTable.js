@@ -42,7 +42,7 @@ const CarouselTable = ({item , call , setCarousel , carousel}) => {
 
     const handleDataDelete = (_id) =>{
      
-        const url=`https://serversrcnc.vercel.app/banner/${_id}`
+        const url=`https://serversrcnc-production.up.railway.app/banner/${_id}`
         fetch(url, {
           
           method:'DELETE',
@@ -74,7 +74,7 @@ const CarouselTable = ({item , call , setCarousel , carousel}) => {
         }
        console.log(updateCarousel)
    
-       fetch('https://serversrcnc.vercel.app/banner/edit', {
+       fetch('https://serversrcnc-production.up.railway.app/banner/edit', {
            method: 'PUT',
            headers: {
            

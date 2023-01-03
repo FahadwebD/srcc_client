@@ -10,7 +10,7 @@ const NoticeDetail = () => {
     const [eventsDetail , setEventsDetail] = useState({})
     useEffect(()=>{
 
-        fetch(`https://serversrcnc.vercel.app/notice/${id}`)
+        fetch(`https://serversrcnc-production.up.railway.app/notice/${id}`)
         .then(res=>res.json())
         .then(record => setEventsDetail(record));
        },[id])
