@@ -10,7 +10,7 @@ const useGallary =()=>{
     const [staffs , setStaffs] = useState([]);
 
     useEffect(()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/gallary')
+        fetch('https://serversrcnc.vercel.app/gallary')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
 

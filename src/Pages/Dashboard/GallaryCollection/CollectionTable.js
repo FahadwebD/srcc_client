@@ -127,7 +127,7 @@ export default function CollectionTable({staffs , setStaffs ,handleStaffEdit}) {
 
     const handleStudentDelete = (_id) =>{
      
-        const url=`https://peaceful-spire-22388.herokuapp.com/gallary/${_id}`
+        const url=`https://serversrcnc.vercel.app/gallary/${_id}`
         fetch(url, {
           method:'DELETE',
         //   headers: {

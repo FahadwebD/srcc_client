@@ -10,7 +10,7 @@ const useFooter = () =>{
 
     useEffect(() =>{
   
-      fetch('hthttps://peaceful-spire-22388.herokuapp.com/footerinfo')
+      fetch('hthttps://serversrcnc.vercel.app/footerinfo')
       .then(res=>res.json())
       .then(data=>setFooterInfo(data))
     }, []);

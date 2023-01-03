@@ -48,7 +48,7 @@ const FootSec = ({foot}) => {
     //     }
     //    console.log(updateFooter)
    
-    // //    fetch('https://peaceful-spire-22388.herokuapp.com/numbers/edit', {
+    // //    fetch('https://serversrcnc.vercel.app/numbers/edit', {
     // //        method: 'PUT',
     // //        headers: {
     // //         authorization: `Bearer ${localStorage.getItem('accessToken')}`,

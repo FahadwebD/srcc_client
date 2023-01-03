@@ -68,7 +68,7 @@ const AddStaff = ({callUse}) => {
         formData.append('committee' , committee)
         formData.append('image', image);
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/staff', {
+        fetch('https://serversrcnc.vercel.app/staff', {
             method: 'POST',
            
             body: formData

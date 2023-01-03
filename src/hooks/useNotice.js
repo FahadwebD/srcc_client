@@ -10,7 +10,7 @@ const useNotice =()=>{
     const [notices , setNotices] = useState([]);
 
     useEffect(()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/notice')
+        fetch('https://serversrcnc.vercel.app/notice')
         .then(res=>res.json())
         .then(data=>setNotices(data.reverse()))
 

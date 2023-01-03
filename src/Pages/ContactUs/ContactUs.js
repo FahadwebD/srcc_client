@@ -13,7 +13,7 @@ const ContactUs = () => {
 
   React.useEffect(() =>{
 
-    fetch('https://peaceful-spire-22388.herokuapp.com/footerInfo')
+    fetch('https://serversrcnc.vercel.app/footerInfo')
     .then(res=>res.json())
     .then(data=>setFootInfo(data))
   }, []);
@@ -29,7 +29,7 @@ const ContactUs = () => {
       subject: subject.value,
       message: message.value,
     };
-    let response = await fetch("https://peaceful-spire-22388.herokuapp.com/contact", {
+    let response = await fetch("https://serversrcnc.vercel.app/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

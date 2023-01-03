@@ -71,7 +71,7 @@ export default function AddInformation({callUse}) {
     formData.append('course' ,course)
     formData.append('courseId' ,id)
     console.log(formData)
-    fetch('https://peaceful-spire-22388.herokuapp.com/info', {
+    fetch('https://serversrcnc.vercel.app/info', {
         method: 'POST',
  
         body: formData

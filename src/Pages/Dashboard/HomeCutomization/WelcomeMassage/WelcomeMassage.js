@@ -67,7 +67,7 @@ const WelcomeMassage = () => {
    
     const call=()=>{
 
-        fetch('https://peaceful-spire-22388.herokuapp.com/welcome')
+        fetch('https://serversrcnc.vercel.app/welcome')
         .then(res=>res.json())
         .then(data=>setWelcome(data))
 
@@ -90,7 +90,7 @@ const WelcomeMassage = () => {
         }
        console.log(updateMassage)
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/welcome/edit', {
+       fetch('https://serversrcnc.vercel.app/welcome/edit', {
            method: 'PUT',
            headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

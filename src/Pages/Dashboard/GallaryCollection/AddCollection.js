@@ -54,7 +54,7 @@ const AddCollection = ({call}) => {
         formData.append('category', category);
         formData.append('image', image);
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/gallary', {
+        fetch('https://serversrcnc.vercel.app/gallary', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

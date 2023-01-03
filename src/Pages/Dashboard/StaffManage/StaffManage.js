@@ -59,7 +59,7 @@ const StaffManage = () => {
       const callUse= () =>{
 
 
-        fetch('https://peaceful-spire-22388.herokuapp.com/staff')
+        fetch('https://serversrcnc.vercel.app/staff')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
     
@@ -77,7 +77,7 @@ const StaffManage = () => {
   
 
     
-        fetch(`https://peaceful-spire-22388.herokuapp.com/staff/${_id}`)
+        fetch(`https://serversrcnc.vercel.app/staff/${_id}`)
         .then(res=>res.json())
         .then(record => {
           setForm(record)
@@ -107,7 +107,7 @@ const StaffManage = () => {
         }
       
    
-       fetch(`https://peaceful-spire-22388.herokuapp.com/staff/edit/${id}`, {
+       fetch(`https://serversrcnc.vercel.app/staff/edit/${id}`, {
            method: 'PATCH',
           
            headers: {
@@ -135,7 +135,7 @@ const StaffManage = () => {
 
     const handleDelete = (_id) =>{
      
-      const url=`https://peaceful-spire-22388.herokuapp.com/staff/${_id}`
+      const url=`https://serversrcnc.vercel.app/staff/${_id}`
       fetch(url, {
         method:'DELETE',
       

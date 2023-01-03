@@ -91,7 +91,7 @@ const AddStudent = ({call}) => {
         formData.append('mobile', mobile);
         formData.append('image', image);
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/student', {
+        fetch('https://serversrcnc.vercel.app/student', {
             method: 'POST',
             headers: {
               authorization: `Bearer ${localStorage.getItem('accessToken')}`

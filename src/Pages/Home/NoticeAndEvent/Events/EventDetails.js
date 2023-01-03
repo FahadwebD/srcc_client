@@ -14,7 +14,7 @@ const EventDetails = () => {
    
  useEffect(()=>{
 
-  fetch(`https://peaceful-spire-22388.herokuapp.com/event/${id}`)
+  fetch(`https://serversrcnc.vercel.app/event/${id}`)
   .then(res=>res.json())
   .then(record => setEventsDetail(record));
  },[id])

@@ -12,7 +12,7 @@ const useStudent =()=>{
     const [student , setStudent] = useState([]);
 
 useEffect(()=>{
-    fetch('https://peaceful-spire-22388.herokuapp.com/student')
+    fetch('https://serversrcnc.vercel.app/student')
     .then(res=>res.json())
     .then(data=>setStudent(data))
 

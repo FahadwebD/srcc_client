@@ -57,7 +57,7 @@ const AddNotice = ({callUse}) => {
         formData.append('notice', notice);
         formData.append('image', image);
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/notice', {
+        fetch('https://serversrcnc.vercel.app/notice', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

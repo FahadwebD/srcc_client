@@ -8,7 +8,7 @@ const CarouselManage = () => {
     const [carousel , setCarousel] = useCarousel();
 
     const call = ()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/banner')
+        fetch('https://serversrcnc.vercel.app/banner')
         .then(res=>res.json())
         .then(data=>setCarousel(data.reverse()))
     }

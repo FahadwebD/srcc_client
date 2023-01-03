@@ -42,7 +42,7 @@ const CarouselTable = ({item , call , setCarousel , carousel}) => {
 
     const handleDataDelete = (_id) =>{
      
-        const url=`https://peaceful-spire-22388.herokuapp.com/banner/${_id}`
+        const url=`https://serversrcnc.vercel.app/banner/${_id}`
         fetch(url, {
           
           method:'DELETE',
@@ -74,7 +74,7 @@ const CarouselTable = ({item , call , setCarousel , carousel}) => {
         }
        console.log(updateCarousel)
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/banner/edit', {
+       fetch('https://serversrcnc.vercel.app/banner/edit', {
            method: 'PUT',
            headers: {
            

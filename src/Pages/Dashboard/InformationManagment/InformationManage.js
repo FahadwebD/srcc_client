@@ -73,7 +73,7 @@ console.log(information)
 const callUse= () =>{
 
 
-    fetch('https://peaceful-spire-22388.herokuapp.com/info')
+    fetch('https://serversrcnc.vercel.app/info')
     .then(res=>res.json())
     .then(data=>setInformation(data.reverse()))
 
@@ -84,7 +84,7 @@ const callUse= () =>{
   
 
     
-  fetch(`https://peaceful-spire-22388.herokuapp.com/info/${_id}`)
+  fetch(`https://serversrcnc.vercel.app/info/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -126,7 +126,7 @@ function updateForm(value) {
         course: form.course,
       
       };
-       fetch(`https://peaceful-spire-22388.herokuapp.com/info/edit/${id}`, {
+       fetch(`https://serversrcnc.vercel.app/info/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -156,7 +156,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`https://peaceful-spire-22388.herokuapp.com/info/${_id}`, {
+         fetch(`https://serversrcnc.vercel.app/info/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -10,7 +10,7 @@ const useCourses =()=>{
     const [courses , setCourses] = useState([]);
 
     useEffect(()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/courses')
+        fetch('https://serversrcnc.vercel.app/courses')
         .then(res=>res.json())
         .then(data=>setCourses(data))
 

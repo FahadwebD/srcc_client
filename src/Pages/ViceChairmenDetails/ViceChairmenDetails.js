@@ -12,7 +12,7 @@ const ViceChairmenDetails = () => {
     useEffect(()=>{
 
 
-        fetch(`https://peaceful-spire-22388.herokuapp.com/staff/${id}`)
+        fetch(`https://serversrcnc.vercel.app/staff/${id}`)
         .then(res=> res.json())
         .then(data => setSpeeches(data) )
     },[id])

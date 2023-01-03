@@ -54,7 +54,7 @@ const AddCourses = ({callUse}) => {
 
         
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/courses', {
+        fetch('https://serversrcnc.vercel.app/courses', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

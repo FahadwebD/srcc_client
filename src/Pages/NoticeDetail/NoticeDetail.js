@@ -10,7 +10,7 @@ const NoticeDetail = () => {
     const [eventsDetail , setEventsDetail] = useState({})
     useEffect(()=>{
 
-        fetch(`https://peaceful-spire-22388.herokuapp.com/notice/${id}`)
+        fetch(`https://serversrcnc.vercel.app/notice/${id}`)
         .then(res=>res.json())
         .then(record => setEventsDetail(record));
        },[id])

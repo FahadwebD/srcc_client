@@ -49,7 +49,7 @@ const AddCarouselData = ({call}) => {
         formData.append('caption', caption);
         formData.append('image', image);
         console.log(formData)
-        fetch('https://peaceful-spire-22388.herokuapp.com/banner', {
+        fetch('https://serversrcnc.vercel.app/banner', {
             method: 'POST',
           
             body: formData

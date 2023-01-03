@@ -60,7 +60,7 @@ const CourseManage = () => {
 
 const callUse= () =>{
 
-    fetch('https://peaceful-spire-22388.herokuapp.com/courses')
+    fetch('https://serversrcnc.vercel.app/courses')
     .then(res=>res.json())
     .then(data=>setCourses(data))
 
@@ -71,7 +71,7 @@ const callUse= () =>{
   
 
     
-  fetch(`https://peaceful-spire-22388.herokuapp.com/courses/${_id}`)
+  fetch(`https://serversrcnc.vercel.app/courses/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -108,7 +108,7 @@ function updateForm(value) {
         
 
       };
-       fetch(`https://peaceful-spire-22388.herokuapp.com/courses/edit/${id}`, {
+       fetch(`https://serversrcnc.vercel.app/courses/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -138,7 +138,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`https://peaceful-spire-22388.herokuapp.com/courses/${_id}`, {
+         fetch(`https://serversrcnc.vercel.app/courses/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

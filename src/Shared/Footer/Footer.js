@@ -21,7 +21,7 @@ const [footInfo , setFootInfo] = React.useState('')
 
   React.useEffect(() =>{
 
-    fetch('https://peaceful-spire-22388.herokuapp.com/footerInfo')
+    fetch('https://serversrcnc.vercel.app/footerInfo')
     .then(res=>res.json())
     .then(data=>setFootInfo(data))
   }, []);

@@ -11,11 +11,11 @@ const GallaryMain = () => {
     let {c} = useParams()
     const [collection , setCollection] = useState([])
     console.log(c)
-    const uri = `https://peaceful-spire-22388.herokuapp.com/gallary/${c}`
+    const uri = `https://serversrcnc.vercel.app/gallary/${c}`
     console.log(uri)
     useEffect(()=>{
     
-        fetch(`https://peaceful-spire-22388.herokuapp.com/gallary/${c}`)
+        fetch(`https://serversrcnc.vercel.app/gallary/${c}`)
         .then(res => res.json())
         .then(data => setCollection(data))
 

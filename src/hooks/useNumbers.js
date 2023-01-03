@@ -12,7 +12,7 @@ const useNumbers =()=>{
 
 
     useEffect(()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/numbers')
+        fetch('https://serversrcnc.vercel.app/numbers')
         .then(res=>res.json())
         .then(data=>setNumbers(data))
 
@@ -20,7 +20,7 @@ const useNumbers =()=>{
 
     
     useEffect(()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/welcome')
+        fetch('https://serversrcnc.vercel.app/welcome')
         .then(res=>res.json())
         .then(data=>setWelcome(data))
 

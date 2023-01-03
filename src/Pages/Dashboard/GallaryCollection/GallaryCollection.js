@@ -62,7 +62,7 @@ const GallaryCollection = () => {
         });
       }
       const call=() =>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/gallary')
+        fetch('https://serversrcnc.vercel.app/gallary')
         .then(res=>res.json())
         .then(data=>setStaffs(data.reverse()))
       }
@@ -87,7 +87,7 @@ const found = staffs.find(obj => {
       }
      console.log(updatePhoto)
    
-       fetch('https://peaceful-spire-22388.herokuapp.com/gallary/edit', {
+       fetch('https://serversrcnc.vercel.app/gallary/edit', {
            method: 'PUT',
           
            headers: {

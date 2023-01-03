@@ -19,7 +19,7 @@ const ImportantInformation = () => {
   
 
     useEffect(()=>{
-        fetch(`https://peaceful-spire-22388.herokuapp.com/coursesInfo/${course}`)
+        fetch(`https://serversrcnc.vercel.app/coursesInfo/${course}`)
         .then(res=>res.json())
         .then(data=>setCourseInfo(data))
 
@@ -27,14 +27,14 @@ const ImportantInformation = () => {
 
 
 
- console.log(`https://peaceful-spire-22388.herokuapp.com/coursesInfo/${course}`)
+ console.log(`https://serversrcnc.vercel.app/coursesInfo/${course}`)
     useEffect(()=>{
-        fetch(`https://peaceful-spire-22388.herokuapp.com/info/${course}`)
+        fetch(`https://serversrcnc.vercel.app/info/${course}`)
         .then(res=>res.json())
         .then(data=>setInformation(data.reverse()))
 
     },[course])
-    console.log(`https://peaceful-spire-22388.herokuapp.com/info/${course}`)
+    console.log(`https://serversrcnc.vercel.app/info/${course}`)
 
 
 

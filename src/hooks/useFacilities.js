@@ -10,7 +10,7 @@ const useFacilities =()=>{
     const [facilities , setFacilities] = useState([]);
 
     useEffect(()=>{
-        fetch('https://peaceful-spire-22388.herokuapp.com/facilities')
+        fetch('https://serversrcnc.vercel.app/facilities')
         .then(res=>res.json())
         .then(data=>setFacilities(data.reverse()))
 
