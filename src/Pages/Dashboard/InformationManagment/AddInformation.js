@@ -71,7 +71,7 @@ export default function AddInformation({callUse}) {
     formData.append('course' ,course)
     formData.append('courseId' ,id)
     console.log(formData)
-    fetch('https://serversrcnc-production.up.railway.app/info', {
+    fetch('https://serversrcnc-production-97a5.up.railway.app/info', {
         method: 'POST',
  
         body: formData

@@ -129,7 +129,7 @@ export default function EventTable({staffs , setStaffs,handleStaffEdit}) {
 
     const handleStaffDelete = (_id) =>{
      
-        const url=`https://serversrcnc-production.up.railway.app/event/${_id}`
+        const url=`https://serversrcnc-production-97a5.up.railway.app/event/${_id}`
         fetch(url, {
           method:'DELETE',
           headers: {

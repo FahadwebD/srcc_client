@@ -11,11 +11,11 @@ const GallaryMain = () => {
     let {c} = useParams()
     const [collection , setCollection] = useState([])
     console.log(c)
-    const uri = `https://serversrcnc-production.up.railway.app/gallary/${c}`
+    const uri = `https://serversrcnc-production-97a5.up.railway.app/gallary/${c}`
     console.log(uri)
     useEffect(()=>{
     
-        fetch(`https://serversrcnc-production.up.railway.app/gallary/${c}`)
+        fetch(`https://serversrcnc-production-97a5.up.railway.app/gallary/${c}`)
         .then(res => res.json())
         .then(data => setCollection(data))
 

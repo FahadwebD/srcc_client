@@ -21,7 +21,7 @@ const [footInfo , setFootInfo] = React.useState('')
 
   React.useEffect(() =>{
 
-    fetch('https://serversrcnc-production.up.railway.app/footerInfo')
+    fetch('https://serversrcnc-production-97a5.up.railway.app/footerInfo')
     .then(res=>res.json())
     .then(data=>setFootInfo(data))
   }, []);

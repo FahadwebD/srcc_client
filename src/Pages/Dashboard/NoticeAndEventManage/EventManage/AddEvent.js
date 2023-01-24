@@ -57,7 +57,7 @@ const AddEvent = ({call}) => {
 
         formData.append('image', image);
         console.log(formData)
-        fetch('https://serversrcnc-production.up.railway.app/event', {
+        fetch('https://serversrcnc-production-97a5.up.railway.app/event', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

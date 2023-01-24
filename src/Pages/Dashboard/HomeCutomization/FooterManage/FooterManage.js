@@ -15,7 +15,7 @@ const FooterManage = () => {
 
   React.useEffect(() =>{
 
-    fetch('https://serversrcnc-production.up.railway.app/footerInfo')
+    fetch('https://serversrcnc-production-97a5.up.railway.app/footerInfo')
     .then(res=>res.json())
     .then(data=>setFootInfo(data))
   }, []);
@@ -47,7 +47,7 @@ const handleOpen = () => setOpen(true);
 const handleClose = () => setOpen(false);
 
 const call =()=>{
-  fetch('https://serversrcnc-production.up.railway.app/footerInfo')
+  fetch('https://serversrcnc-production-97a5.up.railway.app/footerInfo')
     .then(res=>res.json())
     .then(data=>setFootInfo(data))
 }
@@ -80,7 +80,7 @@ const found = footInfo.find(obj => {
   }
  console.log(updateStaff)
 
- fetch('https://serversrcnc-production.up.railway.app/footerInfo/edit', {
+ fetch('https://serversrcnc-production-97a5.up.railway.app/footerInfo/edit', {
      method: 'PUT',
     
      headers: {

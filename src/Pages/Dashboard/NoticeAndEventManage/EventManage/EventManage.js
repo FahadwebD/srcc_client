@@ -74,7 +74,7 @@ const found = staffs.find(obj => {
   });
 }
 const call=() =>{
-  fetch('https://serversrcnc-production.up.railway.app/event')
+  fetch('https://serversrcnc-production-97a5.up.railway.app/event')
   .then(res=>res.json())
   .then(data=>setStaffs(data.reverse()))
 }
@@ -92,7 +92,7 @@ const call=() =>{
         }
        console.log(updateStaff)
    
-       fetch('https://serversrcnc-production.up.railway.app/event/edit', {
+       fetch('https://serversrcnc-production-97a5.up.railway.app/event/edit', {
            method: 'PUT',
           
            headers: {

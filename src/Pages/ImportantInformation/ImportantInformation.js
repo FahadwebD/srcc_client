@@ -19,7 +19,7 @@ const ImportantInformation = () => {
   
 
     useEffect(()=>{
-        fetch(`https://serversrcnc-production.up.railway.app/coursesInfo/${course}`)
+        fetch(`https://serversrcnc-production-97a5.up.railway.app/coursesInfo/${course}`)
         .then(res=>res.json())
         .then(data=>setCourseInfo(data))
 
@@ -27,14 +27,14 @@ const ImportantInformation = () => {
 
 
 
- console.log(`https://serversrcnc-production.up.railway.app/coursesInfo/${course}`)
+ console.log(`https://serversrcnc-production-97a5.up.railway.app/coursesInfo/${course}`)
     useEffect(()=>{
-        fetch(`https://serversrcnc-production.up.railway.app/info/${course}`)
+        fetch(`https://serversrcnc-production-97a5.up.railway.app/info/${course}`)
         .then(res=>res.json())
         .then(data=>setInformation(data.reverse()))
 
     },[course])
-    console.log(`https://serversrcnc-production.up.railway.app/info/${course}`)
+    console.log(`https://serversrcnc-production-97a5.up.railway.app/info/${course}`)
 
 
 

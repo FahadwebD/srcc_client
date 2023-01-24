@@ -12,7 +12,7 @@ const useNumbers =()=>{
 
 
     useEffect(()=>{
-        fetch('https://serversrcnc-production.up.railway.app/numbers')
+        fetch('https://serversrcnc-production-97a5.up.railway.app/numbers')
         .then(res=>res.json())
         .then(data=>setNumbers(data))
 
@@ -20,7 +20,7 @@ const useNumbers =()=>{
 
     
     useEffect(()=>{
-        fetch('https://serversrcnc-production.up.railway.app/welcome')
+        fetch('https://serversrcnc-production-97a5.up.railway.app/welcome')
         .then(res=>res.json())
         .then(data=>setWelcome(data))
 

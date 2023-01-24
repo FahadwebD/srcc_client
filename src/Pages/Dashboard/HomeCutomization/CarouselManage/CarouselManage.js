@@ -8,7 +8,7 @@ const CarouselManage = () => {
     const [carousel , setCarousel] = useCarousel();
 
     const call = ()=>{
-        fetch('https://serversrcnc-production.up.railway.app/banner')
+        fetch('https://serversrcnc-production-97a5.up.railway.app/banner')
         .then(res=>res.json())
         .then(data=>setCarousel(data.reverse()))
     }

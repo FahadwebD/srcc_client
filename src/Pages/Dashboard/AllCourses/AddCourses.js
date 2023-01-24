@@ -54,7 +54,7 @@ const AddCourses = ({callUse}) => {
 
         
         console.log(formData)
-        fetch('https://serversrcnc-production.up.railway.app/courses', {
+        fetch('https://serversrcnc-production-97a5.up.railway.app/courses', {
             method: 'POST',
         //     headers: {
         //       authorization: `Bearer ${localStorage.getItem('accessToken')}`

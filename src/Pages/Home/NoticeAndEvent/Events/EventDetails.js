@@ -14,7 +14,7 @@ const EventDetails = () => {
    
  useEffect(()=>{
 
-  fetch(`https://serversrcnc-production.up.railway.app/event/${id}`)
+  fetch(`https://serversrcnc-production-97a5.up.railway.app/event/${id}`)
   .then(res=>res.json())
   .then(record => setEventsDetail(record));
  },[id])

@@ -60,7 +60,7 @@ const CourseManage = () => {
 
 const callUse= () =>{
 
-    fetch('https://serversrcnc-production.up.railway.app/courses')
+    fetch('https://serversrcnc-production-97a5.up.railway.app/courses')
     .then(res=>res.json())
     .then(data=>setCourses(data))
 
@@ -71,7 +71,7 @@ const callUse= () =>{
   
 
     
-  fetch(`https://serversrcnc-production.up.railway.app/courses/${_id}`)
+  fetch(`https://serversrcnc-production-97a5.up.railway.app/courses/${_id}`)
   .then(res=>res.json())
   .then(record => {
     setForm(record)
@@ -108,7 +108,7 @@ function updateForm(value) {
         
 
       };
-       fetch(`https://serversrcnc-production.up.railway.app/courses/edit/${id}`, {
+       fetch(`https://serversrcnc-production-97a5.up.railway.app/courses/edit/${id}`, {
            method: 'PUT',
           
            headers: {
@@ -138,7 +138,7 @@ function updateForm(value) {
     const handleDelete = (_id) =>{
      
   
-         fetch(`https://serversrcnc-production.up.railway.app/courses/${_id}`, {
+         fetch(`https://serversrcnc-production-97a5.up.railway.app/courses/${_id}`, {
            method:'DELETE',
          //   headers: {
          //     authorization: `Bearer ${localStorage.getItem('accessToken')}`

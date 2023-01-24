@@ -48,7 +48,7 @@ const FootSec = ({foot}) => {
     //     }
     //    console.log(updateFooter)
    
-    // //    fetch('https://serversrcnc-production.up.railway.app/numbers/edit', {
+    // //    fetch('https://serversrcnc-production-97a5.up.railway.app/numbers/edit', {
     // //        method: 'PUT',
     // //        headers: {
     // //         authorization: `Bearer ${localStorage.getItem('accessToken')}`,

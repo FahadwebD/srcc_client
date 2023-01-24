@@ -67,7 +67,7 @@ const WelcomeMassage = () => {
    
     const call=()=>{
 
-        fetch('https://serversrcnc-production.up.railway.app/welcome')
+        fetch('https://serversrcnc-production-97a5.up.railway.app/welcome')
         .then(res=>res.json())
         .then(data=>setWelcome(data))
 
@@ -90,7 +90,7 @@ const WelcomeMassage = () => {
         }
        console.log(updateMassage)
    
-       fetch('https://serversrcnc-production.up.railway.app/welcome/edit', {
+       fetch('https://serversrcnc-production-97a5.up.railway.app/welcome/edit', {
            method: 'PUT',
            headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,

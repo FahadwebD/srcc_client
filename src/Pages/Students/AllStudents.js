@@ -9,7 +9,7 @@ const AllStudents = () => {
     const [students, setStudents] = useState([]);
     const [displayProducts, setDisplayProducts] = useState([]);
     useEffect( () =>{
-        fetch(`https://serversrcnc-production.up.railway.app/student/home?page=${page}&size=${size}`)
+        fetch(`https://serversrcnc-production-97a5.up.railway.app/student/home?page=${page}&size=${size}`)
         .then(res => res.json())
         .then(data => {
         setStudents(data)
@@ -17,7 +17,7 @@ const AllStudents = () => {
     }, [page, size]);
 
     useEffect( () =>{
-        fetch('https://serversrcnc-production.up.railway.app/studentCount')
+        fetch('https://serversrcnc-production-97a5.up.railway.app/studentCount')
         .then(res => res.json())
         .then(data =>{
             const count = data.count;

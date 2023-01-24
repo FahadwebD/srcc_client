@@ -68,7 +68,7 @@ const AddStaff = ({callUse}) => {
         formData.append('committee' , committee)
         formData.append('image', image);
         console.log(formData)
-        fetch('https://serversrcnc-production.up.railway.app/staff', {
+        fetch('https://serversrcnc-production-97a5.up.railway.app/staff', {
             method: 'POST',
            
             body: formData
